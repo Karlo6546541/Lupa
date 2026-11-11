@@ -151,7 +151,8 @@ def export_tracker(posts):
         card = DIST / "assets" / "cards" / f"{t.lower()}-hr.png"
         v["card"] = {L: f"/assets/cards/{t.lower()}-{L}.png" for L in LANGS} if card.exists() else None
         companies[t] = v
-    return {"generated": db.get("generated"), "companies": companies, "calendar": tracker.calendar(db, manual, today),
+    used = {c["sector"] for c in companies.values()}
+    return {"generated": db.get("generated"), "sectors": [{"id": i, **lab} for i, lab in tracker.SECTORS if i in used], "companies": companies, "calendar": tracker.calendar(db, manual, today),
             "scorecard": tracker.scorecard(posts, latest, snapshot),
             "urls": {"calendar": {"hr": "/hr/kalendar/", "en": "/en/calendar/"}, "track": {"hr": "/hr/rezultati/", "en": "/en/track-record/"}}}
 

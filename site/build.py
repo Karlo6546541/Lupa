@@ -716,7 +716,7 @@ TT = {
             analysis="Analiza", then="Cijena tada", now="Zadnja cijena", chg="Promjena", bench="IWM", source="Izvor",
             track_note="Promjena cijene od sesije na kojoj se analiza temelji do zadnjeg zatvaranja. Analize nisu preporuke za kupnju ili prodaju; prošlo kretanje cijene ne jamči buduće.",
             data_note="Podaci: SEC EDGAR i ClinicalTrials.gov, osvježeno {d} Sažeci događaja nastaju automatski iz službenih obrazaca; izvornik je uvijek na poveznici.",
-            app_cta="U aplikaciji Lupa možete pratiti ovu tvrtku i dobiti obavijest o novoj objavi ili kupnji uprave.", all="Sve tvrtke", next_res="Sljedeći rezultati",
+            other_sector="Ostalo", app_cta="U aplikaciji Lupa možete pratiti ovu tvrtku i dobiti obavijest o novoj objavi ili kupnji uprave.", all="Sve tvrtke", next_res="Sljedeći rezultati",
             ty=dict(earnings="Rezultati", trial="Ispitivanje", meeting="Skupština", fda="FDA", other="Događaj"), f_all="Sve", open="Otvori", edgar="Sve objave na SEC EDGAR-u"),
  "en": dict(companies="Companies we track", companies_dek="Official filings, insider buys and sales, clinical trials and our research — in one place for each company.",
             calendar="Catalyst calendar", calendar_dek="Dates that can move the price: financial results and clinical-trial completions for the companies we track.",
@@ -730,7 +730,7 @@ TT = {
             analysis="Analysis", then="Price then", now="Latest price", chg="Change", bench="IWM", source="Source",
             track_note="Price change from the session the analysis was based on to the latest close. Analyses are not recommendations to buy or sell; past price moves do not guarantee future ones.",
             data_note="Data: SEC EDGAR and ClinicalTrials.gov, refreshed {d}. Event summaries are generated automatically from the official forms; the original is always one click away.",
-            app_cta="In the Lupa app you can follow this company and get a notification about a new filing or insider buy.", all="All companies", next_res="Next results",
+            other_sector="Other", app_cta="In the Lupa app you can follow this company and get a notification about a new filing or insider buy.", all="All companies", next_res="Next results",
             ty=dict(earnings="Results", trial="Trial", meeting="Meeting", fda="FDA", other="Event"), f_all="All", open="Open", edgar="All filings on SEC EDGAR"),
 }
 STATUS_HR = {"RECRUITING": "Uključuje ispitanike", "ACTIVE_NOT_RECRUITING": "U tijeku (bez novih ispitanika)", "COMPLETED": "Završeno",
@@ -791,18 +791,24 @@ def build_company(t, L):
 
 def build_tracker_pages(L):
     tt = TT[L]; other = "en" if L == "hr" else "hr"; out = []
-    # companies index
-    here = p_page("companies", L); rows = ""; latest_events = []
+    # companies index, grouped by sector
+    here = p_page("companies", L); latest_events = []; groups = {}
     for t in COMPANIES:
-        v = cview(t); px = v["price"]; i = v["insider"]; ev = v["events"][0] if v["events"] else None
-        latest_events += v["events"][:6]
-        rows += (f'<tr><td><a href="{rel(here, p_company(t, L))}"><b>{esc(t)}</b></a><br><span class="meta">{esc(v["name"])}</span></td>'
-                 + (f'<td class="r">{fmt_num(px["last"], L, decimals(LATEST[t]))}</td><td class="r">{pct_span(px["change_pct"], L)}</td>' if px else "<td>—</td><td>—</td>")
-                 + f'<td><span class="up">{i["buys"]} {tt["buys"]}</span> · <span class="down">{i["sells"]} {tt["sells"]}</span></td>'
-                 + (f'<td><span class="meta">{fmt_date(ev["date"], L)}</span><br>{esc(ev["text"][L])}</td>' if ev else "<td>—</td>") + "</tr>")
+        v = cview(t); latest_events += v["events"][:6]
+        groups.setdefault(v["sector"] if tracker.sector_label(v["sector"], L) else "other", []).append(v)
+    def co_row(v):
+        px = v["price"]; i = v["insider"]; ev = v["events"][0] if v["events"] else None; t = v["ticker"]
+        return (f'<tr><td><a href="{rel(here, p_company(t, L))}"><b>{esc(t)}</b></a><br><span class="meta">{esc(v["name"])}</span></td>'
+                + (f'<td class="r">{fmt_num(px["last"], L, 4 if px["last"] < 1 else 2)}</td><td class="r">{pct_span(px["change_pct"], L)}</td>' if px else '<td class="r">—</td><td class="r">—</td>')
+                + f'<td><span class="up">{i["buys"]} {tt["buys"]}</span> · <span class="down">{i["sells"]} {tt["sells"]}</span></td>'
+                + (f'<td><span class="meta">{fmt_date(ev["date"], L)}</span><br>{esc(ev["text"][L])}</td>' if ev else "<td>—</td>") + "</tr>")
     latest_events.sort(key=lambda e: e["date"], reverse=True)
-    inner = (f'<div class="tablewrap"><table class="trk-table"><thead><tr><th>{tt["company"]}</th><th class="r">{tt["price"]}</th><th class="r">{tt["day"]}</th><th>{tt["insider12"]}</th><th>{tt["last_event"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
-             f'<h2>{tt["timeline"]}</h2>{event_rows([e for e in latest_events if e["important"]][:20], L, here, with_ticker=True)}') if COMPANIES else f'<p class="empty">{tt["none"]}</p>'
+    head = f'<thead><tr><th>{tt["company"]}</th><th class="r">{tt["price"]}</th><th class="r">{tt["day"]}</th><th>{tt["insider12"]}</th><th>{tt["last_event"]}</th></tr></thead>'
+    order = [sid for sid, _ in tracker.SECTORS if sid in groups] + (["other"] if "other" in groups else [])
+    inner = "".join(f'<h2 id="{sid}">{esc(tracker.sector_label(sid, L) or tt["other_sector"])}</h2><div class="tablewrap"><table class="trk-table">{head}<tbody>{"".join(co_row(v) for v in groups[sid])}</tbody></table></div>' for sid in order)
+    if len(order) > 1:
+        inner = '<nav class="trk-nav sector-nav">' + "".join(f'<a href="#{sid}">{esc(tracker.sector_label(sid, L) or tt["other_sector"])}</a>' for sid in order) + "</nav>" + inner
+    inner = (inner + f'<h2>{tt["timeline"]}</h2>{event_rows([e for e in latest_events if e["important"]][:20], L, here, with_ticker=True)}') if COMPANIES else f'<p class="empty">{tt["none"]}</p>'
     trk_page(L, "companies", here, p_page("companies", other), tt["companies"], tt["companies_dek"], inner, wide=True); out.append(here)
     for t in COMPANIES: build_company(t, L); out.append(p_company(t, L))
     # calendar

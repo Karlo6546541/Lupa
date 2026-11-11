@@ -48,6 +48,7 @@ const hr = {
   back: 'Natrag', notFound: 'Članak nije pronađen.',
   // tracker: watchlist, company profile, catalyst calendar, track record
   tabWatch: 'Praćenje', segList: 'Moja lista', segCalendar: 'Kalendar', segTrack: 'Rezultati',
+  sectorAll: 'Sve',
   follow: 'Prati', following: 'Pratim', watchEmpty: 'Još ne pratite nijednu tvrtku. Dodirnite zvjezdicu uz tvrtku da je dodate na listu.',
   myCompanies: 'Tvrtke koje pratim', allCompanies: 'Sve tvrtke', latestEvents: 'Najnovije važne objave', noTracker: 'Podaci o tvrtkama još nisu učitani. Povucite prema dolje za osvježavanje.',
   pushTitle: 'Obavijesti', pushText: 'Javit ćemo vam novu analizu te objave i kupnje uprave tvrtki koje pratite.', pushEnable: 'Uključi obavijesti', pushOn: 'Obavijesti su uključene',
@@ -106,6 +107,7 @@ const en: Strings = {
   back: 'Back', notFound: 'Article not found.',
   // tracker: watchlist, company profile, catalyst calendar, track record
   tabWatch: 'Tracker', segList: 'My list', segCalendar: 'Calendar', segTrack: 'Track record',
+  sectorAll: 'All',
   follow: 'Follow', following: 'Following', watchEmpty: 'You are not following any company yet. Tap the star next to a company to add it to your list.',
   myCompanies: 'Companies I follow', allCompanies: 'All companies', latestEvents: 'Latest important filings', noTracker: 'Company data has not loaded yet. Pull down to refresh.',
   pushTitle: 'Notifications', pushText: 'We will tell you about a new analysis, and about filings and insider buys at the companies you follow.', pushEnable: 'Turn on notifications', pushOn: 'Notifications are on',

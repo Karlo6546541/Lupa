@@ -431,3 +431,6 @@ a.chip-link:hover .chip{border-color:var(--teal)}
 .ins-buy b{color:var(--up)} .ins-sell b{color:var(--down)}
 .prose .trk-posts li{padding:.5rem 0;border-bottom:1px solid var(--rule);margin:0}
 @media (max-width:560px){.ev,.cal{grid-template-columns:auto 1fr}.ev-text{grid-column:1/-1}}
+
+.sector-nav{justify-content:flex-start;margin:1rem 0 0}
+.prose .trk-table{min-width:34rem}

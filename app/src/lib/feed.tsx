@@ -27,7 +27,8 @@ export type Company = {
   trials: Trial[]; next_earnings_estimate: string | null;
 };
 export type CalendarItem = { date: string; ticker: string | null; type: 'earnings' | 'trial' | 'meeting' | 'fda' | 'other'; estimate: boolean; title: L10n; url?: string | null };
-export type Tracker = { generated: string | null; companies: Record<string, Company>; calendar: CalendarItem[]; scorecard: ScoreRow[]; urls: { calendar: L10n; track: L10n } };
+export type Sector = { id: string; hr: string; en: string };
+export type Tracker = { generated: string | null; sectors?: Sector[]; companies: Record<string, Company>; calendar: CalendarItem[]; scorecard: ScoreRow[]; urls: { calendar: L10n; track: L10n } };
 export type Feed = {
   version: number; generated: string; name: string; tagline: L10n; description: L10n; categories: Category[];
   tape: L10n<{ items: TapeItem[]; asof: string }>; subscription: { plan: L10n; price_eur: number; interval: string };
