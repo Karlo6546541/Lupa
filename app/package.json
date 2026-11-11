@@ -5,6 +5,8 @@
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-firebase/app": "^27.1.1",
+    "@react-native-firebase/messaging": "^27.1.1",
     "@react-navigation/native": "^7.5.1",
     "expo": "~58.0.23",
     "expo-build-properties": "~58.0.12",
@@ -20,6 +22,7 @@
     "expo-system-ui": "~58.0.7",
     "expo-web-browser": "~58.0.7",
     "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-native": "0.88.1",
     "react-native-safe-area-context": "~5.11.1",
     "react-native-screens": "~4.30.1",
@@ -34,7 +37,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "typecheck": "tsc --noEmit",
-    "sync-feed": "python3 ../lupa/scripts/export_app_feed.py && cp ../lupa/dist/app/v1/feed.json assets/feed.snapshot.json",
+    "sync-feed": "python3 ../site/scripts/export_app_feed.py && cp ../site/dist/app/v1/feed.json assets/feed.snapshot.json",
     "sync-css": "node tools/sync-site-css.mjs",
     "icons": "python3 tools/make_icons.py",
     "apk:local": "bash tools/build-android-local.sh"

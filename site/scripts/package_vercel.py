@@ -13,7 +13,7 @@ import json, pathlib, shutil, subprocess, sys, tarfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST, API, PRIV = ROOT / "dist", ROOT / "api", ROOT / "private"
 OUT = ROOT / ".vercel" / "output"
-FUNCS = ["checkout", "checkout-complete", "session", "article", "portal", "logout", "stripe-webhook",
+FUNCS = ["checkout", "checkout-complete", "session", "article", "portal", "logout", "stripe-webhook", "login", "login-verify",
          "app-entitlement", "app-article"]          # app-* = Lupa mobile app (store subscriptions), see api/store-verify.js
 STORE_FUNCS = {"app-entitlement", "app-article"}   # these also need api/store-verify.js
 PAID_FUNCS = {"article", "app-article"}            # the only bundles that receive private/paid

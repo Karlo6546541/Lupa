@@ -58,10 +58,10 @@ lupa-app/
 ## 3. Pokretanje
 
 ```bash
-cd /workspace/lupa-app
+cd app
 npm install                      # (već napravljeno na ovom računalu)
 npm run typecheck                # TypeScript provjera
-npm run sync-feed                # nova snimka sadržaja iz ../lupa (nakon build.py)
+npm run sync-feed                # nova snimka sadržaja iz ../site (nakon build.py)
 npm run sync-css                 # ako se promijeni web CSS
 ```
 
@@ -113,9 +113,9 @@ Gotovi APK: `dist/lupa-1.0.0-release-debugsigned.apk` (arm64-v8a, armeabi-v7a, x
 
 Otkazana pretplata vrijedi do kraja plaćenog razdoblja; istekla ili refundirana → server vraća 402 i članak se opet zaključava.
 
-## 6. Serverska provjera (dodano na web projekt `../lupa`, NIJE objavljeno)
+## 6. Serverska provjera (dodano na web projekt `../site`, NIJE objavljeno)
 
-Nove datoteke u `/workspace/lupa`:
+Nove datoteke u `../site`:
 
 | Datoteka | Što radi |
 |---|---|
@@ -222,9 +222,28 @@ that renders articles with the website's own CSS; free posts in full, paid posts
 **`lupa_monthly`, €7.00/month auto-renewing**, bought through StoreKit 2 / Google Play Billing via `expo-iap` (no card entry in
 the app, no Stripe in the store apps), with **Restore purchases** and **Manage subscription**. Paid bodies are never bundled:
 the app sends the store token to new Vercel functions (`/api/app-entitlement`, `/api/app-article`, `api/store-verify.js` in
-`../lupa`), which verify with the Google Play Developer API / App Store Server API. Those routes and the public JSON feed
+`../site`), which verify with the Google Play Developer API / App Store Server API. Those routes and the public JSON feed
 (`/app/v1/feed.json`) are implemented and tested locally but **not deployed**; they return 503 until the store keys are set.
 Android builds locally (`tools/build-android-local.sh`); iOS builds in the cloud with `eas build -p ios` (no Mac needed).
 To ship, Karlo needs a Google Play developer account ($25 one-time, ID verification, 12 testers × 14 days closed test for new
 personal accounts) and the Apple Developer Program ($99/year, ID verification), the two `lupa_monthly` products, the server
 keys, and privacy-policy/terms pages. Web and app subscriptions are not shared yet (no user accounts).
+
+
+## Praćenje tvrtki, watchlista i obavijesti (tracker)
+
+- **Tab „Praćenje”** (`src/app/(tabs)/watch.tsx`): moja lista, kalendar katalizatora, rezultati analiza. **Profil tvrtke**: `src/app/company/[ticker].tsx`.
+- Podaci dolaze iz `feed.json → tracker` (SEC EDGAR + ClinicalTrials.gov; web ih osvježava svaki dan — vidi `../site/README.md`).
+- **Watchlista** je spremljena samo na mobitelu (`src/lib/watchlist.tsx`, AsyncStorage). Nema računa ni servera.
+- **Push obavijesti** idu preko Firebase Cloud Messaging **tema** (`src/lib/push.ts`): mobitel se sam pretplati na `news_<jezik>` i `t_<TICKER>_<jezik>` za tvrtke koje prati. Lupa ne zna tko što prati.
+
+### Uključivanje obavijesti (jednokratno, besplatno)
+
+1. Na https://console.firebase.google.com napravi projekt i dodaj Android aplikaciju (`com.svenda.lupa`) i iOS aplikaciju (`com.svenda.lupa`).
+2. Preuzmi `google-services.json` i `GoogleService-Info.plist` u mapu `app/` (obje su u `.gitignore`).
+3. iOS: u Firebase → Project settings → Cloud Messaging učitaj APNs ključ (.p8) iz Apple Developer računa.
+4. Ponovno izgradi aplikaciju (`npx expo prebuild --clean`, pa build). `app.config.js` sam uključuje Firebase kad datoteke postoje.
+5. Za slanje: u GitHub secrets dodaj `FIREBASE_SERVICE_ACCOUNT` (vidi `../site/README.md`).
+
+Bez tih datoteka aplikacija se gradi i radi normalno; u Postavkama piše da obavijesti nisu dostupne.
+**Nije provjereno na uređaju:** izvorni (native) build s Firebaseom nije bilo moguće pokrenuti u okruženju u kojem je ovo napisano. Prije objave provjeri Android i iOS build te primanje jedne probne obavijesti (Firebase console → Messaging → tema `news_hr`). iOS sada koristi `useFrameworks: static` (zahtjev Firebasea).

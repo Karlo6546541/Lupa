@@ -1,11 +1,11 @@
 // Copy the website's stylesheet into the app so article pages render exactly like /hr/ and /en/ on the site.
-// Source: ../lupa/src/assets/css/{fonts,style}.css → src/lib/siteCss.generated.ts
+// Source: ../site/src/assets/css/{fonts,style}.css → src/lib/siteCss.generated.ts
 // Font files are loaded from the live site (SITE_URL/assets/fonts/…); without network the WebView falls back to Georgia/system fonts.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const here = path.dirname(fileURLToPath(import.meta.url));
-const site = path.resolve(here, '../../lupa/src/assets/css');
+const site = path.resolve(here, '../../site/src/assets/css');
 const SITE_URL = 'https://lupa-lovat.vercel.app';
 const fonts = readFileSync(path.join(site, 'fonts.css'), 'utf8').replaceAll('url(../fonts/', `url(${SITE_URL}/assets/fonts/`);
 const style = readFileSync(path.join(site, 'style.css'), 'utf8');

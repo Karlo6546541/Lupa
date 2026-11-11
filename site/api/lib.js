@@ -68,17 +68,18 @@ async function paymentsActive() { return (await priceInfo()).ok === true; }
 
 // ---------- signed session cookie ----------
 const b64u = (buf) => Buffer.from(buf).toString('base64url');
-function sign(payload) {
+// `purpose` separates token kinds: a session cookie can never be replayed as an email sign-in link, and vice versa.
+function mac(body, purpose) { return crypto.createHmac('sha256', sessionSecret()).update(purpose ? purpose + '.' + body : body).digest(); }
+function sign(payload, purpose = '') {
   const body = b64u(JSON.stringify(payload));
-  const mac = crypto.createHmac('sha256', sessionSecret()).update(body).digest('base64url');
-  return body + '.' + mac;
+  return body + '.' + mac(body, purpose).toString('base64url');
 }
-function verify(token) {
-  if (!token || !sessionSecret()) return null;
-  const [body, mac] = token.split('.');
-  if (!body || !mac) return null;
-  const good = crypto.createHmac('sha256', sessionSecret()).update(body).digest();
-  const got = Buffer.from(mac, 'base64url');
+function verify(token, purpose = '') {
+  if (!token || typeof token !== 'string' || !sessionSecret()) return null;
+  const [body, sig] = token.split('.');
+  if (!body || !sig) return null;
+  const good = mac(body, purpose);
+  const got = Buffer.from(sig, 'base64url');
   if (got.length !== good.length || !crypto.timingSafeEqual(got, good)) return null;
   try { const p = JSON.parse(Buffer.from(body, 'base64url').toString()); return p && typeof p.c === 'string' && p.c.startsWith('cus_') ? p : null; } catch { return null; }
 }
@@ -86,7 +87,7 @@ function cookies(req) {
   const out = {};
   for (const part of (req.headers.cookie || '').split(';')) {
     const i = part.indexOf('='); if (i < 0) continue;
-    out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+    try { out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim()); } catch { /* malformed cookie: ignore */ }
   }
   return out;
 }
@@ -97,17 +98,22 @@ function addCookie(res, c) { const prev = res.getHeader('Set-Cookie'); res.setHe
 function setSession(res, payload) { addCookie(res, cookieHeader(COOKIE, sign(payload), COOKIE_MAX_AGE)); }
 function clearSession(res) { addCookie(res, cookieHeader(COOKIE, '', 0)); }
 
+// Does this Stripe customer have a live Lupa subscription right now? (Throws if Stripe is unreachable.)
+async function customerHasSubscription(customer) {
+  const price = await priceInfo();
+  const subs = await stripe('GET', 'subscriptions', { customer, status: 'all', limit: 20 });
+  return (subs.data || []).some((s) => ENTITLED.has(s.status) && (s.items && s.items.data || []).some((it) =>
+    it.price && (it.price.id === env('STRIPE_PRICE_ID') || (price.product && it.price.product === price.product))));
+}
+
 // Is this browser's Stripe customer currently subscribed? Verified against the Stripe API (cached ≤10 min in the signed cookie).
 async function entitlement(req, res) {
   const tok = verify(cookies(req)[COOKIE]);
   if (!tok) return { active: false, customer: null, lapsed: false };
   const now = Date.now();
   if (tok.ok && now - (tok.chk || 0) < RECHECK_MS) return { active: true, customer: tok.c, lapsed: false };
-  const price = await priceInfo();
   try {
-    const subs = await stripe('GET', 'subscriptions', { customer: tok.c, status: 'all', limit: 20 });
-    const active = (subs.data || []).some((s) => ENTITLED.has(s.status) && (s.items && s.items.data || []).some((it) =>
-      it.price && (it.price.id === env('STRIPE_PRICE_ID') || (price.product && it.price.product === price.product))));
+    const active = await customerHasSubscription(tok.c);
     setSession(res, { c: tok.c, ok: active ? 1 : 0, chk: now, iat: tok.iat || now });
     return { active, customer: tok.c, lapsed: !active };
   } catch (e) {
@@ -136,9 +142,37 @@ function sameOrigin(req) {
   const o = req.headers.origin; if (!o || o === 'null') return !o; // browsers send Origin on POST; "null" = opaque → reject
   try { return new URL(o).host === req.headers.host || new URL(o).origin === SITE(); } catch { return false; }
 }
+// Best-effort in-memory rate limit (per warm function instance). Stops casual abuse; not a substitute for a WAF.
+const buckets = new Map();
+function rateLimited(key, max, windowMs) {
+  const now = Date.now();
+  if (buckets.size > 10000) for (const [k, b] of buckets) if (now - b.at > windowMs) buckets.delete(k);
+  const b = buckets.get(key);
+  if (!b || now - b.at > windowMs) { buckets.set(key, { at: now, n: 1 }); return false; }
+  b.n += 1;
+  return b.n > max;
+}
+function clientIp(req) {
+  const xf = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  return xf || String(req.headers['x-real-ip'] || '') || (req.socket && req.socket.remoteAddress) || 'unknown';
+}
+
+// ---------- email (Resend HTTP API; optional) ----------
+function emailConfigured() { return !!(env('RESEND_API_KEY') && env('LOGIN_EMAIL_FROM') && sessionSecret()); }
+async function sendEmail({ to, subject, text, html }) {
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: 'Bearer ' + env('RESEND_API_KEY'), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: env('LOGIN_EMAIL_FROM'), to: [to], subject, text, html }),
+  });
+  if (!r.ok) throw new Error('email HTTP ' + r.status);
+}
+const validEmail = (v) => typeof v === 'string' && v.length <= 254 && /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/.test(v);
+
 function noStore(res) { res.setHeader('Cache-Control', 'private, no-store, max-age=0'); res.setHeader('X-Robots-Tag', 'noindex'); }
 function json(res, status, obj) { noStore(res); res.statusCode = status; res.setHeader('Content-Type', 'application/json; charset=utf-8'); res.end(JSON.stringify(obj)); }
 function redirect(res, location) { noStore(res); res.statusCode = 303; res.setHeader('Location', location); res.end(); }
 
 module.exports = { env, SITE, PATHS, EXPECTED, COOKIE, NONCE_COOKIE, lang, safeNext, stripe, priceInfo, paymentsActive, stripeKeysPresent,
-  sessionSecret, cookies, cookieHeader, addCookie, setSession, clearSession, entitlement, readBody, readForm, query, sameOrigin, noStore, json, redirect };
+  sessionSecret, sign, verify, cookies, cookieHeader, addCookie, setSession, clearSession, customerHasSubscription, entitlement,
+  readBody, readForm, query, sameOrigin, rateLimited, clientIp, emailConfigured, sendEmail, validEmail, noStore, json, redirect };

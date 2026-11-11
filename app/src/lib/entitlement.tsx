@@ -4,7 +4,7 @@
 //             → purchaseUpdatedListener → verify on Lupa's server → finishTransaction (acknowledges on Android)
 //  restore:   restorePurchases() + getAvailablePurchases() — required by App Store review, useful on a new phone
 //  unlock:    paid bodies are never shipped in the app; each one is fetched from /api/app-article with the store token,
-//             and the SERVER asks Apple/Google whether the subscription is active (lupa/api/store-verify.js).
+//             and the SERVER asks Apple/Google whether the subscription is active (site/api/store-verify.js).
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   deepLinkToSubscriptions, endConnection, ErrorCode, fetchProducts, finishTransaction, getAvailablePurchases, initConnection,

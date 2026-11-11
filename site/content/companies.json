@@ -1,0 +1,12 @@
+{
+ "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post, to set its sector (bio | quantum), or to give the exact lead-sponsor name used on ClinicalTrials.gov (ct_sponsor) so its trials are followed.",
+ "DNA": {"sector": "bio"},
+ "ABSI": {"sector": "bio", "ct_sponsor": "Absci"},
+ "SANA": {"sector": "bio", "ct_sponsor": "Sana Biotechnology"},
+ "CDXS": {"sector": "bio"},
+ "INFQ": {"sector": "quantum"},
+ "IONQ": {"sector": "quantum"},
+ "RGTI": {"sector": "quantum"},
+ "QBTS": {"sector": "quantum"},
+ "QUBT": {"sector": "quantum"}
+}

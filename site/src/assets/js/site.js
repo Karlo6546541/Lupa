@@ -82,7 +82,16 @@
       acct.setAttribute('data-state',state);
       acct.querySelectorAll('.acct-panel').forEach(function(p){p.hidden=p.getAttribute('data-show')!==state});
     }
+    // Result of the email sign-in flow (/api/login, /api/login-verify, /api/checkout-complete) comes back as ?login=<state>.
+    var ls=qs.get('login');
+    if(ls){var ln=acct.querySelector('.acct-login[data-login="'+ls.replace(/[^a-z]/g,'')+'"]'); if(ln) ln.hidden=false;
+      if(ls==='paid'||ls==='expired'){var em=acct.querySelector('.login-form input[type=email]'); if(em) em.focus()}}
+    function emailLogin(on){
+      var a=acct.querySelector('.acct-email-on'), b=acct.querySelector('.acct-email-off');
+      if(a) a.hidden=!on; if(b) b.hidden=!!on;
+    }
     api('/api/session').then(function(r){return r.json()}).then(function(j){
+      if(j.email_login===false) emailLogin(false);
       if(j.active){show('active'); if(qs.get('welcome')) acct.querySelector('.acct-welcome').hidden=false}
       else if(!j.payments) show('inactive');
       else {show('none'); if(j.lapsed) acct.querySelector('.acct-lapsed').hidden=false}
