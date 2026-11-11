@@ -43,6 +43,10 @@ npx expo start
 
 Lokalni Android APK: `bash tools/build-android-local.sh` (vidi [`app/README.md`](app/README.md)). Mape `android/` i `ios/` se ne čuvaju u gitu; stvara ih `npx expo prebuild`.
 
+## Praćenje tvrtki
+
+Za svaku tvrtku o kojoj Lupa piše stranica i aplikacija prikazuju službene objave (SEC), kupnje i prodaje uprave, klinička ispitivanja, kalendar nadolazećih događaja i kretanje cijene od naše analize. Podatke svako jutro osvježava GitHub Actions (`.github/workflows/daily.yml`) iz besplatnih službenih izvora. Aplikacija ima watchlistu i push obavijesti. Detalji: [`site/README.md`](site/README.md) i [`app/README.md`](app/README.md).
+
 ## CI
 
 GitHub Actions (`.github/workflows/ci.yml`) na svaki push i pull request gradi stranicu, provjerava poveznice i paywall, pokreće testove API-ja te za aplikaciju radi `npm ci` i `tsc`.

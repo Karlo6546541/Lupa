@@ -127,8 +127,37 @@ def export_tape():
         tape[L] = {"items": items, "asof": html.unescape(asof.group(1)) if row and asof else ""}
     return tape
 
+def export_tracker(posts):
+    """Company tracker for the app: per-ticker timeline (SEC filings, insider buys/sales), catalyst calendar and track
+    record. Same functions as the website (tracker.py), so both always show the same thing. All of it is public data."""
+    sys.path.insert(0, str(ROOT))
+    import tracker
+    from zoneinfo import ZoneInfo
+    today = datetime.datetime.now(ZoneInfo("Europe/Zagreb")).date()
+    db, manual = tracker.load()
+    latest = json.loads((ROOT / "data" / "prices.json").read_text())
+    snaps = {}
+    def snapshot(session):
+        if session not in snaps:
+            f = ROOT / "data" / "snapshots" / f"{session}.json"
+            snaps[session] = json.loads(f.read_text()) if f.exists() else {}
+        return snaps[session]
+    seg = {"hr": "tvrtke", "en": "companies"}
+    companies = {}
+    for t, co in db.get("companies", {}).items():
+        v = tracker.company_view(t, co, posts, latest, snapshot, today)
+        v["events"] = v["events"][:30]
+        v["url"] = {L: f"/{L}/{seg[L]}/{t.lower()}/" for L in LANGS}
+        card = DIST / "assets" / "cards" / f"{t.lower()}-hr.png"
+        v["card"] = {L: f"/assets/cards/{t.lower()}-{L}.png" for L in LANGS} if card.exists() else None
+        companies[t] = v
+    return {"generated": db.get("generated"), "companies": companies, "calendar": tracker.calendar(db, manual, today),
+            "scorecard": tracker.scorecard(posts, latest, snapshot),
+            "urls": {"calendar": {"hr": "/hr/kalendar/", "en": "/en/calendar/"}, "track": {"hr": "/hr/rezultati/", "en": "/en/track-record/"}}}
+
 def main():
     if not DIST.exists(): fail("dist/ missing — run build.py first")
+    posts = load_posts()
     feed = {
         "version": FEED_VERSION,
         "generated": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat(),
@@ -137,7 +166,8 @@ def main():
         "tape": export_tape(),
         "subscription": {"plan": MON["subscription"]["plan"], "price_eur": MON["subscription"]["price_eur"], "interval": MON["subscription"]["interval"]},
         "pages": {k: export_page(k) for k in ("about", "disclaimer")},
-        "posts": [export_post(p) for p in load_posts()],
+        "posts": [export_post(p) for p in posts],
+        "tracker": export_tracker(posts),   # optional for the app: older app versions simply ignore it
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")))

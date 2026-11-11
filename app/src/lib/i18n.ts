@@ -46,6 +46,21 @@ const hr = {
   language: 'Jezik', about: 'O nama', contact: 'Kontakt', version: 'Verzija', settings: 'Postavke', legal: 'Pravne informacije',
   website: 'Web stranica Lupe',
   back: 'Natrag', notFound: 'Članak nije pronađen.',
+  // tracker: watchlist, company profile, catalyst calendar, track record
+  tabWatch: 'Praćenje', segList: 'Moja lista', segCalendar: 'Kalendar', segTrack: 'Rezultati',
+  follow: 'Prati', following: 'Pratim', watchEmpty: 'Još ne pratite nijednu tvrtku. Dodirnite zvjezdicu uz tvrtku da je dodate na listu.',
+  myCompanies: 'Tvrtke koje pratim', allCompanies: 'Sve tvrtke', latestEvents: 'Najnovije važne objave', noTracker: 'Podaci o tvrtkama još nisu učitani. Povucite prema dolje za osvježavanje.',
+  pushTitle: 'Obavijesti', pushText: 'Javit ćemo vam novu analizu te objave i kupnje uprave tvrtki koje pratite.', pushEnable: 'Uključi obavijesti', pushOn: 'Obavijesti su uključene',
+  pushDenied: 'Obavijesti su isključene. Dopustite ih u postavkama telefona pa pokušajte ponovno.', pushUnavailable: 'Obavijesti u ovoj verziji aplikacije nisu dostupne.',
+  insiders12: 'Uprava, 12 mj.', buys: 'Kupnje', sells: 'Prodaje', timeline: 'Objave i transakcije uprave', trials: 'Klinička ispitivanja', ourResearch: 'Naše analize',
+  sinceAnalysis: 'Od naše analize', sinceEvents: (n: number) => `${n} novih objava od analize`, vsBench: 'Russell 2000 (IWM)', nextResults: 'Sljedeći rezultati', estimate: 'procjena',
+  routineNote: (n: number) => `Samo tržišne kupnje i prodaje (Form 4, šifre P i S). ${n} rutinskih transakcija izostavljeno.`,
+  allFilings: 'Sve objave na SEC EDGAR-u', close: 'Zatvaranje', range52: 'Raspon 52 tj.', plannedDone: 'Planirani završetak',
+  calOnlyMine: 'Samo tvrtke koje pratim', calEmpty: 'Nema nadolazećih događaja.', today: 'danas', tomorrow: 'sutra', inDays: (n: number) => `za ${n} d.`,
+  calType: { earnings: 'Rezultati', trial: 'Ispitivanje', meeting: 'Skupština', fda: 'FDA', other: 'Događaj' },
+  trackLead: 'Što se s cijenom dogodilo nakon svake naše dubinske analize — sve analize, i one koje su prošle loše.',
+  trackNote: 'Promjena cijene od sesije na kojoj se analiza temelji do zadnjeg zatvaranja. Analize nisu preporuke; prošlo kretanje cijene ne jamči buduće.',
+  then: 'Tada', now: 'Sada', share: 'Podijeli', dataNote: (d: string) => `Podaci: SEC EDGAR i ClinicalTrials.gov, osvježeno ${d}`,
 };
 type Strings = typeof hr;
 const en: Strings = {
@@ -89,6 +104,21 @@ const en: Strings = {
   language: 'Language', about: 'About', contact: 'Contact', version: 'Version', settings: 'Settings', legal: 'Legal',
   website: 'Lupa website',
   back: 'Back', notFound: 'Article not found.',
+  // tracker: watchlist, company profile, catalyst calendar, track record
+  tabWatch: 'Tracker', segList: 'My list', segCalendar: 'Calendar', segTrack: 'Track record',
+  follow: 'Follow', following: 'Following', watchEmpty: 'You are not following any company yet. Tap the star next to a company to add it to your list.',
+  myCompanies: 'Companies I follow', allCompanies: 'All companies', latestEvents: 'Latest important filings', noTracker: 'Company data has not loaded yet. Pull down to refresh.',
+  pushTitle: 'Notifications', pushText: 'We will tell you about a new analysis, and about filings and insider buys at the companies you follow.', pushEnable: 'Turn on notifications', pushOn: 'Notifications are on',
+  pushDenied: 'Notifications are off. Allow them in your phone settings and try again.', pushUnavailable: 'Notifications are not available in this version of the app.',
+  insiders12: 'Insiders, 12 mo', buys: 'Buys', sells: 'Sales', timeline: 'Filings and insider transactions', trials: 'Clinical trials', ourResearch: 'Our research',
+  sinceAnalysis: 'Since our analysis', sinceEvents: (n: number) => `${n} new filings since the analysis`, vsBench: 'Russell 2000 (IWM)', nextResults: 'Next results', estimate: 'estimate',
+  routineNote: (n: number) => `Open-market buys and sales only (Form 4, codes P and S). ${n} routine transactions left out.`,
+  allFilings: 'All filings on SEC EDGAR', close: 'Close', range52: '52-week range', plannedDone: 'Planned completion',
+  calOnlyMine: 'Only companies I follow', calEmpty: 'No upcoming events.', today: 'today', tomorrow: 'tomorrow', inDays: (n: number) => `in ${n} d`,
+  calType: { earnings: 'Results', trial: 'Trial', meeting: 'Meeting', fda: 'FDA', other: 'Event' },
+  trackLead: 'What the price did after each of our deep dives — every analysis, including the ones that went badly.',
+  trackNote: 'Price change from the session the analysis was based on to the latest close. Analyses are not recommendations; past price moves do not guarantee future ones.',
+  then: 'Then', now: 'Now', share: 'Share', dataNote: (d: string) => `Data: SEC EDGAR and ClinicalTrials.gov, refreshed ${d}`,
 };
 export const STRINGS: Record<Lang, Strings> = { hr, en };
 export type { Strings };

@@ -331,7 +331,7 @@ def tape(here, L):
 
 LOGO_SVG = '<svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="4"/><path d="M24 24l11 11" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>'
 
-def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_type="website", og_image=None):
+def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_type="website", og_image=None, og_path=None):
     t = T[L]; other = "en" if L == "hr" else "hr"
     css = rel(here, "assets/css/style.css"); fonts = rel(here, "assets/css/fonts.css"); js = rel(here, "assets/js/site.js")
     canon = absu(here); alt_abs = absu(alt_path)
@@ -344,6 +344,7 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
     for cid in CATS:
         cur = ' aria-current="page"' if active == cid else ""
         nav.append(f'<li><a href="{rel(here, p_cat(cid, L))}"{cur}>{esc(CATS[cid][L]["name"])}</a></li>')
+    if COMPANIES: nav.append(f'<li><a href="{rel(here, p_page("companies", L))}"{" aria-current=\"page\"" if active == "tracker" else ""}>{TT[L]["nav"]}</a></li>')
     cur = ' aria-current="page"' if active == "about" else ""
     nav.append(f'<li><a href="{rel(here, p_page("about", L))}"{cur}>{t["about"]}</a></li>')
     nav.append(f'<li class="nav-extra"><a href="{rel(here, p_page("subscribe", L))}"{" aria-current=\"page\"" if active in ("subscribe", "account") else ""}>{t["support"]}</a></li>')
@@ -356,7 +357,7 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
     og = (f'<meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">'
           f'<meta property="og:type" content="{og_type}"><meta property="og:site_name" content="Lupa"><meta property="og:locale" content="{"hr_HR" if L=="hr" else "en_US"}">'
           f'<meta name="twitter:card" content="summary_large_image">'
-          + (f'<meta property="og:url" content="{esc(canon)}"><meta property="og:image" content="{esc(absu("assets/img/" + ogimg + "-og.jpg"))}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
+          + (f'<meta property="og:url" content="{esc(canon)}"><meta property="og:image" content="{esc(absu(og_path or "assets/img/" + ogimg + "-og.jpg"))}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
              f'<meta property="og:image:alt" content="{esc(IMAGES.get(ogimg, {}).get("alt", {}).get(L, ""))}">' if canon else ""))
     full_title = title if title.startswith("Lupa") else f"{title} — Lupa"
     foot_sections = "".join(f'<li><a href="{rel(here, p_cat(c, L))}">{esc(CATS[c][L]["name"])}</a></li>' for c in CATS)
@@ -398,6 +399,7 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
 <p class="foot-small">{t['not_advice']} <a href="{rel(here, p_page('disclaimer', L))}">{t['disclaimer']}</a>.</p></div>
 <div><h2>{t['sections']}</h2><ul>{foot_sections}</ul></div>
 <div><h2>Lupa</h2><ul><li><a href="{rel(here, p_page('about', L))}">{t['about']}</a></li><li><a href="{rel(here, p_archive(L))}">{t['archive']}</a></li>
+<li><a href="{rel(here, p_page('companies', L))}">{TT[L]['companies']}</a></li><li><a href="{rel(here, p_page('calendar', L))}">{TT[L]['calendar']}</a></li><li><a href="{rel(here, p_page('track', L))}">{TT[L]['track']}</a></li>
 <li><a href="{rel(here, p_page('newsletter', L))}">{t['newsletter']}</a></li><li><a href="{rel(here, p_page('subscribe', L))}">{t['support_cta']}</a></li><li><a href="{rel(here, p_page('account', L))}">{t['account']}</a></li>
 <li><a href="{rel(here, p_page('advertise', L))}">{t['advertise']}</a></li><li><a href="{rel(here, p_page('disclaimer', L))}">{t['disclaimer']}</a></li>
 <li><a href="{rel(here, p_page('privacy', L))}">{t['privacy']}</a></li><li><a href="{rel(here, p_page('terms', L))}">{t['terms']}</a></li></ul></div>
@@ -484,7 +486,7 @@ def build_post(p, L):
     sp = p.get("sponsored")
     sp_html = (f'<div class="sponsor-banner" role="note"><strong>{t["sponsored"]}</strong> · {t["partner"]}: '
                f'{("<a href=\"" + esc(sp["url"]) + "\" rel=\"sponsored noopener\">" + esc(sp["name"]) + "</a>") if sp.get("url") else esc(sp["name"])}<p>{t["sponsored_note"]}</p></div>') if sp else ""
-    chips = "".join(chip(s_, p.get("prices_session"), L) for s_ in p.get("tickers", []))
+    chips = "".join(company_link(s_, here, L, chip(s_, p.get("prices_session"), L)) for s_ in p.get("tickers", []))
     rail = (f'<aside class="rail" aria-label="{t["on_page"]}">'
             + (f'<div class="rail-box"><h2>{t["on_page"]}</h2><div class="chips chips-col">{chips}</div><p class="meta">{t["price_note"]}</p></div>' if chips else "")
             + ad_slot("sidebar", here, L)
@@ -694,14 +696,156 @@ def build_feeds_and_sitemap(all_paths):
         (OUT / L / "feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Lupa ({L.upper()})</title>'
                                          f'<link>{esc(absu(p_home(L)))}</link><description>{esc(SITE["tagline"][L])}</description><language>{L}</language>{items}</channel></rss>')
 
+# ---------- company tracker: profiles, catalyst calendar, track record (data: tracker.py) ----------
+import tracker
+TODAY = datetime.datetime.now(ZG).date()
+TRK_DB, TRK_MANUAL = tracker.load()
+COMPANIES = TRK_DB.get("companies", {})
+PATHS["hr"].update(companies="tvrtke", calendar="kalendar", track="rezultati")
+PATHS["en"].update(companies="companies", calendar="calendar", track="track-record")
+TT = {
+ "hr": dict(companies="Tvrtke koje pratimo", companies_dek="Službene objave, kupnje i prodaje uprave, klinička ispitivanja i naše analize — za svaku tvrtku na jednom mjestu.",
+            calendar="Kalendar katalizatora", calendar_dek="Datumi koji mogu pomaknuti cijenu: financijski rezultati i završeci kliničkih ispitivanja tvrtki koje pratimo.",
+            track="Rezultati analiza", track_dek="Što se s cijenom dogodilo nakon svake naše dubinske analize — sve analize, i one koje su prošle loše.",
+            nav="Praćenje", company="Tvrtka", price="Cijena", day="Dan", insider12="Uprava (12 mj.)", last_event="Zadnja objava", buys="kupnji", sells="prodaja",
+            timeline="Objave i transakcije uprave", none="Još nema podataka.", insider_h="Uprava: kupnje i prodaje u zadnjih 12 mjeseci",
+            insider_p="Otvorene tržišne kupnje (šifra P) i prodaje (šifra S) iz obrazaca Form 4. Dodjele dionica, porezna zadržavanja i izvršenja opcija ne računaju se jer nisu odluka o ulaganju.",
+            buy_v="Kupnje", sell_v="Prodaje", routine="rutinskih transakcija izostavljeno", trials="Klinička ispitivanja", trial="Ispitivanje", phase="Faza", status="Stanje", done="Planirani završetak",
+            analyses="Naše analize", since_h="Od naše analize", since_p="Cijena na dan analize ({d}): {a}. Zadnje zatvaranje ({d2}): {b}.", since_ev="novih objava od analize",
+            vs="Russell 2000 (IWM) u istom razdoblju", date="Datum", event="Događaj", est="procjena", est_note="Procjena = datum izveden iz prošlih objava ili naveden samo mjesecom; tvrtka ga nije potvrdila.",
+            analysis="Analiza", then="Cijena tada", now="Zadnja cijena", chg="Promjena", bench="IWM", source="Izvor",
+            track_note="Promjena cijene od sesije na kojoj se analiza temelji do zadnjeg zatvaranja. Analize nisu preporuke za kupnju ili prodaju; prošlo kretanje cijene ne jamči buduće.",
+            data_note="Podaci: SEC EDGAR i ClinicalTrials.gov, osvježeno {d} Sažeci događaja nastaju automatski iz službenih obrazaca; izvornik je uvijek na poveznici.",
+            app_cta="U aplikaciji Lupa možete pratiti ovu tvrtku i dobiti obavijest o novoj objavi ili kupnji uprave.", all="Sve tvrtke", next_res="Sljedeći rezultati",
+            ty=dict(earnings="Rezultati", trial="Ispitivanje", meeting="Skupština", fda="FDA", other="Događaj"), f_all="Sve", open="Otvori", edgar="Sve objave na SEC EDGAR-u"),
+ "en": dict(companies="Companies we track", companies_dek="Official filings, insider buys and sales, clinical trials and our research — in one place for each company.",
+            calendar="Catalyst calendar", calendar_dek="Dates that can move the price: financial results and clinical-trial completions for the companies we track.",
+            track="Track record", track_dek="What the price did after each of our deep dives — every analysis, including the ones that went badly.",
+            nav="Tracker", company="Company", price="Price", day="Day", insider12="Insiders (12 mo)", last_event="Latest filing", buys="buys", sells="sales",
+            timeline="Filings and insider transactions", none="No data yet.", insider_h="Insiders: buys and sales in the last 12 months",
+            insider_p="Open-market purchases (code P) and sales (code S) from Form 4 filings. Share grants, tax withholding and option exercises are left out because they are not investment decisions.",
+            buy_v="Buys", sell_v="Sales", routine="routine transactions left out", trials="Clinical trials", trial="Trial", phase="Phase", status="Status", done="Planned completion",
+            analyses="Our research", since_h="Since our analysis", since_p="Price on the day of the analysis ({d}): {a}. Latest close ({d2}): {b}.", since_ev="new filings since the analysis",
+            vs="Russell 2000 (IWM) over the same period", date="Date", event="Event", est="estimate", est_note="Estimate = a date derived from past filings or given only as a month; not confirmed by the company.",
+            analysis="Analysis", then="Price then", now="Latest price", chg="Change", bench="IWM", source="Source",
+            track_note="Price change from the session the analysis was based on to the latest close. Analyses are not recommendations to buy or sell; past price moves do not guarantee future ones.",
+            data_note="Data: SEC EDGAR and ClinicalTrials.gov, refreshed {d}. Event summaries are generated automatically from the official forms; the original is always one click away.",
+            app_cta="In the Lupa app you can follow this company and get a notification about a new filing or insider buy.", all="All companies", next_res="Next results",
+            ty=dict(earnings="Results", trial="Trial", meeting="Meeting", fda="FDA", other="Event"), f_all="All", open="Open", edgar="All filings on SEC EDGAR"),
+}
+STATUS_HR = {"RECRUITING": "Uključuje ispitanike", "ACTIVE_NOT_RECRUITING": "U tijeku (bez novih ispitanika)", "COMPLETED": "Završeno",
+             "NOT_YET_RECRUITING": "Još nije počelo", "ENROLLING_BY_INVITATION": "Uključivanje po pozivu", "SUSPENDED": "Obustavljeno"}
+def trial_status(s, L): return STATUS_HR.get(s, s.replace("_", " ").capitalize()) if L == "hr" else s.replace("_", " ").capitalize()
+def p_company(t, L): return f"{L}/{PATHS[L]['companies']}/{t.lower()}/"
+def company_link(sym, here, L, inner):
+    return f'<a class="chip-link" href="{rel(here, p_company(sym, L))}">{inner}</a>' if sym in COMPANIES else inner
+def cview(t): return tracker.company_view(t, COMPANIES[t], POSTS, LATEST, snapshot, TODAY)
+def trk_nav(here, L, active):
+    tt = TT[L]
+    return ('<nav class="trk-nav" aria-label="' + tt["nav"] + '">' + "".join(
+        f'<a href="{rel(here, p_page(k, L))}"{" aria-current=\"page\"" if k == active else ""}>{tt[k]}</a>' for k in ("companies", "calendar", "track")) + '</nav>')
+def trk_page(L, key, here, alt, title, dek, inner, og_path=None, wide=False):
+    gen = TRK_DB.get("generated")
+    note = f'<p class="trk-note">{TT[L]["data_note"].format(d=fmt_date(gen, L))}</p>' if gen else ""
+    body = (f'<article class="page page-tracker"><header class="article-head"><h1>{esc(title)}</h1><p class="dek">{esc(dek)}</p>{trk_nav(here, L, key)}</header>'
+            f'<div class="prose prose-page{" prose-wide" if wide else ""}">{inner}{note}'
+            f'<aside class="disclaimer-box">{T[L]["not_advice"]} <a href="{rel(here, p_page("disclaimer", L))}">{T[L]["disclaimer"]}</a>.</aside></div></article>')
+    write(here, layout(L, here, alt, title, dek, body, active="tracker", og_path=og_path))
+def pct_span(x, L): return f'<span class="{cls(x)}">{fmt_pct(x, L)}</span>'
+def event_rows(evs, L, here=None, with_ticker=False):
+    rows = ""
+    for e in evs:
+        badge = {"buy": "ev-buy", "sell": "ev-sell", "filing": "ev-imp" if e["important"] else "ev-file"}[e["kind"]]
+        tk = f'<a class="ev-tk" href="{rel(here, p_company(e["ticker"], L))}">{esc(e["ticker"])}</a> ' if with_ticker else ""
+        rows += (f'<li class="ev {badge}"><time datetime="{esc(e["date"])}">{fmt_date(e["date"], L)}</time>'
+                 f'<span class="ev-form">{esc(e["form"])}</span><span class="ev-text">{tk}<a href="{esc(e["url"])}" rel="noopener">{esc(e["text"][L])}</a></span></li>')
+    return f'<ol class="ev-list">{rows}</ol>' if rows else f'<p class="empty">{TT[L]["none"]}</p>'
+
+def build_company(t, L):
+    v = cview(t); tt = TT[L]; here = p_company(t, L); other = "en" if L == "hr" else "hr"
+    title = f'{v["name"]} ({t})'
+    dek = (f'{v["name"]}: službene objave, transakcije uprave i analize Lupe.' if L == "hr" else f'{v["name"]}: official filings, insider transactions and Lupa research.')
+    inner = quote_box(t, None, L) if t in LATEST else ""
+    s = v["since"]
+    if s:
+        post = next(p for p in POSTS if p["dir"] == s["post"]); d = decimals(LATEST[t])
+        bench = f' · {tt["vs"]}: {pct_span(s["bench_pct"], L)}' if s["bench_pct"] is not None else ""
+        inner += (f'<section class="since"><h2>{tt["since_h"]}: {pct_span(s["pct"], L)}</h2>'
+                  f'<p>{tt["since_p"].format(d=fmt_date(s["session"], L), a=fmt_num(s["then"], L, d) + " " + s["currency"], d2=fmt_date(s["now_session"], L), b=fmt_num(s["now"], L, d) + " " + s["currency"])}{bench}'
+                  f' · <strong>{v["since_events"]}</strong> {tt["since_ev"]}.</p>'
+                  f'<p><a href="{rel(here, p_post(post, L))}">{esc(post["title"][L])}</a> {paid_badge(L) if is_paid(post) else ""}</p></section>')
+    ne = next((c for c in CALENDAR if c["ticker"] == t and c["type"] == "earnings"), None)
+    if ne: inner += f'<p class="next-res"><strong>{tt["next_res"]}:</strong> {fmt_date(ne["date"], L)}{" (" + tt["est"] + ")" if ne["estimate"] else ""} · <a href="{rel(here, p_page("calendar", L))}">{tt["calendar"]}</a></p>'
+    i = v["insider"]
+    inner += (f'<h2>{tt["insider_h"]}</h2><div class="ins-grid"><div class="ins ins-buy"><span>{tt["buy_v"]}</span><b>{i["buys"]}</b><small>{tracker.usd_short(i["buy_value"], L)}</small></div>'
+              f'<div class="ins ins-sell"><span>{tt["sell_v"]}</span><b>{i["sells"]}</b><small>{tracker.usd_short(i["sell_value"], L)}</small></div></div>'
+              f'<p class="trk-fine">{tt["insider_p"]} ({i["other"]} {tt["routine"]}.)</p>')
+    inner += f'<h2>{tt["timeline"]}</h2>{event_rows(v["events"], L)}<p class="trk-fine"><a href="{esc(v["edgar_url"])}" rel="noopener">{tt["edgar"]} →</a></p>'
+    if v["trials"]:
+        rows = "".join(f'<tr><td><a href="{esc(x["url"])}" rel="noopener">{esc(x["title"])}</a></td><td>{esc(x["phase"] or "—")}</td><td>{esc(trial_status(x["status"], L))}</td><td>{esc(x["primary_completion"] or "—")}</td></tr>' for x in v["trials"])
+        inner += f'<h2>{tt["trials"]}</h2><div class="tablewrap"><table><thead><tr><th>{tt["trial"]}</th><th>{tt["phase"]}</th><th>{tt["status"]}</th><th>{tt["done"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+    mine = [p for p in POSTS if p["dir"] in v["posts"]]
+    if mine: inner += f'<h2>{tt["analyses"]}</h2><ul class="trk-posts">' + "".join(f'<li><a href="{rel(here, p_post(p, L))}">{esc(p["title"][L])}</a> <span class="meta">{fmt_date(p["date"], L)}</span> {paid_badge(L) if is_paid(p) else ""}</li>' for p in mine) + "</ul>"
+    inner += f'<p class="note">{tt["app_cta"]}</p>'
+    trk_page(L, "companies", here, p_company(t, other), title, dek, inner, og_path=CARDS.get((t, L)))
+
+def build_tracker_pages(L):
+    tt = TT[L]; other = "en" if L == "hr" else "hr"; out = []
+    # companies index
+    here = p_page("companies", L); rows = ""; latest_events = []
+    for t in COMPANIES:
+        v = cview(t); px = v["price"]; i = v["insider"]; ev = v["events"][0] if v["events"] else None
+        latest_events += v["events"][:6]
+        rows += (f'<tr><td><a href="{rel(here, p_company(t, L))}"><b>{esc(t)}</b></a><br><span class="meta">{esc(v["name"])}</span></td>'
+                 + (f'<td class="r">{fmt_num(px["last"], L, decimals(LATEST[t]))}</td><td class="r">{pct_span(px["change_pct"], L)}</td>' if px else "<td>—</td><td>—</td>")
+                 + f'<td><span class="up">{i["buys"]} {tt["buys"]}</span> · <span class="down">{i["sells"]} {tt["sells"]}</span></td>'
+                 + (f'<td><span class="meta">{fmt_date(ev["date"], L)}</span><br>{esc(ev["text"][L])}</td>' if ev else "<td>—</td>") + "</tr>")
+    latest_events.sort(key=lambda e: e["date"], reverse=True)
+    inner = (f'<div class="tablewrap"><table class="trk-table"><thead><tr><th>{tt["company"]}</th><th class="r">{tt["price"]}</th><th class="r">{tt["day"]}</th><th>{tt["insider12"]}</th><th>{tt["last_event"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+             f'<h2>{tt["timeline"]}</h2>{event_rows([e for e in latest_events if e["important"]][:20], L, here, with_ticker=True)}') if COMPANIES else f'<p class="empty">{tt["none"]}</p>'
+    trk_page(L, "companies", here, p_page("companies", other), tt["companies"], tt["companies_dek"], inner, wide=True); out.append(here)
+    for t in COMPANIES: build_company(t, L); out.append(p_company(t, L))
+    # calendar
+    here = p_page("calendar", L); inner = ""; month = None
+    for c in CALENDAR:
+        m = c["date"][:7]
+        if m != month:
+            inner += ("</ol>" if month else "") + f'<h2>{(MONTHS_HR_NOM if L == "hr" else MONTHS_EN)[int(m[5:]) - 1].capitalize()} {m[:4]}{"." if L == "hr" else ""}</h2><ol class="cal-list">'; month = m
+        tk = f'<a class="ev-tk" href="{rel(here, p_company(c["ticker"], L))}">{esc(c["ticker"])}</a>' if c.get("ticker") in COMPANIES else esc(c.get("ticker") or "")
+        ttl = f'<a href="{esc(c["url"])}" rel="noopener">{esc(c["title"][L])}</a>' if c.get("url") else esc(c["title"][L])
+        inner += (f'<li class="cal cal-{esc(c["type"])}"><time datetime="{esc(c["date"])}">{fmt_date(c["date"], L)}</time><span class="cal-type">{tt["ty"].get(c["type"], tt["ty"]["other"])}</span>'
+                  f'<span class="ev-text">{tk} {ttl}{" <em class=\"est\">" + tt["est"] + "</em>" if c["estimate"] else ""}</span></li>')
+    inner = (inner + "</ol>" + f'<p class="trk-fine">{tt["est_note"]}</p>') if CALENDAR else f'<p class="empty">{tt["none"]}</p>'
+    trk_page(L, "calendar", here, p_page("calendar", other), tt["calendar"], tt["calendar_dek"], inner); out.append(here)
+    # track record
+    here = p_page("track", L); rows = ""
+    for r in SCORE:
+        post = next(p for p in POSTS if p["dir"] == r["post"]); d = 4 if r["then"] < 1 else 2
+        rows += (f'<tr><td><a href="{rel(here, p_post(post, L))}">{esc(post["title"][L])}</a><br><span class="meta">{company_link(r["ticker"], here, L, esc(r["ticker"]))} · {fmt_date(r["date"], L)}</span></td>'
+                 f'<td class="r">{fmt_num(r["then"], L, d)}</td><td class="r">{fmt_num(r["now"], L, d)}</td><td class="r">{pct_span(r["pct"], L)}</td>'
+                 f'<td class="r">{pct_span(r["bench_pct"], L) if r["bench_pct"] is not None else "—"}</td></tr>')
+    inner = (f'<div class="tablewrap"><table class="trk-table"><thead><tr><th>{tt["analysis"]}</th><th class="r">{tt["then"]}</th><th class="r">{tt["now"]}</th><th class="r">{tt["chg"]}</th><th class="r">{tt["bench"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+             if SCORE else f'<p class="empty">{tt["none"]}</p>') + f'<p class="trk-fine">{tt["track_note"]}</p>'
+    trk_page(L, "track", here, p_page("track", other), tt["track"], tt["track_dek"], inner, og_path=CARDS.get(("track", L)), wide=True); out.append(here)
+    return out
+MONTHS_HR_NOM = ["siječanj","veljača","ožujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"]
+
 # ---------- main ----------
 import urllib.parse
 POSTS = load_posts(); PAGES = load_pages(); PAID_INDEX = {}
+CALENDAR = tracker.calendar(TRK_DB, TRK_MANUAL, TODAY)
+SCORE = tracker.scorecard(POSTS, LATEST, snapshot)
+CARDS = {}   # (ticker | "track", lang) → path of the share-card PNG inside dist/ (only when Pillow is installed)
 if OUT.exists(): shutil.rmtree(OUT)
 if PRIVATE.exists(): shutil.rmtree(PRIVATE)
 PRIVATE.mkdir(parents=True)
 shutil.copytree(SRC / "assets", OUT / "assets", ignore=shutil.ignore_patterns("manifest.json"))
 (OUT / ".nojekyll").write_text("")
+try:
+    import cards
+    CARDS = cards.make_all(OUT, {t: cview(t) for t in COMPANIES}, SCORE, POSTS)
+except ImportError as e:
+    print(f"share cards skipped ({e}); pip install pillow to enable")
 paths = []
 for L in LANGS:
     other = "en" if L == "hr" else "hr"
@@ -712,6 +856,7 @@ for L in LANGS:
         list_page(L, p_cat(cid, L), p_cat(cid, other), CATS[cid][L]["name"], CATS[cid][L]["desc"], items, cid, CATS[cid].get("image", "home-hero")); paths.append(p_cat(cid, L))
     list_page(L, p_archive(L), p_archive(other), T[L]["archive"], SITE["description"][L], POSTS, "archive", "research-desk"); paths.append(p_archive(L))
     for key, pg in PAGES.items(): build_static_page(key, pg, L); paths.append(p_page(key, L))
+    paths += build_tracker_pages(L)
 build_root(); build_feeds_and_sitemap(paths)
 (PRIVATE / "paid-index.json").write_text(json.dumps(PAID_INDEX, ensure_ascii=False, indent=1))
 print(f"Built {len(POSTS)} posts × {len(LANGS)} languages, {len(paths)} pages → {OUT}")

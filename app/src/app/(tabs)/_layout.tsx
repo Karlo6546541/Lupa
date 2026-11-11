@@ -16,6 +16,7 @@ export default function TabsLayout() {
     }}>
       <Tabs.Screen name="index" options={{ title: t.tabHome, tabBarIcon: icon('newspaper-outline') }} />
       <Tabs.Screen name="categories" options={{ title: t.tabCategories, tabBarIcon: icon('albums-outline') }} />
+      <Tabs.Screen name="watch" options={{ title: t.tabWatch, tabBarIcon: icon('pulse-outline') }} />
       <Tabs.Screen name="subscription" options={{ title: t.tabSubscription, tabBarIcon: icon('star-outline') }} />
       <Tabs.Screen name="more" options={{ title: t.tabMore, tabBarIcon: icon('ellipsis-horizontal-circle-outline') }} />
     </Tabs>

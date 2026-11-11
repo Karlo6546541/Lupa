@@ -2,13 +2,14 @@ import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Platform, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LangSwitch, Logo } from '../../components/ui';
 import { LEGAL, SITE_URL } from '../../lib/config';
 import { useFeed } from '../../lib/feed';
 import { useLang } from '../../lib/lang';
 import { C, F } from '../../lib/theme';
+import { useWatch } from '../../lib/watchlist';
 
 function Row({ label, onPress, right }: { label: string; onPress?: () => void; right?: React.ReactNode }) {
   return (
@@ -23,6 +24,8 @@ export default function More() {
   const { feed } = useFeed();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const w = useWatch();
+  const setPush = async (on: boolean) => { if (!on) return w.disablePush(); if (!(await w.enablePush())) Alert.alert(t.pushTitle, t.pushDenied); };
   const page = (key: 'about' | 'disclaimer') => router.push({ pathname: '/page/[key]', params: { key } });
   const web = (url: string) => WebBrowser.openBrowserAsync(url).catch(() => {});
   return (
@@ -34,6 +37,9 @@ export default function More() {
       </View>
       <Text style={st.h}>{t.settings}</Text>
       <Row label={t.language} right={<LangSwitch />} />
+      <Row label={t.pushTitle} right={w.push === 'unavailable'
+        ? <Text style={{ fontFamily: F.sans, fontSize: 12.5, color: C.muted, flexShrink: 1, textAlign: 'right', marginLeft: 12 }}>{t.pushUnavailable}</Text>
+        : <Switch value={w.push === 'on'} onValueChange={setPush} trackColor={{ true: C.teal, false: C.rule2 }} thumbColor="#fff" />} />
       <Text style={st.h}>Lupa</Text>
       <Row label={feed.pages.about.title[lang] || t.about} onPress={() => page('about')} />
       <Row label={t.website} onPress={() => web(`${SITE_URL}/${lang}/`)} />

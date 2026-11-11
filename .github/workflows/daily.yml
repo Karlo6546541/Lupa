@@ -1,0 +1,75 @@
+name: Daily data refresh
+
+# Every morning (Tue–Sat, after the US session and evening SEC filings): refresh prices and company data, rebuild,
+# deploy to Vercel and send push notifications for what is new. Each part is optional and switches on with its secret:
+#   VERCEL_TOKEN + VERCEL_ORG_ID + VERCEL_PROJECT_ID   → deploy (without them the job only refreshes and commits data)
+#   FIREBASE_SERVICE_ACCOUNT                           → push notifications (FCM topics)
+# Repository variable LUPA_USER_AGENT (optional): how the scripts introduce themselves to the SEC,
+# e.g. "Lupa data refresh (you@your-domain)".
+on:
+  schedule:
+    - cron: "17 5 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    env:
+      LUPA_USER_AGENT: ${{ vars.LUPA_USER_AGENT }}
+      SITE_URL: https://lupa-lovat.vercel.app
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install pillow
+
+      - name: Refresh prices (a failed ticker keeps its stored price)
+        run: python3 scripts/update_prices.py
+      - name: Refresh company data (SEC EDGAR, ClinicalTrials.gov)
+        run: python3 scripts/update_companies.py
+
+      - name: Build and check
+        run: |
+          python3 build.py --base-url "$SITE_URL"
+          python3 scripts/check_links.py
+          python3 scripts/check_paywall.py
+      - name: Download the feed that is live now (baseline for notifications)
+        run: curl -fsS --max-time 30 -o old-feed.json "$SITE_URL/app/v1/feed.json" || rm -f old-feed.json
+      - name: Package
+        run: python3 scripts/package_vercel.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || (git commit -m "data: daily refresh [skip ci]" && git push)
+
+      - name: Deploy to Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: npx --yes vercel@latest deploy --prebuilt --prod --token "$VERCEL_TOKEN"
+
+      - name: Send push notifications
+        if: env.VERCEL_TOKEN != '' && env.FIREBASE_SERVICE_ACCOUNT != ''
+        run: node scripts/send_push.mjs --old old-feed.json --new dist/app/v1/feed.json
+      - name: Notifications preview (not sent)
+        if: env.VERCEL_TOKEN == '' || env.FIREBASE_SERVICE_ACCOUNT == ''
+        run: node scripts/send_push.mjs --old old-feed.json --new dist/app/v1/feed.json --dry-run

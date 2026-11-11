@@ -15,10 +15,23 @@ export type Post = {
 };
 export type Page = { title: L10n; dek: L10n; body: L10n; url: L10n };
 export type TapeItem = { label: string; value: string; dir: 'up' | 'down' | 'flat'; change: string };
+// Company tracker (site/tracker.py → export_app_feed.py). Optional: feeds from before the tracker do not have it.
+export type TrackerEvent = { id: string; ticker: string; date: string; kind: 'buy' | 'sell' | 'filing'; form: string; text: L10n; important: boolean; value?: number | null; url: string };
+export type ScoreRow = { post: string; ticker: string; name: string; date: string; session: string; then: number; now: number; now_session: string; currency: string; pct: number; bench: string; bench_pct: number | null };
+export type Trial = { id: string; title: string; status: string; phase: string | null; primary_completion: string | null; url: string };
+export type Company = {
+  ticker: string; name: string; sector: string | null; edgar_url: string; url: L10n; card: L10n | null;
+  price: { last: number; change_pct: number; session: string; currency: string; high52?: number | null; low52?: number | null } | null;
+  posts: string[]; since: ScoreRow | null; since_events: number; events: TrackerEvent[];
+  insider: { days: number; buys: number; buy_value: number; sells: number; sell_value: number; other: number };
+  trials: Trial[]; next_earnings_estimate: string | null;
+};
+export type CalendarItem = { date: string; ticker: string | null; type: 'earnings' | 'trial' | 'meeting' | 'fda' | 'other'; estimate: boolean; title: L10n; url?: string | null };
+export type Tracker = { generated: string | null; companies: Record<string, Company>; calendar: CalendarItem[]; scorecard: ScoreRow[]; urls: { calendar: L10n; track: L10n } };
 export type Feed = {
   version: number; generated: string; name: string; tagline: L10n; description: L10n; categories: Category[];
   tape: L10n<{ items: TapeItem[]; asof: string }>; subscription: { plan: L10n; price_eur: number; interval: string };
-  pages: Record<'about' | 'disclaimer', Page>; posts: Post[];
+  pages: Record<'about' | 'disclaimer', Page>; posts: Post[]; tracker?: Tracker;
 };
 export type FeedSource = 'network' | 'cache' | 'bundled';
 
@@ -84,3 +97,6 @@ export const categoryById = (feed: Feed, id: string) => feed.categories.find((c)
 export const postById = (feed: Feed, id: string) => feed.posts.find((p) => p.id === id);
 export const postsInCategory = (feed: Feed, id: string) => feed.posts.filter((p) => p.categories.includes(id));
 export const isPaid = (p: Post) => p.access === 'subscribers';
+
+const NO_TRACKER: Tracker = { generated: null, companies: {}, calendar: [], scorecard: [], urls: { calendar: { hr: '/hr/kalendar/', en: '/en/calendar/' }, track: { hr: '/hr/rezultati/', en: '/en/track-record/' } } };
+export const trackerOf = (feed: Feed): Tracker => feed.tracker ?? NO_TRACKER;

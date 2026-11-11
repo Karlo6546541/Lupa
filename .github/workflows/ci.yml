@@ -23,14 +23,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - run: pip install pillow
       - name: Build site
         run: python3 build.py --base-url https://lupa-lovat.vercel.app
       - name: Check links
         run: python3 scripts/check_links.py
       - name: Check paywall (no subscriber text in public files)
         run: python3 scripts/check_paywall.py
-      - name: API unit tests
-        run: node --test "tests/*.test.js"
+      - name: Unit tests (API, push planning, tracker)
+        run: |
+          node --test "tests/*.test.*"
+          python3 -m unittest discover -s tests
       - name: Package for Vercel (dry run)
         run: python3 scripts/package_vercel.py
 

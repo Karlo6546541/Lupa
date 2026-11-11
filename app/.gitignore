@@ -49,3 +49,7 @@ yarn-error.*
 *.ipa
 google-play-service-account*.json
 AuthKey_*.p8
+
+# Firebase config (push notifications): download from your Firebase project, never commit
+google-services.json
+GoogleService-Info.plist

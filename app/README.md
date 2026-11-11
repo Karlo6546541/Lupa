@@ -228,3 +228,22 @@ Android builds locally (`tools/build-android-local.sh`); iOS builds in the cloud
 To ship, Karlo needs a Google Play developer account ($25 one-time, ID verification, 12 testers × 14 days closed test for new
 personal accounts) and the Apple Developer Program ($99/year, ID verification), the two `lupa_monthly` products, the server
 keys, and privacy-policy/terms pages. Web and app subscriptions are not shared yet (no user accounts).
+
+
+## Praćenje tvrtki, watchlista i obavijesti (tracker)
+
+- **Tab „Praćenje”** (`src/app/(tabs)/watch.tsx`): moja lista, kalendar katalizatora, rezultati analiza. **Profil tvrtke**: `src/app/company/[ticker].tsx`.
+- Podaci dolaze iz `feed.json → tracker` (SEC EDGAR + ClinicalTrials.gov; web ih osvježava svaki dan — vidi `../site/README.md`).
+- **Watchlista** je spremljena samo na mobitelu (`src/lib/watchlist.tsx`, AsyncStorage). Nema računa ni servera.
+- **Push obavijesti** idu preko Firebase Cloud Messaging **tema** (`src/lib/push.ts`): mobitel se sam pretplati na `news_<jezik>` i `t_<TICKER>_<jezik>` za tvrtke koje prati. Lupa ne zna tko što prati.
+
+### Uključivanje obavijesti (jednokratno, besplatno)
+
+1. Na https://console.firebase.google.com napravi projekt i dodaj Android aplikaciju (`com.svenda.lupa`) i iOS aplikaciju (`com.svenda.lupa`).
+2. Preuzmi `google-services.json` i `GoogleService-Info.plist` u mapu `app/` (obje su u `.gitignore`).
+3. iOS: u Firebase → Project settings → Cloud Messaging učitaj APNs ključ (.p8) iz Apple Developer računa.
+4. Ponovno izgradi aplikaciju (`npx expo prebuild --clean`, pa build). `app.config.js` sam uključuje Firebase kad datoteke postoje.
+5. Za slanje: u GitHub secrets dodaj `FIREBASE_SERVICE_ACCOUNT` (vidi `../site/README.md`).
+
+Bez tih datoteka aplikacija se gradi i radi normalno; u Postavkama piše da obavijesti nisu dostupne.
+**Nije provjereno na uređaju:** izvorni (native) build s Firebaseom nije bilo moguće pokrenuti u okruženju u kojem je ovo napisano. Prije objave provjeri Android i iOS build te primanje jedne probne obavijesti (Firebase console → Messaging → tema `news_hr`). iOS sada koristi `useFrameworks: static` (zahtjev Firebasea).
