@@ -45,7 +45,12 @@ lupa/
 python3 build.py                                   # relative links: works on any host or sub-path
 python3 build.py --base-url https://USER.github.io/REPO   # production: absolute canonical + hreflang, sitemap.xml, robots.txt, hr/feed.xml, en/feed.xml
 python3 scripts/check_links.py                     # must print "0 problems"
+python3 scripts/check_paywall.py                   # must print "0 leaks"
+node --test "tests/*.test.js"                      # API unit tests (no dependencies)
 ```
+
+GitHub Actions (`.github/workflows/ci.yml`) runs all of the above plus the app's `npm ci` + `tsc` on every push and pull request.
+`private/` is build output (subscriber-only bodies) and is git-ignored: never commit it.
 
 For GitHub Pages: publish `dist/` (e.g. push its contents to a `gh-pages` branch or use an Actions
 "upload-pages-artifact" step with `path: dist`). `dist/.nojekyll` is included. All internal links are
@@ -228,9 +233,11 @@ private bodies with every public file and `package_vercel.py` refuses to package
 | Route | What it does |
 |---|---|
 | `POST /api/checkout` | Same-origin form post (lang, next) → Stripe Checkout Session (`mode=subscription`, `STRIPE_PRICE_ID`, `locale` hr/en). Refuses unless the price is exactly 7.00 EUR / month. Card + Google Pay / Apple Pay come from Stripe Checkout's wallets (Stripe Dashboard → Settings → Payment methods). |
-| `GET /api/checkout-complete` | Stripe's success redirect. Retrieves the Checkout Session from the Stripe API, requires `complete` + paid + active subscription + same browser (nonce cookie) or < 30 min old, then sets the session cookie and returns to the article (or the account page). |
+| `GET /api/checkout-complete` | Stripe's success redirect. Retrieves the Checkout Session from the Stripe API, requires `complete` + paid + active subscription + **same browser** (nonce cookie), then sets the session cookie and returns to the article (or the account page). If the payment finished in another browser, no cookie is set and the reader is sent to the account page to sign in by email (`?login=paid`) — a leaked success URL never grants access or the Stripe portal. |
 | `GET /api/article?post=&lang=` | Returns the paid remainder as JSON **only** after an entitlement check; `401`/`402` otherwise; `Cache-Control: private, no-store`. Loaded by `assets/js/site.js` into `.paid-body`. |
-| `GET /api/session` | `{payments, active, lapsed, portal_login_url}` for the subscribe/account pages. No ids or secrets. |
+| `GET /api/session` | `{payments, active, lapsed, email_login, portal_login_url}` for the subscribe/account pages. No ids or secrets. |
+| `POST /api/login` | Email sign-in for a new device/browser (form on the account page). Looks up Stripe customers with that email and emails a signed link valid 15 min (HMAC with a separate purpose from the session cookie). Always answers „check your inbox”, so it does not reveal who subscribes. Rate-limited per IP and per address. Needs `RESEND_API_KEY` + `LOGIN_EMAIL_FROM`; without them the form is hidden. |
+| `GET /api/login-verify?t=` | Target of the emailed link: checks signature + expiry, sets the session cookie (subscription is re-checked with Stripe right away). |
 | `POST /api/portal` | Stripe Customer Portal session (update card, invoices, cancel at period end). |
 | `POST /api/logout` | Clears the cookie on this device. |
 | `POST /api/stripe-webhook` | Verifies `Stripe-Signature` (HMAC, 5-min tolerance) and syncs `customer.metadata.lupa_status`. |
@@ -252,6 +259,8 @@ subscription loses access within 10 minutes. No database.
 | `STRIPE_PORTAL_LOGIN_URL` | portal email-login link (`https://billing.stripe.com/p/login/…`) | set (test) |
 | `SITE_URL` | `https://lupa-lovat.vercel.app` | set |
 | `STRIPE_AUTOMATIC_TAX` | `1` to turn on Stripe Tax in Checkout (only after Stripe Tax is configured) | not set |
+| `RESEND_API_KEY` | API key from resend.com (sends the email sign-in link) | **not set** — email sign-in is hidden until set |
+| `LOGIN_EMAIL_FROM` | sender, e.g. `Lupa <prijava@your-domain>` (domain verified in Resend) | **not set** |
 
 While `STRIPE_SECRET_KEY` is missing (or the price is wrong), the site says honestly „Plaćanja još nisu aktivna /
 Payments are not active yet”, the subscribe button is disabled and nothing can be charged.
@@ -294,9 +303,9 @@ setup — that would serve static files only and the paywall API (and therefore 
 Never deploy `dist/` alone and never put `private/` into a public folder.
 
 
-## Mobilna aplikacija / Mobile app (iOS + Android) — `/workspace/lupa-app/`
+## Mobilna aplikacija / Mobile app (iOS + Android) — `../app/`
 
-The Expo app (one codebase, App Store + Google Play) lives in a **separate project** (`../lupa-app`, its own README) and is
+The Expo app (one codebase, App Store + Google Play) lives in a **sibling folder** (`../app`, its own README) and is
 not part of `site.tgz`. The website only provides two things for it, both shipped by the normal deploy above:
 
 | Piece | What | Status |

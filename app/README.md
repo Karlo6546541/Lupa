@@ -58,10 +58,10 @@ lupa-app/
 ## 3. Pokretanje
 
 ```bash
-cd /workspace/lupa-app
+cd app
 npm install                      # (već napravljeno na ovom računalu)
 npm run typecheck                # TypeScript provjera
-npm run sync-feed                # nova snimka sadržaja iz ../lupa (nakon build.py)
+npm run sync-feed                # nova snimka sadržaja iz ../site (nakon build.py)
 npm run sync-css                 # ako se promijeni web CSS
 ```
 
@@ -113,9 +113,9 @@ Gotovi APK: `dist/lupa-1.0.0-release-debugsigned.apk` (arm64-v8a, armeabi-v7a, x
 
 Otkazana pretplata vrijedi do kraja plaćenog razdoblja; istekla ili refundirana → server vraća 402 i članak se opet zaključava.
 
-## 6. Serverska provjera (dodano na web projekt `../lupa`, NIJE objavljeno)
+## 6. Serverska provjera (dodano na web projekt `../site`, NIJE objavljeno)
 
-Nove datoteke u `/workspace/lupa`:
+Nove datoteke u `../site`:
 
 | Datoteka | Što radi |
 |---|---|
@@ -222,7 +222,7 @@ that renders articles with the website's own CSS; free posts in full, paid posts
 **`lupa_monthly`, €7.00/month auto-renewing**, bought through StoreKit 2 / Google Play Billing via `expo-iap` (no card entry in
 the app, no Stripe in the store apps), with **Restore purchases** and **Manage subscription**. Paid bodies are never bundled:
 the app sends the store token to new Vercel functions (`/api/app-entitlement`, `/api/app-article`, `api/store-verify.js` in
-`../lupa`), which verify with the Google Play Developer API / App Store Server API. Those routes and the public JSON feed
+`../site`), which verify with the Google Play Developer API / App Store Server API. Those routes and the public JSON feed
 (`/app/v1/feed.json`) are implemented and tested locally but **not deployed**; they return 503 until the store keys are set.
 Android builds locally (`tools/build-android-local.sh`); iOS builds in the cloud with `eas build -p ios` (no Mac needed).
 To ship, Karlo needs a Google Play developer account ($25 one-time, ID verification, 12 testers × 14 days closed test for new

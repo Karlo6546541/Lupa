@@ -34,3 +34,4 @@ module.exports = async (req, res) => {
   }
   L.json(res, 200, { received: true });
 };
+module.exports.verifySig = verifySig; // exported for tests

@@ -1,4 +1,4 @@
-// Content feed: GET SITE_URL/app/v1/feed.json (written by lupa/scripts/export_app_feed.py on every site deploy).
+// Content feed: GET SITE_URL/app/v1/feed.json (written by site/scripts/export_app_feed.py on every site deploy).
 // Order of preference: network → last good copy in AsyncStorage → snapshot bundled into the app (assets/feed.snapshot.json).
 // The feed contains only public content: free posts in full, paid posts as the same teaser the website shows.
 import AsyncStorage from '@react-native-async-storage/async-storage';

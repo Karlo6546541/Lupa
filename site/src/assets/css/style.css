@@ -390,6 +390,10 @@ footer.site a:hover{color:#f3d39d;text-decoration:underline}
 .acct-device{border-top:1px solid var(--rule);padding-top:1.2rem;margin-top:1.8rem}
 .prose .acct-device h2{font:600 1.15rem/1.3 var(--sans);margin:0 0 .5rem}
 .prose .acct-device p{font-size:.94rem;color:var(--ink-2)}
+.login-form{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.6rem 0 1rem;font-family:var(--sans)}
+.login-form label{flex-basis:100%;font:500 .85rem/1.3 var(--sans);color:var(--ink-2)}
+.login-form input[type=email]{flex:1 1 14rem;min-width:0;font:400 1rem/1.4 var(--sans);padding:.55rem .7rem;border:1px solid var(--rule);border-radius:var(--r-sm);background:#fff;color:var(--ink)}
+.login-form input[type=email]:focus{outline:2px solid var(--teal);outline-offset:1px}
 [hidden]{display:none!important}
 
 .hdr-sub{margin-right:.4rem}

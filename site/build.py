@@ -567,10 +567,10 @@ def subscribe_box(here, L):
               "Market wraps, “On the radar” and the newsletter stay free for everyone", "No lock-in: cancel yourself, in one click, in Stripe's customer portal"])
     lis = "".join(f"<li>{esc(i)}</li>" for i in items)
     fine = ("Plaćanje obrađuje Stripe: kartica, a na podržanim uređajima i Google Pay ili Apple Pay. Lupa ne vidi i ne sprema podatke vaše kartice. "
-            "Pristup se otključava u pregledniku u kojem platite. Pretplata se obnavlja svaki mjesec dok je ne otkažete; nakon otkazivanja pristup traje do kraja plaćenog razdoblja. Za pristup koristimo samo nužne, sigurne kolačiće (bez praćenja i oglasnih kolačića)."
+            "Pristup se otključava u pregledniku u kojem platite, a na drugim uređajima prijavom e-poštom. Pretplata se obnavlja svaki mjesec dok je ne otkažete; nakon otkazivanja pristup traje do kraja plaćenog razdoblja. Za pristup koristimo samo nužne, sigurne kolačiće (bez praćenja i oglasnih kolačića)."
             if hr else
             "Payments are processed by Stripe: card, plus Google Pay or Apple Pay on supported devices. Lupa never sees or stores your card details. "
-            "Access unlocks in the browser you pay in. The subscription renews every month until you cancel; after cancelling, access lasts until the end of the paid period. Access uses only strictly necessary, secure cookies (no tracking or advertising cookies).")
+            "Access unlocks in the browser you pay in, and on other devices by email sign-in. The subscription renews every month until you cancel; after cancelling, access lasts until the end of the paid period. Access uses only strictly necessary, secure cookies (no tracking or advertising cookies).")
     inactive = ("<strong>Plaćanja još nisu aktivna.</strong> Online pretplatu uključujemo uskoro. Ništa vam se ne naplaćuje — gumb za pretplatu proradit će čim naplata bude spremna."
                 if hr else "<strong>Payments are not active yet.</strong> Online subscriptions are coming soon. You will not be charged — the subscribe button will start working as soon as billing is ready.")
     legal = ("Uvjeti pretplate, otkazivanje i pravo na odustanak:" if hr else "Subscription terms, cancellation and right of withdrawal:")
@@ -597,8 +597,16 @@ def account_box(here, L):
               inactive="<strong>Plaćanja još nisu aktivna.</strong> Pretplatu uključujemo uskoro; do tada se ništa ne naplaćuje.",
               err="Provjera trenutačno nije uspjela. Osvježite stranicu za koji trenutak.",
               device_h="Novi uređaj ili preglednik?",
-              device_p="Pristup je vezan uz preglednik u kojem ste platili. Prijava e-poštom na drugom uređaju još nije dostupna — uskoro je dodajemo. "
-                       "Do tada čitajte u pregledniku u kojem ste se pretplatili; za pomoć pišite na ",
+              device_p="Upišite e-adresu s kojom ste se pretplatili i poslat ćemo vam poveznicu za prijavu (vrijedi 15 minuta). Za pomoć pišite na ",
+              email_label="E-adresa", email_btn="Pošalji poveznicu za prijavu",
+              email_off="Prijava e-poštom trenutačno nije uključena. Čitajte u pregledniku u kojem ste se pretplatili; za pomoć pišite na ",
+              l_sent="Ako za tu e-adresu postoji pretplata, poslali smo poveznicu za prijavu. Provjerite pristiglu poštu (i neželjenu poštu).",
+              l_bad="Upišite ispravnu e-adresu.", l_wait="Previše pokušaja. Pričekajte nekoliko minuta pa pokušajte ponovno.",
+              l_error="Slanje poveznice trenutačno nije uspjelo. Pokušajte ponovno za koji trenutak.",
+              l_expired="Poveznica za prijavu je istekla ili nije ispravna. Zatražite novu niže.",
+              l_ok="Prijavljeni ste. Ako je pretplata aktivna, sve analize sada su otključane i u ovom pregledniku.",
+              l_paid="Plaćanje je uspjelo! Budući da je dovršeno u drugom pregledniku, otključajte pristup ovdje: upišite e-adresu s kojom ste platili i kliknite poveznicu iz e-pošte.",
+              l_off="Prijava e-poštom trenutačno nije uključena.",
               portal_login="Pretplatom (kartica, računi, otkazivanje) možete upravljati s bilo kojeg uređaja preko Stripeove prijave e-poštom:",
               portal_login_btn="Prijava u Stripeov portal", nojs="Za provjeru pretplate treba biti uključen JavaScript.") if hr else
          dict(loading="Checking for a subscription in this browser…",
@@ -612,12 +620,21 @@ def account_box(here, L):
               inactive="<strong>Payments are not active yet.</strong> Subscriptions are coming soon; nothing is charged until then.",
               err="We could not check right now. Please refresh the page in a moment.",
               device_h="New device or browser?",
-              device_p="Access is tied to the browser you paid in. Email sign-in on another device is not available yet — we are adding it soon. "
-                       "Until then, read in the browser you subscribed in; for help write to ",
+              device_p="Enter the email you subscribed with and we will send you a sign-in link (valid for 15 minutes). For help write to ",
+              email_label="Email address", email_btn="Email me a sign-in link",
+              email_off="Email sign-in is not switched on right now. Read in the browser you subscribed in; for help write to ",
+              l_sent="If there is a subscription for that address, we have sent a sign-in link. Check your inbox (and spam folder).",
+              l_bad="Please enter a valid email address.", l_wait="Too many attempts. Please wait a few minutes and try again.",
+              l_error="We could not send the link right now. Please try again in a moment.",
+              l_expired="The sign-in link has expired or is not valid. Request a new one below.",
+              l_ok="You are signed in. If your subscription is active, every analysis is now unlocked in this browser too.",
+              l_paid="Payment succeeded! Because it finished in a different browser, unlock access here: enter the email you paid with and click the link we send you.",
+              l_off="Email sign-in is not switched on right now.",
               portal_login="You can manage the subscription (card, invoices, cancellation) from any device through Stripe's email sign-in:",
               portal_login_btn="Sign in to Stripe's portal", nojs="JavaScript needs to be enabled to check your subscription."))
     return (f'<div class="account" id="account" data-state="loading" data-lang="{L}">'
-            f'<p class="acct-panel" data-show="loading" role="status">{S["loading"]}</p>'
+            + "".join(f'<div class="note acct-login" data-login="{k}" role="status" hidden>{S["l_" + k]}</div>' for k in ("sent", "bad", "wait", "error", "expired", "ok", "paid", "off"))
+            + f'<p class="acct-panel" data-show="loading" role="status">{S["loading"]}</p>'
             f'<div class="note acct-welcome" hidden>{S["welcome"]}</div>'
             f'<div class="acct-panel acct-card" data-show="active" hidden><p class="kicker">{t["plan_name"]}</p><h2>{S["active_h"]}</h2><p>{S["active_p"]}</p>'
             f'<form method="post" action="/api/portal"><input type="hidden" name="lang" value="{L}"><button class="btn btn-accent" type="submit">{S["manage"]}</button></form>'
@@ -628,7 +645,12 @@ def account_box(here, L):
             f'<div class="note acct-panel" data-show="inactive" hidden>{S["inactive"]}</div>'
             f'<div class="note acct-panel" data-show="error" hidden>{S["err"]}</div>'
             f'<noscript><p class="note">{S["nojs"]}</p></noscript>'
-            f'<section class="acct-device"><h2>{S["device_h"]}</h2><p>{S["device_p"]}<a href="mailto:{esc(CONTACT)}">{esc(CONTACT)}</a>.</p>'
+            + f'<section class="acct-device" id="acct-device"><h2>{S["device_h"]}</h2>'
+            f'<div class="acct-email-on"><p>{S["device_p"]}<a href="mailto:{esc(CONTACT)}">{esc(CONTACT)}</a>.</p>'
+            f'<form class="login-form" method="post" action="/api/login"><input type="hidden" name="lang" value="{L}">'
+            f'<label for="login-email-{L}">{S["email_label"]}</label> <input id="login-email-{L}" type="email" name="email" required autocomplete="email" inputmode="email" maxlength="254"> '
+            f'<button class="btn btn-accent btn-sm" type="submit">{S["email_btn"]}</button></form></div>'
+            f'<p class="acct-email-off" hidden>{S["email_off"]}<a href="mailto:{esc(CONTACT)}">{esc(CONTACT)}</a>.</p>'
             f'<p class="acct-portal-login" hidden>{S["portal_login"]} <a class="btn btn-ghost btn-sm" href="#" rel="noopener">{S["portal_login_btn"]}</a></p></section></div>')
 
 def build_static_page(key, pg, L):

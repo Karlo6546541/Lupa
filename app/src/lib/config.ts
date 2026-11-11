@@ -6,7 +6,7 @@ const extra = (Constants.expoConfig?.extra ?? {}) as { siteUrl?: string; subscri
 export const SITE_URL = (extra.siteUrl ?? 'https://lupa-lovat.vercel.app').replace(/\/+$/, '');
 export const FEED_URL = `${SITE_URL}/app/v1/feed.json`;
 export const API = {
-  /** POST {platform, token} → {active, expiresAt} — server asks Google Play / App Store (lupa/api/store-verify.js). */
+  /** POST {platform, token} → {active, expiresAt} — server asks Google Play / App Store (site/api/store-verify.js). */
   entitlement: `${SITE_URL}/api/app-entitlement`,
   /** POST {post, lang, platform, token} → {html} — subscriber-only remainder of a paid post. */
   article: `${SITE_URL}/api/app-article`,
@@ -26,8 +26,8 @@ export const FALLBACK_PRICE = { hr: '7,00 €', en: '€7.00' };
 
 /**
  * Legal links shown next to the subscribe button (required by App Store guideline 3.1.2 and Google Play).
- * TODO before store submission: publish these pages on the website (they do not exist yet).
- * Terms: Apple's standard EULA is acceptable on iOS if Lupa does not publish its own terms.
+ * Both pages are live on the website (site/content/pages/privacy, site/content/pages/terms).
+ * On iOS, Apple's standard EULA is linked as well.
  */
 export const LEGAL = {
   privacy: { hr: `${SITE_URL}/hr/privatnost/`, en: `${SITE_URL}/en/privacy/` },
