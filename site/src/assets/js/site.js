@@ -82,7 +82,7 @@
       acct.setAttribute('data-state',state);
       acct.querySelectorAll('.acct-panel').forEach(function(p){p.hidden=p.getAttribute('data-show')!==state});
     }
-    // Result of the email sign-in flow (/api/login, /api/login-verify, /api/checkout-complete) comes back as ?login=<state>.
+    // Result of the email sign-in flow (/api/login, /api/checkout) comes back as ?login=<state>.
     var ls=qs.get('login');
     if(ls){var ln=acct.querySelector('.acct-login[data-login="'+ls.replace(/[^a-z]/g,'')+'"]'); if(ln) ln.hidden=false;
       if(ls==='paid'||ls==='expired'){var em=acct.querySelector('.login-form input[type=email]'); if(em) em.focus()}}

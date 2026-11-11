@@ -13,8 +13,11 @@ import json, pathlib, shutil, subprocess, sys, tarfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST, API, PRIV = ROOT / "dist", ROOT / "api", ROOT / "private"
 OUT = ROOT / ".vercel" / "output"
-FUNCS = ["checkout", "checkout-complete", "session", "article", "portal", "logout", "stripe-webhook", "login", "login-verify",
+FUNCS = ["checkout", "session", "article", "portal", "logout", "stripe-webhook", "login",
          "app-entitlement", "app-article"]          # app-* = Lupa mobile app (store subscriptions), see api/store-verify.js
+# Vercel Hobby plan: max 12 functions per deployment. We ship 9; keep it <= 12 (login also handles the emailed link,
+# checkout also handles the Stripe success redirect).
+assert len(FUNCS) <= 12, "too many functions for the Vercel Hobby plan"
 STORE_FUNCS = {"app-entitlement", "app-article"}   # these also need api/store-verify.js
 PAID_FUNCS = {"article", "app-article"}            # the only bundles that receive private/paid
 RUNTIME = "nodejs22.x"
