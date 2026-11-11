@@ -23,10 +23,12 @@ export default function Watch() {
   const insets = useSafeAreaInsets();
   const [seg, setSeg] = useState<Seg>('list');
   const [onlyMine, setOnlyMine] = useState(false);
+  const [sector, setSector] = useState<string | null>(null);
   const tr = trackerOf(feed);
   const all = useMemo(() => Object.values(tr.companies), [tr]);
   const mine = all.filter((c) => w.tickers.includes(c.ticker));
-  const others = all.filter((c) => !w.tickers.includes(c.ticker));
+  const others = all.filter((c) => !w.tickers.includes(c.ticker) && (!sector || c.sector === sector));
+  const sectors = tr.sectors ?? [];
   const openCo = (ticker: string) => router.push({ pathname: '/company/[ticker]', params: { ticker } });
 
   const enablePush = async () => { const ok = await w.enablePush(); if (!ok) Alert.alert(t.pushTitle, t.pushDenied); };
@@ -68,7 +70,16 @@ export default function Watch() {
             <Text style={ts.h}>{t.myCompanies}</Text>
             {mine.length ? mine.map((c) => <CompanyRow key={c.ticker} co={c} onPress={() => openCo(c.ticker)} />)
               : <Text style={[ts.fine, { marginTop: 0 }]}>{t.watchEmpty}</Text>}
-            {others.length ? <Text style={ts.h}>{t.allCompanies}</Text> : null}
+            <Text style={ts.h}>{t.allCompanies}</Text>
+            {sectors.length > 1 ? (
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 16, gap: 8, paddingBottom: 10 }}>
+                {[{ id: null as string | null, label: t.sectorAll }, ...sectors.map((x) => ({ id: x.id as string | null, label: x[lang] }))].map((x) => (
+                  <Pressable key={x.id ?? 'all'} onPress={() => setSector(x.id)} style={[st.seg, sector === x.id && st.segOn]} accessibilityRole="button" accessibilityState={{ selected: sector === x.id }}>
+                    <Text style={[st.segTxt, sector === x.id && st.segTxtOn]}>{x.label}</Text>
+                  </Pressable>
+                ))}
+              </ScrollView>
+            ) : null}
             {others.map((c) => <CompanyRow key={c.ticker} co={c} onPress={() => openCo(c.ticker)} onFollow={onFollow} />)}
             {events.length ? <Text style={ts.h}>{t.latestEvents}</Text> : null}
             {events.map((e) => <EventRow key={e.id} ev={e} showTicker onTicker={openCo} />)}

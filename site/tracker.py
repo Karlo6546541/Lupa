@@ -5,6 +5,16 @@ import datetime, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent
 LANGS = ("hr", "en")
+# Sectors of tracked companies (content/companies.json → "sector"). Not the same as the article categories in site.json:
+# a sector needs no articles, it only groups companies in the tracker.
+SECTORS = [
+    ("bio", {"hr": "Bioinženjering", "en": "Bioengineering"}),
+    ("quantum", {"hr": "Kvantno računalstvo", "en": "Quantum computing"}),
+    ("space", {"hr": "Svemir", "en": "Space"}),
+    ("nuclear", {"hr": "Nuklearna energija", "en": "Nuclear energy"}),
+    ("robotics", {"hr": "Roboti i dronovi", "en": "Robots and drones"}),
+]
+def sector_label(sid, L): return dict(SECTORS).get(sid, {}).get(L)
 BENCH = "IWM"   # Russell 2000 ETF: the fair yardstick for small caps
 
 def load():

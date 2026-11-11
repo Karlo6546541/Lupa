@@ -1,12 +1,106 @@
 {
- "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post, to set its sector (bio | quantum), or to give the exact lead-sponsor name used on ClinicalTrials.gov (ct_sponsor) so its trials are followed.",
- "DNA": {"sector": "bio"},
- "ABSI": {"sector": "bio", "ct_sponsor": "Absci"},
- "SANA": {"sector": "bio", "ct_sponsor": "Sana Biotechnology"},
- "CDXS": {"sector": "bio"},
- "INFQ": {"sector": "quantum"},
- "IONQ": {"sector": "quantum"},
- "RGTI": {"sector": "quantum"},
- "QBTS": {"sector": "quantum"},
- "QUBT": {"sector": "quantum"}
+ "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post. sector: bio | quantum | space | nuclear | robotics (labels in tracker.py SECTORS). ct_sponsor: exact lead-sponsor name on ClinicalTrials.gov so its trials are followed. Only companies that file 10-K/10-Q and Form 4 with the SEC work (foreign private issuers filing 20-F/40-F have no insider data).",
+ "DNA": {
+  "sector": "bio"
+ },
+ "ABSI": {
+  "sector": "bio",
+  "ct_sponsor": "Absci"
+ },
+ "SANA": {
+  "sector": "bio",
+  "ct_sponsor": "Sana Biotechnology"
+ },
+ "CDXS": {
+  "sector": "bio"
+ },
+ "INFQ": {
+  "sector": "quantum"
+ },
+ "IONQ": {
+  "sector": "quantum"
+ },
+ "RGTI": {
+  "sector": "quantum"
+ },
+ "QBTS": {
+  "sector": "quantum"
+ },
+ "QUBT": {
+  "sector": "quantum"
+ },
+ "TWST": {
+  "sector": "bio",
+  "ct_sponsor": "Twist Bioscience"
+ },
+ "RXRX": {
+  "sector": "bio",
+  "ct_sponsor": "Recursion"
+ },
+ "ABCL": {
+  "sector": "bio",
+  "ct_sponsor": "AbCellera"
+ },
+ "BEAM": {
+  "sector": "bio",
+  "ct_sponsor": "Beam Therapeutics"
+ },
+ "NTLA": {
+  "sector": "bio",
+  "ct_sponsor": "Intellia Therapeutics"
+ },
+ "PACB": {
+  "sector": "bio"
+ },
+ "SDGR": {
+  "sector": "bio"
+ },
+ "RKLB": {
+  "sector": "space"
+ },
+ "ASTS": {
+  "sector": "space"
+ },
+ "LUNR": {
+  "sector": "space"
+ },
+ "RDW": {
+  "sector": "space"
+ },
+ "PL": {
+  "sector": "space"
+ },
+ "BKSY": {
+  "sector": "space"
+ },
+ "OKLO": {
+  "sector": "nuclear"
+ },
+ "SMR": {
+  "sector": "nuclear"
+ },
+ "NNE": {
+  "sector": "nuclear"
+ },
+ "LEU": {
+  "sector": "nuclear"
+ },
+ "UUUU": {
+  "sector": "nuclear"
+ },
+ "RCAT": {
+  "sector": "robotics"
+ },
+ "KTOS": {
+  "sector": "robotics"
+ },
+ "AVAV": {
+  "sector": "robotics"
+ },
+ "ONDS": {
+  "sector": "robotics"
+ },
+ "SERV": {
+  "sector": "robotics"
+ }
 }

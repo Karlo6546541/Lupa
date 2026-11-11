@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Fetch latest daily closes from Yahoo Finance public chart endpoint and write data/prices.json.
-Usage: python3 scripts/update_prices.py [TICKER ...]   (no args = refresh all tickers already in prices.json)
+Usage: python3 scripts/update_prices.py [TICKER ...]   (no args = refresh every ticker in prices.json plus every ticker in content/companies.json)
 Never edit numbers by hand: re-run this script and rebuild."""
 import json, sys, urllib.request, urllib.parse, datetime, pathlib
 from zoneinfo import ZoneInfo
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = ROOT / "data" / "prices.json"
 db = json.loads(P.read_text()) if P.exists() else {}
-tickers = sys.argv[1:] or list(db.keys())
+cfg = ROOT / "content" / "companies.json"
+extra = [k for k in json.loads(cfg.read_text()) if not k.startswith("_")] if cfg.exists() else []
+tickers = sys.argv[1:] or list(dict.fromkeys(list(db.keys()) + extra))
 ny = ZoneInfo("America/New_York")
 for t in tickers:
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(t)}?range=1mo&interval=1d"
