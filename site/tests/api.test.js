@@ -66,7 +66,7 @@ test('stripe webhook signature', () => {
   assert.ok(!verifySig(raw, '', secret));
 });
 
-// ---- checkout-complete: access only in the browser that started checkout ----
+// ---- checkout (success redirect): access only in the browser that started checkout ----
 function mockStripeSession(nonce) {
   global.fetch = async (url) => {
     assert.match(String(url), /checkout\/sessions\/cs_test_abc/);
@@ -75,29 +75,29 @@ function mockStripeSession(nonce) {
       metadata: { site: 'lupa', nonce }, subscription: { status: 'active' } }) };
   };
 }
-test('checkout-complete sets session only with matching nonce cookie', async () => {
-  const h = require('../api/checkout-complete');
+test('checkout success redirect sets session only with matching nonce cookie', async () => {
+  const h = require('../api/checkout');
   mockStripeSession('n0nce');
   let r = res();
-  await h(req({ url: '/api/checkout-complete?session_id=cs_test_abc&lang=en', headers: { cookie: '__Host-lupa_checkout=n0nce' } }), r);
+  await h(req({ url: '/api/checkout?session_id=cs_test_abc&lang=en', headers: { cookie: '__Host-lupa_checkout=n0nce' } }), r);
   assert.equal(r.statusCode, 303);
   assert.ok(setCookies(r).some((c) => c.startsWith('__Host-lupa_session=') && !c.includes('Max-Age=0')));
 
   r = res();
-  await h(req({ url: '/api/checkout-complete?session_id=cs_test_abc&lang=en' }), r);   // leaked URL, other browser
+  await h(req({ url: '/api/checkout?session_id=cs_test_abc&lang=en' }), r);   // leaked URL, other browser
   assert.equal(r.getHeader('location'), '/en/account/?login=paid');
   assert.ok(!setCookies(r).some((c) => c.startsWith('__Host-lupa_session=')));
 });
 
-test('login-verify: valid, expired and session-cookie tokens', async () => {
-  const h = require('../api/login-verify');
+test('login link (GET): valid, expired and session-cookie tokens', async () => {
+  const h = require('../api/login');
   let r = res();
-  await h(req({ url: '/api/login-verify?lang=hr&t=' + encodeURIComponent(L.sign({ c: 'cus_5', exp: Date.now() + 60000 }, 'login')) }), r);
+  await h(req({ url: '/api/login?lang=hr&t=' + encodeURIComponent(L.sign({ c: 'cus_5', exp: Date.now() + 60000 }, 'login')) }), r);
   assert.equal(r.getHeader('location'), '/hr/racun/?login=ok');
   assert.ok(setCookies(r).some((c) => c.startsWith('__Host-lupa_session=')));
   for (const t of [L.sign({ c: 'cus_5', exp: Date.now() - 1 }, 'login'), L.sign({ c: 'cus_5', ok: 1 })]) {
     r = res();
-    await h(req({ url: '/api/login-verify?lang=hr&t=' + encodeURIComponent(t) }), r);
+    await h(req({ url: '/api/login?lang=hr&t=' + encodeURIComponent(t) }), r);
     assert.equal(r.getHeader('location'), '/hr/racun/?login=expired');
     assert.equal(setCookies(r).length, 0);
   }
@@ -120,7 +120,7 @@ test('login: same answer whether or not the email is a customer; rejects cross-o
   assert.equal(a.getHeader('location'), '/en/account/?login=sent');
   assert.equal(b.getHeader('location'), '/en/account/?login=sent');
   assert.equal(sent.length, 1);
-  const link = sent[0].text.match(/https:\/\/lupa\.test\/api\/login-verify\?lang=en&t=(\S+)/);
+  const link = sent[0].text.match(/https:\/\/lupa\.test\/api\/login\?lang=en&t=(\S+)/);
   assert.ok(link, 'email contains the link');
   assert.equal(L.verify(decodeURIComponent(link[1]), 'login').c, 'cus_7');
   assert.equal((await post('bad')).getHeader('location'), '/en/account/?login=bad');

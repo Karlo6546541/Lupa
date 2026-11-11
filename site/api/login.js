@@ -1,4 +1,7 @@
 // POST /api/login  (form: email, lang) → emails a one-time sign-in link (valid 15 min) to a Stripe customer with that email.
+// GET  /api/login?t=<signed token>&lang=  → target of that emailed link: checks signature + expiry, sets the session cookie
+//      (the subscription itself is re-checked against Stripe on the next page load; the cookie is stored with ok=0).
+// One function for both: Vercel's Hobby plan allows at most 12 functions per deployment.
 // Lets a subscriber unlock Lupa on a new device or browser. The answer is always the same ("check your inbox"), so the
 // form cannot be used to find out who subscribes. Needs RESEND_API_KEY + LOGIN_EMAIL_FROM (see README).
 'use strict';
@@ -23,8 +26,17 @@ async function findCustomer(email) {
   return list[0] ? list[0].id : null;   // lapsed customer: link still lets them see invoices / renew via the portal
 }
 
+function verifyLink(req, res) {
+  const q = L.query(req), P = L.PATHS[L.lang(q.get('lang'))];
+  const tok = L.verify(q.get('t') || '', 'login');
+  if (!tok || typeof tok.exp !== 'number' || tok.exp < Date.now()) return L.redirect(res, P.account + '?login=expired');
+  L.setSession(res, { c: tok.c, ok: 0, chk: 0, iat: Date.now() });
+  return L.redirect(res, P.account + '?login=ok');
+}
+
 module.exports = async (req, res) => {
   const qlang = L.lang(L.query(req).get('lang'));
+  if (req.method === 'GET' && L.query(req).get('t')) return verifyLink(req, res);
   if (req.method !== 'POST') return L.redirect(res, L.PATHS[qlang].account);
   if (!L.sameOrigin(req)) return L.json(res, 403, { error: 'bad_origin' });
   const form = await L.readForm(req).catch(() => ({}));
@@ -39,7 +51,7 @@ module.exports = async (req, res) => {
     const customer = await findCustomer(email);
     if (customer) {
       const token = L.sign({ c: customer, exp: Date.now() + LINK_TTL_MS }, 'login');
-      const link = `${L.SITE()}/api/login-verify?lang=${lang}&t=${encodeURIComponent(token)}`;
+      const link = `${L.SITE()}/api/login?lang=${lang}&t=${encodeURIComponent(token)}`;
       const t = TEXT[lang];
       await L.sendEmail({
         to: email, subject: t.subject,
