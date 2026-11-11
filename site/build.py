@@ -42,10 +42,10 @@ T = {  # UI strings
 }
 PATHS = {"hr": dict(articles="clanci", cat="rubrika", archive="arhiva", about="o-nama", disclaimer="izjava-o-odgovornosti",
                     newsletter="newsletter", advertise="oglasavanje", subscribe="pretplata", account="racun",
-                    privacy="privatnost", terms="uvjeti"),
+                    privacy="privatnost", terms="uvjeti", companies="tvrtke", calendar="kalendar", track="rezultati"),
          "en": dict(articles="articles", cat="category", archive="archive", about="about", disclaimer="disclaimer",
                     newsletter="newsletter", advertise="advertise", subscribe="subscribe", account="account",
-                    privacy="privacy", terms="terms")}
+                    privacy="privacy", terms="terms", companies="companies", calendar="calendar", track="track-record")}
 OLD_PATHS = {"hr": "podrzi-lupu", "en": "support"}  # retired donation page → 308 to the subscribe page (see scripts/package_vercel.py)
 MON = json.loads((CONTENT / "monetization.json").read_text())
 IMAGES = json.loads((CONTENT / "images.json").read_text())
@@ -701,13 +701,14 @@ import tracker
 TODAY = datetime.datetime.now(ZG).date()
 TRK_DB, TRK_MANUAL = tracker.load()
 COMPANIES = TRK_DB.get("companies", {})
-PATHS["hr"].update(companies="tvrtke", calendar="kalendar", track="rezultati")
-PATHS["en"].update(companies="companies", calendar="calendar", track="track-record")
 TT = {
- "hr": dict(companies="Tvrtke koje pratimo", companies_dek="Službene objave, kupnje i prodaje uprave, klinička ispitivanja i naše analize — za svaku tvrtku na jednom mjestu.",
+ "hr": dict(companies="Tvrtke", companies_dek="Tvrtke koje Lupa prati: dubinske analize i imena s radara, sa zadnjim zatvaranjem, dnevnom promjenom i tržišnom kapitalizacijom. Ispod su i službene objave. Ovo nije preporuka za kupnju.",
             calendar="Kalendar katalizatora", calendar_dek="Datumi koji mogu pomaknuti cijenu: financijski rezultati i završeci kliničkih ispitivanja tvrtki koje pratimo.",
             track="Rezultati analiza", track_dek="Što se s cijenom dogodilo nakon svake naše dubinske analize — sve analize, i one koje su prošle loše.",
-            nav="Praćenje", company="Tvrtka", price="Cijena", day="Dan", insider12="Uprava (12 mj.)", last_event="Zadnja objava", buys="kupnji", sells="prodaja",
+            nav="Tvrtke", company="Tvrtka", price="Cijena", day="Dan", insider12="Uprava (12 mj.)", last_event="Zadnja objava", buys="kupnji", sells="prodaja",
+            group_dive="Dubinske analize", group_dive_lead="Tvrtke s vlastitom analizom. Cijeli tekst čitaju pretplatnici.",
+            group_radar="Na radaru", group_radar_lead="Imena iz besplatnog radara. Još nemaju vlastitu analizu.",
+            piece_radar="Na radaru", profile="Profil i objave",
             timeline="Objave i transakcije uprave", none="Još nema podataka.", insider_h="Uprava: kupnje i prodaje u zadnjih 12 mjeseci",
             insider_p="Otvorene tržišne kupnje (šifra P) i prodaje (šifra S) iz obrazaca Form 4. Dodjele dionica, porezna zadržavanja i izvršenja opcija ne računaju se jer nisu odluka o ulaganju.",
             buy_v="Kupnje", sell_v="Prodaje", routine="rutinskih transakcija izostavljeno", trials="Klinička ispitivanja", trial="Ispitivanje", phase="Faza", status="Stanje", done="Planirani završetak",
@@ -718,10 +719,13 @@ TT = {
             data_note="Podaci: SEC EDGAR i ClinicalTrials.gov, osvježeno {d} Sažeci događaja nastaju automatski iz službenih obrazaca; izvornik je uvijek na poveznici.",
             app_cta="U aplikaciji Lupa možete pratiti ovu tvrtku i dobiti obavijest o novoj objavi ili kupnji uprave.", all="Sve tvrtke", next_res="Sljedeći rezultati",
             ty=dict(earnings="Rezultati", trial="Ispitivanje", meeting="Skupština", fda="FDA", other="Događaj"), f_all="Sve", open="Otvori", edgar="Sve objave na SEC EDGAR-u"),
- "en": dict(companies="Companies we track", companies_dek="Official filings, insider buys and sales, clinical trials and our research — in one place for each company.",
+ "en": dict(companies="Companies", companies_dek="The companies Lupa covers: deep dives and radar names, with the last close, the day's change and market cap. Official filings are listed below. This is not a buy recommendation.",
             calendar="Catalyst calendar", calendar_dek="Dates that can move the price: financial results and clinical-trial completions for the companies we track.",
             track="Track record", track_dek="What the price did after each of our deep dives — every analysis, including the ones that went badly.",
-            nav="Tracker", company="Company", price="Price", day="Day", insider12="Insiders (12 mo)", last_event="Latest filing", buys="buys", sells="sales",
+            nav="Companies", company="Company", price="Price", day="Day", insider12="Insiders (12 mo)", last_event="Latest filing", buys="buys", sells="sales",
+            group_dive="Deep dives", group_dive_lead="Companies with their own analysis. Subscribers read the full piece.",
+            group_radar="On the radar", group_radar_lead="Names from the free radar. They do not have a deep dive of their own yet.",
+            piece_radar="On the radar", profile="Profile and filings",
             timeline="Filings and insider transactions", none="No data yet.", insider_h="Insiders: buys and sales in the last 12 months",
             insider_p="Open-market purchases (code P) and sales (code S) from Form 4 filings. Share grants, tax withholding and option exercises are left out because they are not investment decisions.",
             buy_v="Buys", sell_v="Sales", routine="routine transactions left out", trials="Clinical trials", trial="Trial", phase="Phase", status="Status", done="Planned completion",
@@ -789,20 +793,85 @@ def build_company(t, L):
     inner += f'<p class="note">{tt["app_cta"]}</p>'
     trk_page(L, "companies", here, p_company(t, other), title, dek, inner, og_path=CARDS.get((t, L)))
 
+SECTOR_LABEL = {"hr": {"bio": "Bioinženjering", "quantum": "Kvantno računalstvo"},
+                "en": {"bio": "Bioengineering", "quantum": "Quantum computing"}}
+def directory_list():
+    """Editorial coverage list (content/companies.json `_directory`), not every ticker that appears in an article."""
+    raw = json.loads((CONTENT / "companies.json").read_text())
+    listed = raw.get("_directory")
+    if not isinstance(listed, list) or not listed:
+        raise SystemExit("ERROR: content/companies.json is missing a non-empty _directory list")
+    out = []
+    for t in listed:
+        if not isinstance(t, str) or t in out:
+            raise SystemExit(f"ERROR: bad _directory entry {t!r}")
+        px = LATEST.get(t)
+        if not px:
+            raise SystemExit(f"ERROR: directory company {t} has no quote in data/prices.json")
+        if px.get("type") in ("ETF", "INDEX") or t.startswith("^"):
+            raise SystemExit(f"ERROR: {t} is an index or fund and cannot be listed as a company")
+        out.append(t)
+    return out
+def directory_post(ticker):
+    """Deep dive when this ticker is the subject; otherwise the latest other piece (the radar)."""
+    hits = [p for p in POSTS if ticker in p.get("tickers", [])]
+    dives = [p for p in hits if "research" in p.get("categories", []) and tracker.primary_ticker(p, LATEST) == ticker]
+    if dives: return dives[0]
+    rest = [p for p in hits if tracker.primary_ticker(p, LATEST) == ticker or "research" not in p.get("categories", [])]
+    if not rest:
+        raise SystemExit(f"ERROR: {ticker} is on the companies directory but has no Lupa article of its own")
+    return rest[0]
+def is_dive(ticker):
+    post = directory_post(ticker)
+    return "research" in post.get("categories", []) and tracker.primary_ticker(post, LATEST) == ticker
+def directory_row(t, L, here):
+    tt = TT[L]; px = LATEST[t]; post = directory_post(t); dive = is_dive(t)
+    name = px.get("name") or (COMPANIES.get(t) or {}).get("name") or t
+    d = decimals(px)
+    sector = SECTOR_LABEL[L].get((COMPANIES.get(t) or {}).get("sector") or "", "")
+    kicker = f'<p class="kicker">{esc(sector)}</p>' if sector else ""
+    article = rel(here, p_post(post, L))
+    piece = T[L]["read_story"] if dive else tt["piece_radar"]
+    badge = (paid_badge(L) + " ") if is_paid(post) else ""
+    profile = f' · <a href="{rel(here, p_company(t, L))}">{tt["profile"]}</a>' if t in COMPANIES else ""
+    mc = FUND.get(t) if isinstance(FUND.get(t), dict) else {}
+    mcap = mc.get("market_cap_usd") or ""
+    mcap_html = ""
+    if mcap:
+        src = mc.get("source")
+        link = f' · <a href="{esc(src)}" rel="noopener">stockanalysis.com</a>' if src else ""
+        mcap_html = f'<p class="meta">{T[L]["mcap"]} ≈ {esc(fmt_cap(mcap, L))} USD{link}</p>'
+    meta = " · ".join(x for x in (t, px.get("exchange") or "") if x)
+    return (f'<article class="co" data-ticker="{esc(t)}" data-mcap="{esc(mcap)}" data-dive="{"1" if dive else "0"}">'
+            f'<div class="co-main">{kicker}<h3><a href="{article}">{esc(name)}</a></h3>'
+            f'<p class="meta">{esc(meta)}</p>'
+            f'<p class="co-links">{badge}<a href="{article}">{esc(piece)}</a>{profile}</p></div>'
+            f'<div class="co-px"><div class="px">{fmt_num(px["last"], L, d)}<small>{esc(px.get("currency") or "")}</small></div>'
+            f'<div class="chg {cls(px["change"])}">{fmt_num(px["change"], L, d, True)} ({fmt_pct(px["change_pct"], L)})</div>'
+            f'{mcap_html}<p class="meta">{T[L]["close"]} {fmt_date(px["session_date"], L)} · '
+            f'<a href="{esc(px["source_url"])}" rel="noopener">{esc(px["source"])}</a></p></div></article>')
+def directory_block(L, here):
+    tt = TT[L]; listed = directory_list()
+    groups = (("dive", tt["group_dive"], tt["group_dive_lead"], [t for t in listed if is_dive(t)]),
+              ("radar", tt["group_radar"], tt["group_radar_lead"], [t for t in listed if not is_dive(t)]))
+    body = ""
+    for _gid, title, lead, tickers in groups:
+        if not tickers: continue
+        rows = "".join(directory_row(t, L, here) for t in tickers)
+        body += (f'<section class="co-group"><h2>{esc(title)}</h2><p class="co-lead">{esc(lead)}</p>'
+                 f'<div class="co-dir">{rows}</div></section>')
+    return (f'<div class="co-coverage" data-directory="coverage">{body}'
+            f'<p class="trk-fine">{T[L]["price_note"]}</p></div><!--coverage-end-->')
 def build_tracker_pages(L):
     tt = TT[L]; other = "en" if L == "hr" else "hr"; out = []
-    # companies index
-    here = p_page("companies", L); rows = ""; latest_events = []
-    for t in COMPANIES:
-        v = cview(t); px = v["price"]; i = v["insider"]; ev = v["events"][0] if v["events"] else None
-        latest_events += v["events"][:6]
-        rows += (f'<tr><td><a href="{rel(here, p_company(t, L))}"><b>{esc(t)}</b></a><br><span class="meta">{esc(v["name"])}</span></td>'
-                 + (f'<td class="r">{fmt_num(px["last"], L, decimals(LATEST[t]))}</td><td class="r">{pct_span(px["change_pct"], L)}</td>' if px else "<td>—</td><td>—</td>")
-                 + f'<td><span class="up">{i["buys"]} {tt["buys"]}</span> · <span class="down">{i["sells"]} {tt["sells"]}</span></td>'
-                 + (f'<td><span class="meta">{fmt_date(ev["date"], L)}</span><br>{esc(ev["text"][L])}</td>' if ev else "<td>—</td>") + "</tr>")
+    # companies index — coverage directory, then filings for those names only
+    here = p_page("companies", L); listed = directory_list(); latest_events = []
+    for t in listed:
+        if t not in COMPANIES: continue
+        latest_events += cview(t)["events"][:6]
     latest_events.sort(key=lambda e: e["date"], reverse=True)
-    inner = (f'<div class="tablewrap"><table class="trk-table"><thead><tr><th>{tt["company"]}</th><th class="r">{tt["price"]}</th><th class="r">{tt["day"]}</th><th>{tt["insider12"]}</th><th>{tt["last_event"]}</th></tr></thead><tbody>{rows}</tbody></table></div>'
-             f'<h2>{tt["timeline"]}</h2>{event_rows([e for e in latest_events if e["important"]][:20], L, here, with_ticker=True)}') if COMPANIES else f'<p class="empty">{tt["none"]}</p>'
+    inner = (directory_block(L, here) + f'<h2>{tt["timeline"]}</h2>'
+             + event_rows([e for e in latest_events if e["important"]][:20], L, here, with_ticker=True))
     trk_page(L, "companies", here, p_page("companies", other), tt["companies"], tt["companies_dek"], inner, wide=True); out.append(here)
     for t in COMPANIES: build_company(t, L); out.append(p_company(t, L))
     # calendar

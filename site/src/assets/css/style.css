@@ -430,4 +430,21 @@ a.chip-link:hover .chip{border-color:var(--teal)}
 .ins b{font:600 1.7rem/1.1 var(--serif)} .ins small{font:400 .82rem/1.2 var(--mono);color:var(--ink-2)}
 .ins-buy b{color:var(--up)} .ins-sell b{color:var(--down)}
 .prose .trk-posts li{padding:.5rem 0;border-bottom:1px solid var(--rule);margin:0}
+.co-coverage{font-family:var(--sans)}
+.prose .co-group h2{margin:1.4rem 0 .4rem}
+.prose .co-lead{font:400 .95rem/1.5 var(--sans);color:var(--ink-2);margin:0 0 .9rem}
+.co-dir{display:flex;flex-direction:column;gap:.8rem;margin:0 0 1.4rem}
+.co{display:grid;grid-template-columns:minmax(0,1fr) minmax(11rem,16rem);gap:.75rem 1.4rem;align-items:start;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);box-shadow:var(--shadow);padding:1rem 1.1rem}
+.prose .co h3{font:600 1.28rem/1.2 var(--serif);margin:0 0 .2rem;letter-spacing:-.01em}
+.prose .co h3 a{color:var(--ink);text-decoration:none}
+.prose .co h3 a:hover{color:var(--teal)}
+.prose .co p{margin:0}
+.prose .co .kicker{margin:0 0 .3rem}
+.co-links{margin-top:.5rem!important;font-size:.88rem}
+.co-px{text-align:right}
+.co-px .px{font-family:var(--mono);font-size:1.35rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.co-px .px small{font-size:.72rem;color:var(--muted);margin-left:.25rem}
+.co-px .chg{font-family:var(--mono);font-size:.86rem}
+.prose .co-px .meta{margin-top:.28rem}
+@media (max-width:640px){.co{grid-template-columns:1fr}.co-px{text-align:left;padding-top:.45rem;border-top:1px solid var(--rule)}}
 @media (max-width:560px){.ev,.cal{grid-template-columns:auto 1fr}.ev-text{grid-column:1/-1}}

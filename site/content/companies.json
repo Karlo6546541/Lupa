@@ -1,5 +1,6 @@
 {
- "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post, to set its sector (bio | quantum), or to give the exact lead-sponsor name used on ClinicalTrials.gov (ct_sponsor) so its trials are followed.",
+ "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post, to set its sector (bio | quantum), or to give the exact lead-sponsor name used on ClinicalTrials.gov (ct_sponsor) so its trials are followed. _directory is the public coverage list on /hr/tvrtke/ and /en/companies/ (order is the order on the page). IonQ is a large-cap comparable in the Infleqtion piece: it stays in the filing tracker and off _directory.",
+ "_directory": ["DNA", "INFQ", "ABSI", "SANA", "CDXS", "QUBT", "RGTI", "QBTS"],
  "DNA": {"sector": "bio"},
  "ABSI": {"sector": "bio", "ct_sponsor": "Absci"},
  "SANA": {"sector": "bio", "ct_sponsor": "Sana Biotechnology"},

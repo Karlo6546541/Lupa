@@ -67,6 +67,7 @@ URLs, the sitemap, RSS and the 404 page's asset paths are absolute and correct. 
 | Article | `/hr/clanci/<slug.hr>/` | `/en/articles/<slug.en>/` |
 | Category | `/hr/rubrika/<slug>/` | `/en/category/<slug>/` |
 | Archive | `/hr/arhiva/` | `/en/archive/` |
+| Companies | `/hr/tvrtke/` | `/en/companies/` |
 | About | `/hr/o-nama/` | `/en/about/` |
 | Disclaimer | `/hr/izjava-o-odgovornosti/` | `/en/disclaimer/` |
 | Newsletter | `/hr/newsletter/` | `/en/newsletter/` |
@@ -235,6 +236,8 @@ What counts: insider **buys** are Form 4 code `P`, **sales** code `S`; grants, o
 left out of the timeline (counted as "routine"). Estimated results dates are derived from past results 8-Ks and are
 labelled "procjena / estimate" everywhere; only confirmed dates trigger a notification.
 Not included: US government contracts (USAspending.gov blocked automated access when this was built).
+
+The index (`/hr/tvrtke/`, `/en/companies/`) is the coverage directory: `content/companies.json` → `_directory`, in that order. Each row uses the name, last close and change from `data/prices.json` and the market cap from `data/fundamentals.json`, and links to the deep dive when that ticker is the subject, otherwise the radar piece. IonQ stays in the filing tracker (a large-cap comparable in the Infleqtion piece) and is not on `_directory`. Indices and ETFs are never listed as companies. Header and footer label: Tvrtke / Companies.
 
 **GitHub secrets for the daily job** (Settings → Secrets and variables → Actions). Without them the job still refreshes and commits data:
 
