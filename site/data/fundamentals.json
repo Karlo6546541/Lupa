@@ -1,0 +1,12 @@
+{
+ "_note": "Market cap and shares outstanding as displayed by stockanalysis.com, read 2026-11-11 ~00:15 CET (based on 2026-11-10 close). Other figures are from company filings cited in each article.",
+ "DNA":  {"market_cap_usd": "808.76M", "shares_out": "67.34M", "source": "https://stockanalysis.com/stocks/dna/"},
+ "INFQ": {"market_cap_usd": "2.11B",   "shares_out": "225.36M","source": "https://stockanalysis.com/stocks/infq/"},
+ "ABSI": {"market_cap_usd": "1.71B",   "shares_out": "171.61M","source": "https://stockanalysis.com/stocks/absi/"},
+ "CDXS": {"market_cap_usd": "110.05M", "shares_out": "109.51M","source": "https://stockanalysis.com/stocks/cdxs/"},
+ "SANA": {"market_cap_usd": "726.61M", "shares_out": "299.63M","source": "https://stockanalysis.com/stocks/sana/"},
+ "RGTI": {"market_cap_usd": "4.05B",   "shares_out": "333.77M","source": "https://stockanalysis.com/stocks/rgti/"},
+ "QBTS": {"market_cap_usd": "3.90B",   "shares_out": "372.44M","source": "https://stockanalysis.com/stocks/qbts/"},
+ "QUBT": {"market_cap_usd": "1.43B",   "shares_out": "226.93M","source": "https://stockanalysis.com/stocks/qubt/"},
+ "IONQ": {"market_cap_usd": "15.11B",  "shares_out": "432.46M","source": "https://stockanalysis.com/stocks/ionq/"}
+}

@@ -1,0 +1,29 @@
+{
+ "_readme": "Monetization settings. Everything here is optional; empty values fall back to honest placeholders. See README.md → 'Zarada / Monetization'. Never commit secret API keys here: this file is published as part of a static site.",
+ "contact_email": "urednistvo@lupa.example",
+ "newsletter": {
+  "_help": "provider: none | buttondown | mailchimp | beehiiv | other. When action_url is empty the form opens a pre-filled email to contact_email (demo mode). Paste the PUBLIC form action URL from your provider to switch to real sign-ups.",
+  "provider": "none",
+  "action_url": "",
+  "email_field": "email",
+  "language_field": "tag",
+  "hidden_fields": {}
+ },
+ "ads": {
+  "_help": "Paste a raw HTML snippet from your ad network or a direct-sold banner into a slot. Empty slot = house ad linking to the advertising page. Slots: in_article (before the 3rd section of every article), sidebar (article rail, category and archive pages), home_band (homepage, below markets).",
+  "slots": {
+   "in_article": "",
+   "sidebar": "",
+   "home_band": ""
+  }
+ },
+ "subscription": {
+  "_help": "Display text only. The real charge comes from the Stripe Price in the Vercel env var STRIPE_PRICE_ID; the API refuses to start Checkout unless that price is exactly 7.00 EUR per month (see api/lib.js EXPECTED_*). Secret keys live ONLY in Vercel env vars, never here.",
+  "plan": {
+   "hr": "Pretplata na Lupu",
+   "en": "Lupa subscription"
+  },
+  "price_eur": 7,
+  "interval": "month"
+ }
+}

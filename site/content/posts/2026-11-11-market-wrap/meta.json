@@ -1,0 +1,63 @@
+{
+ "date": "2026-11-11",
+ "order": 2,
+ "access": "free",
+ "slug": {
+  "hr": "trziste-10-studenoga-2026-inflacija-kamate-male-dionice",
+  "en": "market-wrap-10-november-2026-inflation-rates-small-caps"
+ },
+ "categories": [
+  "markets",
+  "small-caps"
+ ],
+ "prices_session": "2026-11-10",
+ "tickers": [
+  "^RUT",
+  "^GSPC",
+  "^IXIC",
+  "XBI"
+ ],
+ "title": {
+  "hr": "Inflacija vraća kamate u igru — male dionice drže korak bolje od tehnologije",
+  "en": "Inflation puts rates back in play — and small caps are holding up better than tech"
+ },
+ "dek": {
+  "hr": "Utorak, 10. studenoga: CPI iznad očekivanja, prinos na desetogodišnje obveznice blizu 5 %, Nvidia pod pritiskom. Russell 2000 pao je 0,68 %, ali je u mjesec dana i dalje u plusu, za razliku od Nasdaqa.",
+  "en": "Tuesday, 10 November: a hotter CPI, the 10-year yield near 5% and Nvidia under pressure. The Russell 2000 fell 0.68%, yet it is still up over the past month — unlike the Nasdaq."
+ },
+ "sources": [
+  {
+   "label": "Reuters via Investing.com — Wall St ends lower as hot inflation data, Fed comments heighten rate worries (10 Nov 2026)",
+   "url": "https://www.investing.com/news/stock-market-news/sp-500-dow-futures-climb-as-oil-slide-lifts-sentiment-5014579"
+  },
+  {
+   "label": "Investopedia — Markets News, Nov. 10, 2026",
+   "url": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11102026-12246538"
+  },
+  {
+   "label": "Anadolu Agency — US stocks close lower as Nvidia slides, inflation fuels rate-hike fears",
+   "url": "https://www.aa.com.tr/en/economy/us-stocks-close-lower-as-nvidia-slides-inflation-fuels-rate-hike-fears/4119589"
+  },
+  {
+   "label": "AP — How major US stock indexes fared Tuesday 11/10/2026",
+   "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-a97eb31c415811065561f2c2ac552cd7"
+  },
+  {
+   "label": "AP — A brutal sell-off for AI stocks sends Wall Street reeling, and the S&P 500 tumbles 4.4% (5 Nov 2026)",
+   "url": "https://apnews.com/article/stocks-markets-ai-midterm-oil-trump-7ee9c212805aa5e70cf34d25aab7a36e"
+  },
+  {
+   "label": "Rigetti Computing — Q3 2026 results (10 Nov 2026)",
+   "url": "https://www.globenewswire.com/news-release/2026/11/10/3400214/0/en/rigetti-computing-reports-third-quarter-2026-financial-results.html"
+  },
+  {
+   "label": "D-Wave Quantum — Q3 2026 results (10 Nov 2026)",
+   "url": "https://ir.dwavequantum.com/news/news-details/2026/D-Wave-Reports-Third-Quarter-2026-Results/default.aspx"
+  },
+  {
+   "label": "Yahoo Finance — index and ETF closing data (^GSPC, ^IXIC, ^DJI, ^RUT, ^VIX, IWM, XBI, IBB)",
+   "url": "https://finance.yahoo.com/quote/%5ERUT"
+  }
+ ],
+ "hero": "market-hero"
+}

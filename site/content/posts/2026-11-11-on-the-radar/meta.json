@@ -1,0 +1,86 @@
+{
+ "date": "2026-11-11",
+ "order": 1,
+ "access": "free",
+ "slug": {
+  "hr": "danas-na-radaru-11-studenoga-2026",
+  "en": "on-the-radar-11-november-2026"
+ },
+ "categories": [
+  "small-caps",
+  "bioengineering",
+  "quantum"
+ ],
+ "prices_session": "2026-11-10",
+ "tickers": [
+  "ABSI",
+  "SANA",
+  "CDXS",
+  "QUBT",
+  "RGTI",
+  "QBTS"
+ ],
+ "title": {
+  "hr": "Danas na radaru: šest imena iz bioinženjeringa i kvantnog sektora",
+  "en": "On the radar: six names from bioengineering and quantum"
+ },
+ "dek": {
+  "hr": "Absci, Sana, Codexis, QCi, Rigetti i D-Wave: što se upravo dogodilo, zašto je važno i na što paziti. Popis za praćenje, a ne preporuke za kupnju.",
+  "en": "Absci, Sana, Codexis, QCi, Rigetti and D-Wave: what just happened, why it matters and what to watch. A watchlist, not buy recommendations."
+ },
+ "sources": [
+  {
+   "label": "Absci — Q2 2026 results and business update (11 Aug 2026)",
+   "url": "https://investors.absci.com/news-releases/news-release-details/absci-reports-business-updates-and-second-quarter-2026-financial/"
+  },
+  {
+   "label": "Almirall — Almirall and Absci expand AI drug creation collaboration",
+   "url": "https://www.almirall.com/news-media/newsroom/almirall-and-absci-expand-ai-drug-creation-collaboration-adding-second"
+  },
+  {
+   "label": "AMD — Absci accelerates AI antibody design on AMD Instinct GPUs",
+   "url": "https://www.amd.com/en/blogs/2026/absci-accelerates-ai-antibody-design-on-amd-instinct-gpus.html"
+  },
+  {
+   "label": "Sana Biotechnology — Q3 2026 results and business updates (5 Nov 2026)",
+   "url": "https://ir.sana.com/news-releases/news-release-details/sana-biotechnology-reports-third-quarter-2026-financial-results/"
+  },
+  {
+   "label": "Codexis — ECO Synthesis data at TIDES Europe 2026 (9 Nov 2026)",
+   "url": "https://ir.codexis.com/news-events/press-releases/detail/456/codexis-advances-eco-synthesis-toward-adoption-readiness-with-quality-at-scale-and-expanded-sirna-manufacturing-capabilities"
+  },
+  {
+   "label": "RTTNews — Codexis secures $60m loan facility with Trinity Capital (10 Nov 2026)",
+   "url": "https://www.rttnews.com/3712656/codexis-presents-data-validating-eco-synthesis-for-sirna-production-secures-60-mln-loan-facility.aspx"
+  },
+  {
+   "label": "Quantum Computing Inc. — Q3 2026 results (9 Nov 2026)",
+   "url": "https://quantumcomputinginc.com/news/press-releases/2026/quantum-computing-inc.-reports-third-quarter-2026-financial-results"
+  },
+  {
+   "label": "Rigetti Computing — Q3 2026 results (10 Nov 2026)",
+   "url": "https://www.globenewswire.com/news-release/2026/11/10/3400214/0/en/rigetti-computing-reports-third-quarter-2026-financial-results.html"
+  },
+  {
+   "label": "Investing.com — Rigetti falls on revenue miss and weaker-than-expected guidance",
+   "url": "https://www.investing.com/news/earnings/rigetti-computing-falls-on-revenue-miss-and-weakerthanexpected-guidance-5017031"
+  },
+  {
+   "label": "D-Wave Quantum — Q3 2026 results (10 Nov 2026)",
+   "url": "https://ir.dwavequantum.com/news/news-details/2026/D-Wave-Reports-Third-Quarter-2026-Results/default.aspx"
+  },
+  {
+   "label": "The Motley Fool — D-Wave (QBTS) Q3 2026 earnings call transcript",
+   "url": "https://www.fool.com/earnings/call-transcripts/2026/11/10/d-wave-qbts-q3-2026-earnings-call-transcript/"
+  },
+  {
+   "label": "stockanalysis.com — market caps and earnings dates (read 11 Nov 2026)",
+   "url": "https://stockanalysis.com/stocks/absi/"
+  },
+  {
+   "label": "Yahoo Finance — closing prices, 10 Nov 2026",
+   "url": "https://finance.yahoo.com/quote/ABSI"
+  }
+ ],
+ "hero": "radar-hero"
+}

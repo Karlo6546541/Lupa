@@ -1,0 +1,22 @@
+{
+ "2026-11-11-ginkgo-bioworks": {
+  "slug": {
+   "hr": "ginkgo-bioworks-autonomni-laboratoriji-analiza",
+   "en": "ginkgo-bioworks-autonomous-labs-deep-dive"
+  },
+  "title": {
+   "hr": "Ginkgo Bioworks: od tvornice organizama do prodavača robotskih laboratorija",
+   "en": "Ginkgo Bioworks: from organism foundry to seller of robotic labs"
+  }
+ },
+ "2026-11-11-infleqtion": {
+  "slug": {
+   "hr": "infleqtion-neutralni-atomi-kvantni-senzori-analiza",
+   "en": "infleqtion-neutral-atoms-quantum-sensing-deep-dive"
+  },
+  "title": {
+   "hr": "Infleqtion: kvantna tvrtka koja zarađuje na senzorima dok gradi računalo",
+   "en": "Infleqtion: the quantum company earning on sensors while it builds a computer"
+  }
+ }
+}

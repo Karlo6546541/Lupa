@@ -1,0 +1,29 @@
+# Dependencies and secrets
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Site build output
+site/dist/
+site/site.tgz
+site/.vercel/
+
+# App generated / build / store credentials
+app/.expo/
+app/dist/
+app/android/
+app/ios/
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.apk
+*.aab
+*.ipa
+google-play-service-account*.json
+AuthKey_*.p8
+
+.DS_Store

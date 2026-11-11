@@ -1,0 +1,54 @@
+{
+ "date": "2026-11-11",
+ "order": 4,
+ "access": "subscribers",
+ "slug": {
+  "hr": "ginkgo-bioworks-autonomni-laboratoriji-analiza",
+  "en": "ginkgo-bioworks-autonomous-labs-deep-dive"
+ },
+ "categories": [
+  "research",
+  "bioengineering",
+  "small-caps"
+ ],
+ "prices_session": "2026-11-10",
+ "tickers": [
+  "DNA",
+  "XBI"
+ ],
+ "title": {
+  "hr": "Ginkgo Bioworks: od tvornice organizama do prodavača robotskih laboratorija",
+  "en": "Ginkgo Bioworks: from organism foundry to seller of robotic labs"
+ },
+ "dek": {
+  "hr": "Nekadašnja zvijezda sintetske biologije danas vrijedi oko 0,8 milijardi dolara i prodaje autonomne laboratorije farmaceutskim tvrtkama, nacionalnim laboratorijima i AI kompanijama. Analiziramo što prodaje, tko su kupci i koliko joj novca ostaje.",
+  "en": "The former synthetic-biology star is now worth about 0.8 billion dollars and sells autonomous labs to pharma, national laboratories and AI companies. We look at what it sells, who buys it and how much cash it has left."
+ },
+ "sources": [
+  {
+   "label": "Ginkgo Bioworks — Q3 2026 results press release, Exhibit 99.1 (SEC EDGAR, 5 Nov 2026)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1830214/000162828026071022/ex991earningspr.htm"
+  },
+  {
+   "label": "The Motley Fool — Ginkgo Bioworks (DNA) Q3 2026 earnings call transcript",
+   "url": "https://www.fool.com/earnings/call-transcripts/2026/11/06/ginkgo-bioworks-dna-q3-2026-earnings-call-transcript/"
+  },
+  {
+   "label": "Ginkgo Bioworks investor relations",
+   "url": "https://investors.ginkgobioworks.com/"
+  },
+  {
+   "label": "Investing.com — Ginkgo Bioworks earnings beat by $0.37, revenue topped estimates",
+   "url": "https://www.investing.com/news/earnings/ginkgo-bioworks-earnings-beat-by-037-revenue-topped-estimates-5005793"
+  },
+  {
+   "label": "stockanalysis.com — DNA market cap, shares outstanding, analyst consensus (read 11 Nov 2026)",
+   "url": "https://stockanalysis.com/stocks/dna/"
+  },
+  {
+   "label": "Yahoo Finance — DNA price data",
+   "url": "https://finance.yahoo.com/quote/DNA"
+  }
+ ],
+ "hero": "ginkgo-hero"
+}

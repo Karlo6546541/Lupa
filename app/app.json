@@ -1,0 +1,86 @@
+{
+  "expo": {
+    "name": "Lupa",
+    "slug": "lupa",
+    "scheme": "lupa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f6f3ec",
+    "description": "Lupa — Istraživanje malih dionica / Small-cap research. Bilingual (HR/EN) research on small listed companies: bioengineering, quantum computing and deep tech.",
+    "primaryColor": "#0e5a50",
+    "ios": {
+      "bundleIdentifier": "com.svenda.lupa",
+      "buildNumber": "1",
+      "supportsTablet": true,
+      "deploymentTarget": "16.4",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "CFBundleLocalizations": [
+          "hr",
+          "en"
+        ],
+        "CFBundleDevelopmentRegion": "hr"
+      }
+    },
+    "android": {
+      "package": "com.svenda.lupa",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0b1f1d",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-iap",
+      "expo-localization",
+      "expo-font",
+      "expo-web-browser",
+      "expo-image",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 260,
+          "resizeMode": "contain",
+          "backgroundColor": "#f6f3ec"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "16.4"
+          },
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "siteUrl": "https://lupa-lovat.vercel.app",
+      "subscriptionProductId": "lupa_monthly",
+      "eas": {}
+    }
+  }
+}

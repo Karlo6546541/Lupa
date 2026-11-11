@@ -1,0 +1,11 @@
+{
+ "hero": "newsletter",
+ "title": {
+  "hr": "Newsletter Lupe",
+  "en": "The Lupa newsletter"
+ },
+ "dek": {
+  "hr": "Besplatno, radnim danima ujutro: američka sesija u brojkama, popis „Danas na radaru” i nove analize malih tvrtki.",
+  "en": "Free, weekday mornings: the US session in numbers, the “On the radar” watchlist and new small-company deep dives."
+ }
+}

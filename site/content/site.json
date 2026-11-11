@@ -1,0 +1,83 @@
+{
+ "name": "Lupa",
+ "tagline": {
+  "hr": "Istraživanje malih dionica",
+  "en": "Small-cap research"
+ },
+ "description": {
+  "hr": "Lupa je nezavisni dvojezični blog o tržištu dionica s fokusom na male tvrtke: što zaista rade, kako su povezane s velikim igračima i koliko vrijede — bioinženjering, kvantno računalstvo i duboka tehnologija.",
+  "en": "Lupa is an independent bilingual research blog on equity markets, focused on small companies: what they actually do, how they connect to large incumbents, and what the market pays for them — bioengineering, quantum computing and deep tech."
+ },
+ "categories": [
+  {
+   "id": "markets",
+   "hr": {
+    "name": "Tržište",
+    "slug": "trziste",
+    "desc": "Kontekst sesije: indeksi, kamate, sektorska rotacija i zašto to pogađa male tvrtke."
+   },
+   "en": {
+    "name": "Markets",
+    "slug": "markets",
+    "desc": "Session context: indices, rates, sector rotation and why it matters for small companies."
+   },
+   "image": "market-hero"
+  },
+  {
+   "id": "small-caps",
+   "hr": {
+    "name": "Male dionice",
+    "slug": "male-dionice",
+    "desc": "Tvrtke male i mikro tržišne kapitalizacije koje rijetko dobiju ozbiljnu analizu."
+   },
+   "en": {
+    "name": "Small caps",
+    "slug": "small-caps",
+    "desc": "Small- and micro-cap companies that rarely get serious coverage."
+   },
+   "image": "home-hero"
+  },
+  {
+   "id": "bioengineering",
+   "hr": {
+    "name": "Bioinženjering",
+    "slug": "bioinzenjering",
+    "desc": "Sintetska biologija, stanične terapije, AI u otkrivanju lijekova i laboratorijska automatizacija."
+   },
+   "en": {
+    "name": "Bioengineering",
+    "slug": "bioengineering",
+    "desc": "Synthetic biology, cell therapies, AI drug discovery and lab automation."
+   },
+   "image": "ginkgo-microplate"
+  },
+  {
+   "id": "quantum",
+   "hr": {
+    "name": "Kvantno računalstvo",
+    "slug": "kvantno-racunalstvo",
+    "desc": "Kvantni hardver, senzori i softver — od laboratorija do ugovora."
+   },
+   "en": {
+    "name": "Quantum computing",
+    "slug": "quantum-computing",
+    "desc": "Quantum hardware, sensing and software — from the lab to the contract."
+   },
+   "image": "atom-array"
+  },
+  {
+   "id": "research",
+   "hr": {
+    "name": "Analize firmi",
+    "slug": "analize-firmi",
+    "desc": "Dubinske analize: proizvodi, kupci, partneri, novac i rizici."
+   },
+   "en": {
+    "name": "Company research",
+    "slug": "company-research",
+    "desc": "Deep dives: products, customers, partners, cash and risks."
+   },
+   "image": "research-desk"
+  }
+ ]
+}

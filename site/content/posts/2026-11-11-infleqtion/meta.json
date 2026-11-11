@@ -1,0 +1,76 @@
+{
+ "date": "2026-11-11",
+ "order": 3,
+ "access": "subscribers",
+ "slug": {
+  "hr": "infleqtion-neutralni-atomi-kvantni-senzori-analiza",
+  "en": "infleqtion-neutral-atoms-quantum-sensing-deep-dive"
+ },
+ "categories": [
+  "research",
+  "quantum",
+  "small-caps"
+ ],
+ "prices_session": "2026-11-10",
+ "tickers": [
+  "INFQ",
+  "IONQ",
+  "RGTI",
+  "QBTS"
+ ],
+ "title": {
+  "hr": "Infleqtion: kvantna tvrtka koja zarađuje na senzorima dok gradi računalo",
+  "en": "Infleqtion: the quantum company earning on sensors while it builds a computer"
+ },
+ "dek": {
+  "hr": "Neutralni atomi, optički satovi i radiofrekvencijski senzori za vojsku. Infleqtion ima više prihoda od Rigettija i D-Wavea zajedno, a manju tržišnu vrijednost od obojice. Što stoji iza toga, uoči rezultata 16. studenoga.",
+  "en": "Neutral atoms, optical clocks and RF sensors for defence. Infleqtion has more revenue than Rigetti and D-Wave combined, yet a smaller market value than either. What lies behind that, ahead of results on 16 November."
+ },
+ "sources": [
+  {
+   "label": "Infleqtion — Record Q2 revenue, raised 2026 outlook (12 Aug 2026)",
+   "url": "https://ir.infleqtion.com/news-events/press-releases/detail/201/infleqtion-reports-record-q2-revenue-raises-2026-outlook-as-quantum-commercialization-accelerates"
+  },
+  {
+   "label": "Infleqtion — Updated financial results for Q2 2026 and FY26 revenue guidance",
+   "url": "https://ir.infleqtion.com/news-events/press-releases/detail/202/infleqtion-reports-updated-financial-results-for-q2-2026-and-fy26-revenue-guidance"
+  },
+  {
+   "label": "Infleqtion — Form 10-Q for the period ended 30 June 2026 (SEC EDGAR)",
+   "url": "https://www.sec.gov/Archives/edgar/data/2007825/000162828026057508/infq-20260630.htm"
+  },
+  {
+   "label": "Infleqtion and Churchill Capital Corp X complete business combination",
+   "url": "https://ir.infleqtion.com/news-events/press-releases/detail/166/infleqtion-and-churchill-capital-corp-x-complete-business-combination"
+  },
+  {
+   "label": "Infleqtion — Q3 2026 results date (16 Nov 2026)",
+   "url": "https://ir.infleqtion.com/news-events/press-releases/detail/217/infleqtion-to-report-third-quarter-2026-financial-results-on-november-16-2026"
+  },
+  {
+   "label": "Infleqtion, Honeywell Aerospace and UC Santa Barbara — chip-scale optical cavity (6 Oct 2026)",
+   "url": "https://infleqtion.com/newsroom/announcements/infleqtion-honeywell-aerospace-and-uc-santa-barbara-collaborate-to-accelerate-miniaturization-and-manufacturability-of-quantum-hardware/"
+  },
+  {
+   "label": "Infleqtion UK — £9m Innovate UK award for quantum RF direction finding, with Leonardo (13 Oct 2026)",
+   "url": "https://infleqtion.com/newsroom/announcements/infleqtion-uk-to-develop-deployable-quantum-radio-frequency-direction-finding-system/"
+  },
+  {
+   "label": "Infleqtion — Tiqker timing and navigation demonstration aboard US Navy support vessel RV Merlin (Maritime Big Play Pacific)",
+   "url": "https://infleqtion.com/newsroom/announcements/infleqtion-demonstrates-timing-and-navigation-capabilities-during-the-maritime-big-play-pacific-military-exercise/"
+  },
+  {
+   "label": "TradingView — INFQ Q3'26 earnings estimate",
+   "url": "https://www.tradingview.com/news/tradingview:1ce9ba296164f:0-infq-q3-26-earnings-revenue-estimate-is-11-03m-usd/"
+  },
+  {
+   "label": "stockanalysis.com — market cap and TTM revenue: INFQ, IONQ, RGTI, QBTS, QUBT (read 11 Nov 2026)",
+   "url": "https://stockanalysis.com/stocks/infq/"
+  },
+  {
+   "label": "Yahoo Finance — INFQ price data",
+   "url": "https://finance.yahoo.com/quote/INFQ"
+  }
+ ],
+ "hero": "infleqtion-hero"
+}
