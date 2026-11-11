@@ -8,11 +8,19 @@ LANGS = ("hr", "en")
 # Sectors of tracked companies (content/companies.json → "sector"). Not the same as the article categories in site.json:
 # a sector needs no articles, it only groups companies in the tracker.
 SECTORS = [
-    ("bio", {"hr": "Bioinženjering", "en": "Bioengineering"}),
+    ("synbio", {"hr": "Sintetska biologija", "en": "Synthetic biology"}),
+    ("gene", {"hr": "Uređivanje gena", "en": "Gene editing"}),
+    ("cell", {"hr": "Stanične terapije", "en": "Cell therapy"}),
+    ("aidd", {"hr": "AI u otkrivanju lijekova", "en": "AI drug discovery"}),
+    ("genomics", {"hr": "Genomika i dijagnostika", "en": "Genomics and diagnostics"}),
+    ("medtech", {"hr": "Medicinska tehnologija", "en": "Medtech and surgical robots"}),
     ("quantum", {"hr": "Kvantno računalstvo", "en": "Quantum computing"}),
+    ("photonics", {"hr": "Fotonika i čipovi", "en": "Photonics and chips"}),
     ("space", {"hr": "Svemir", "en": "Space"}),
     ("nuclear", {"hr": "Nuklearna energija", "en": "Nuclear energy"}),
+    ("energy", {"hr": "Baterije i vodik", "en": "Batteries and hydrogen"}),
     ("robotics", {"hr": "Roboti i dronovi", "en": "Robots and drones"}),
+    ("ai", {"hr": "AI i podatkovni centri", "en": "AI and data centers"}),
 ]
 def sector_label(sid, L): return dict(SECTORS).get(sid, {}).get(L)
 BENCH = "IWM"   # Russell 2000 ETF: the fair yardstick for small caps

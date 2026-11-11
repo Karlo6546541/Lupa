@@ -146,7 +146,7 @@ def export_tracker(posts):
     companies = {}
     for t, co in db.get("companies", {}).items():
         v = tracker.company_view(t, co, posts, latest, snapshot, today)
-        v["events"] = v["events"][:30]
+        v["events"] = v["events"][:15]
         v["url"] = {L: f"/{L}/{seg[L]}/{t.lower()}/" for L in LANGS}
         card = DIST / "assets" / "cards" / f"{t.lower()}-hr.png"
         v["card"] = {L: f"/assets/cards/{t.lower()}-{L}.png" for L in LANGS} if card.exists() else None

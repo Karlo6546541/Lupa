@@ -1,18 +1,18 @@
 {
- "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post. sector: bio | quantum | space | nuclear | robotics (labels in tracker.py SECTORS). ct_sponsor: exact lead-sponsor name on ClinicalTrials.gov so its trials are followed. Only companies that file 10-K/10-Q and Form 4 with the SEC work (foreign private issuers filing 20-F/40-F have no insider data).",
+ "_readme": "Optional per-ticker settings for scripts/update_companies.py. Every EQUITY ticker used in a post is tracked automatically; add a ticker here to track it without a post. sector: synbio | gene | cell | aidd | genomics | medtech | quantum | photonics | space | nuclear | energy | robotics | ai (labels in tracker.py SECTORS). ct_sponsor: exact lead-sponsor name on ClinicalTrials.gov so its trials are followed. Only companies that file 10-K/10-Q and Form 4 with the SEC work (foreign private issuers filing 20-F/40-F have no insider data).",
  "DNA": {
-  "sector": "bio"
+  "sector": "synbio"
  },
  "ABSI": {
-  "sector": "bio",
+  "sector": "aidd",
   "ct_sponsor": "Absci"
  },
  "SANA": {
-  "sector": "bio",
+  "sector": "cell",
   "ct_sponsor": "Sana Biotechnology"
  },
  "CDXS": {
-  "sector": "bio"
+  "sector": "synbio"
  },
  "INFQ": {
   "sector": "quantum"
@@ -30,30 +30,30 @@
   "sector": "quantum"
  },
  "TWST": {
-  "sector": "bio",
+  "sector": "synbio",
   "ct_sponsor": "Twist Bioscience"
  },
  "RXRX": {
-  "sector": "bio",
+  "sector": "aidd",
   "ct_sponsor": "Recursion"
  },
  "ABCL": {
-  "sector": "bio",
+  "sector": "aidd",
   "ct_sponsor": "AbCellera"
  },
  "BEAM": {
-  "sector": "bio",
+  "sector": "gene",
   "ct_sponsor": "Beam Therapeutics"
  },
  "NTLA": {
-  "sector": "bio",
+  "sector": "gene",
   "ct_sponsor": "Intellia Therapeutics"
  },
  "PACB": {
-  "sector": "bio"
+  "sector": "genomics"
  },
  "SDGR": {
-  "sector": "bio"
+  "sector": "aidd"
  },
  "RKLB": {
   "sector": "space"
@@ -102,5 +102,141 @@
  },
  "SERV": {
   "sector": "robotics"
+ },
+ "CRSP": {
+  "sector": "gene",
+  "ct_sponsor": "CRISPR Therapeutics"
+ },
+ "EDIT": {
+  "sector": "gene",
+  "ct_sponsor": "Editas Medicine"
+ },
+ "PRME": {
+  "sector": "gene",
+  "ct_sponsor": "Prime Medicine"
+ },
+ "DTIL": {
+  "sector": "gene",
+  "ct_sponsor": "Precision BioSciences"
+ },
+ "CRBU": {
+  "sector": "cell",
+  "ct_sponsor": "Caribou Biosciences"
+ },
+ "ALLO": {
+  "sector": "cell",
+  "ct_sponsor": "Allogene"
+ },
+ "FATE": {
+  "sector": "cell",
+  "ct_sponsor": "Fate Therapeutics"
+ },
+ "CABA": {
+  "sector": "cell",
+  "ct_sponsor": "Cabaletta"
+ },
+ "NKTX": {
+  "sector": "cell",
+  "ct_sponsor": "Nkarta"
+ },
+ "TEM": {
+  "sector": "aidd"
+ },
+ "TXG": {
+  "sector": "genomics"
+ },
+ "GH": {
+  "sector": "genomics"
+ },
+ "NTRA": {
+  "sector": "genomics"
+ },
+ "SEER": {
+  "sector": "genomics"
+ },
+ "LAB": {
+  "sector": "genomics"
+ },
+ "QSI": {
+  "sector": "genomics"
+ },
+ "CDNA": {
+  "sector": "genomics"
+ },
+ "BNGO": {
+  "sector": "genomics"
+ },
+ "MXCT": {
+  "sector": "genomics"
+ },
+ "ADPT": {
+  "sector": "genomics",
+  "ct_sponsor": "Adaptive Biotechnologies"
+ },
+ "PRCT": {
+  "sector": "medtech"
+ },
+ "TMDX": {
+  "sector": "medtech"
+ },
+ "LUNG": {
+  "sector": "medtech"
+ },
+ "LASR": {
+  "sector": "photonics"
+ },
+ "AEHR": {
+  "sector": "photonics"
+ },
+ "NVTS": {
+  "sector": "photonics"
+ },
+ "LWLG": {
+  "sector": "photonics"
+ },
+ "AAOI": {
+  "sector": "photonics"
+ },
+ "INDI": {
+  "sector": "photonics"
+ },
+ "AXTI": {
+  "sector": "photonics"
+ },
+ "QS": {
+  "sector": "energy"
+ },
+ "ENVX": {
+  "sector": "energy"
+ },
+ "EOSE": {
+  "sector": "energy"
+ },
+ "SLDP": {
+  "sector": "energy"
+ },
+ "AMPX": {
+  "sector": "energy"
+ },
+ "FCEL": {
+  "sector": "energy"
+ },
+ "PLUG": {
+  "sector": "energy"
+ },
+ "SOUN": {
+  "sector": "ai"
+ },
+ "BBAI": {
+  "sector": "ai"
+ },
+ "APLD": {
+  "sector": "ai"
+ },
+ "CIFR": {
+  "sector": "ai"
+ },
+ "WULF": {
+  "sector": "ai"
  }
 }
