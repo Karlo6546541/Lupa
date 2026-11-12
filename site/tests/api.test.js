@@ -126,3 +126,35 @@ test('login: same answer whether or not the email is a customer; rejects cross-o
   assert.equal((await post('bad')).getHeader('location'), '/en/account/?login=bad');
   assert.equal((await post('known@example.com', 'https://evil.test')).statusCode, 403);
 });
+
+// ---- DEMO / TEST unlock: self-expiring, never on by default ----
+test('demo unlock: off by default; checkout unlocks only inside the window; expiry kills old cookies', async () => {
+  const checkout = require('../api/checkout');
+  const entitlement = L.entitlement;
+  const post = async () => { const r = res(); await checkout(req({ method: 'POST', url: '/api/checkout', headers: { origin: 'https://lupa.test', 'content-type': 'application/x-www-form-urlencoded' }, body: 'lang=hr&next=%2Fhr%2Fclanci%2Fx%2F' }), r); return r; };
+  delete process.env.DEMO_UNLOCK_UNTIL;
+  assert.equal(L.demoActive(), false);
+  global.fetch = async () => { throw new Error('network off'); };
+  let r = await post();                                       // not demo → normal path (Stripe lookup fails → back to subscribe page)
+  assert.ok(!setCookies(r).some((c) => c.startsWith('__Host-lupa_session=')));
+
+  process.env.DEMO_UNLOCK_UNTIL = new Date(Date.now() + 3600e3).toISOString();
+  assert.equal(L.demoActive(), true);
+  r = await post();
+  assert.equal(r.getHeader('location'), '/hr/clanci/x/');
+  const cookie = setCookies(r).find((c) => c.startsWith('__Host-lupa_session=')).split(';')[0];
+  let e = await entitlement(req({ headers: { cookie } }), res());
+  assert.equal(e.active, true);                              // no Stripe call was needed
+
+  process.env.DEMO_UNLOCK_UNTIL = new Date(Date.now() - 1000).toISOString();   // window closed
+  e = await entitlement(req({ headers: { cookie } }), res());
+  assert.equal(e.active, false);
+  assert.equal(e.customer, null);
+  delete process.env.DEMO_UNLOCK_UNTIL;
+  assert.equal(L.demoActive(), false);
+});
+
+test('demo cookie never grants anything without the window, and garbage dates are off', () => {
+  for (const v of ['', 'soon', '2000-01-01T00:00:00Z']) { process.env.DEMO_UNLOCK_UNTIL = v; assert.equal(L.demoActive(), false, v); }
+  delete process.env.DEMO_UNLOCK_UNTIL;
+});

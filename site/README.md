@@ -274,6 +274,12 @@ private bodies with every public file and `package_vercel.py` refuses to package
 Stripe Subscriptions API at least every 10 minutes (active / trialing / past_due = access); a cancelled or unpaid
 subscription loses access within 10 minutes. No database.
 
+**Demo / test unlock (self-expiring).** For trying the flow without Stripe: set `DEMO_UNLOCK_UNTIL` to an ISO time
+(e.g. `2026-11-13T12:00:00Z`). Until then the "Subscribe" button charges nothing and unlocks paid articles in that browser
+(cookie customer `cus_demo`, never sent to Stripe), and the site shows a "TEST" banner. The deadline is checked on every
+request, so after it passes the site returns to normal and old demo cookies stop working. Delete the variable to end it earlier.
+While it is on, **anyone** can unlock paid posts — never leave it on in production. Not for the mobile app (store purchases).
+
 **Vercel env vars (Project → Settings → Environment Variables, Production + Preview).** After changing any, redeploy.
 
 | Key | Value | Status |

@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
   if (req.method !== 'GET') return L.json(res, 405, { error: 'method' });
   const q = L.query(req), post = q.get('post') || '', lang = q.get('lang');
   if (!Object.prototype.hasOwnProperty.call(INDEX, post) || !['hr', 'en'].includes(lang)) return L.json(res, 404, { error: 'not_found' });
-  if (!L.stripeKeysPresent()) return L.json(res, 503, { error: 'payments_not_active' });
+  if (!L.stripeKeysPresent() && !L.demoActive()) return L.json(res, 503, { error: 'payments_not_active' });
   let e;
   try { e = await L.entitlement(req, res); } catch { return L.json(res, 503, { error: 'unavailable' }); }
   if (!e.active) return L.json(res, e.customer ? 402 : 401, { error: 'subscription_required', subscribe: L.PATHS[lang].subscribe });

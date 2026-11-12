@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   if (!L.sameOrigin(req)) return L.json(res, 403, { error: 'bad_origin' });
   const form = await L.readForm(req).catch(() => ({}));
   const lang = L.lang(form.lang || qlang), P = L.PATHS[lang];
-  if (!L.stripeKeysPresent()) return L.redirect(res, P.account);
+  if (!L.stripeKeysPresent() || L.demoActive()) return L.redirect(res, P.account);
   let e; try { e = await L.entitlement(req, res); } catch { return L.redirect(res, P.account); }
   if (!e.customer) return L.redirect(res, P.account);
   try {

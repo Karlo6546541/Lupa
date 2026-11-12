@@ -38,6 +38,10 @@ module.exports = async (req, res) => {
   const form = await L.readForm(req).catch(() => ({}));
   const lang = L.lang(form.lang || qlang), next = L.safeNext(form.next);
   const P = L.PATHS[lang];
+  if (L.demoActive()) {   // TEST MODE (DEMO_UNLOCK_UNTIL): no payment, just unlock this browser
+    L.setSession(res, { c: L.DEMO_CUSTOMER, ok: 1, chk: Date.now(), iat: Date.now() });
+    return L.redirect(res, next ? next : P.account + '?welcome=1');
+  }
   if (!(await L.paymentsActive())) return L.redirect(res, P.subscribe + '?status=inactive' + (next ? '&next=' + encodeURIComponent(next) : ''));
   let customer;
   try { customer = (await L.entitlement(req, res)).customer; } catch { customer = null; }
