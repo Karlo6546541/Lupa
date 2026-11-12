@@ -1,6 +1,6 @@
 {
  "_note": "Written by scripts/update_companies.py from SEC EDGAR and ClinicalTrials.gov. Do not edit by hand.",
- "generated": "2026-11-11T19:00:27Z",
+ "generated": "2026-11-12T13:49:05Z",
  "companies": {
   "DNA": {
    "ticker": "DNA",
@@ -1415,7 +1415,7 @@
     }
    ],
    "trials": [],
-   "next_earnings_estimate": "2026-11-11"
+   "next_earnings_estimate": null
   },
   "IONQ": {
    "ticker": "IONQ",
@@ -3055,6 +3055,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001907982&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001907982-26-000183",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "7.01",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000183/qbts-20261112.htm"
+    },
+    {
      "id": "0001907982-26-000180",
      "form": "8-K",
      "date": "2026-11-10",
@@ -3319,16 +3330,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000090/qbts-20260618.htm"
-    },
-    {
-     "id": "0001907982-26-000084",
-     "form": "8-K",
-     "date": "2026-06-08",
-     "period": "2026-06-04",
-     "items": [
-      "5.07"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1907982/000190798226000084/qbts-20260604.htm"
     }
    ],
    "insider": [
@@ -4003,6 +4004,25 @@
    "sector": "aidd",
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001672688&type=&dateb=&owner=include&count=40",
    "filings": [
+    {
+     "id": "0001672688-26-000152",
+     "form": "10-Q",
+     "date": "2026-11-12",
+     "period": "2026-09-30",
+     "items": [],
+     "url": "https://www.sec.gov/Archives/edgar/data/1672688/000167268826000152/absi-20260930.htm"
+    },
+    {
+     "id": "0001672688-26-000150",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "2.02",
+      "8.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1672688/000167268826000150/absc-20261112.htm"
+    },
     {
      "id": "0001672688-26-000136",
      "form": "10-Q",
@@ -4900,7 +4920,7 @@
      "url": "https://clinicaltrials.gov/study/NCT07317544"
     }
    ],
-   "next_earnings_estimate": "2026-11-11"
+   "next_earnings_estimate": "2027-02-11"
   },
   "SANA": {
    "ticker": "SANA",
@@ -6328,6 +6348,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001581280&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001581280-26-000053",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "2.02",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1581280/000158128026000053/twist-20261112.htm"
+    },
+    {
      "id": "0001104659-26-098830",
      "form": "8-K",
      "date": "2026-08-19",
@@ -7180,7 +7211,7 @@
     }
    ],
    "trials": [],
-   "next_earnings_estimate": "2026-11-13"
+   "next_earnings_estimate": "2027-02-01"
   },
   "RXRX": {
    "ticker": "RXRX",
@@ -13315,6 +13346,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001844452&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001628280-26-073106",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "2.02",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1844452/000162828026073106/lunr-20261112.htm"
+    },
+    {
      "id": "0001628280-26-066926",
      "form": "8-K",
      "date": "2026-10-22",
@@ -14597,7 +14639,7 @@
     }
    ],
    "trials": [],
-   "next_earnings_estimate": null
+   "next_earnings_estimate": "2027-02-11"
   },
   "RDW": {
    "ticker": "RDW",
@@ -18681,17 +18723,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1822966/000182296625000165/smr-20251020.htm"
-    },
-    {
-     "id": "0001822966-25-000162",
-     "form": "8-K",
-     "date": "2025-10-07",
-     "period": "2025-10-07",
-     "items": [
-      "7.01",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1822966/000182296625000162/smr-20251007.htm"
     }
    ],
    "insider": [
@@ -24120,6 +24151,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001646188&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001193125-26-457088",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "2.02",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1646188/000119312526457088/onds-20261112.htm"
+    },
+    {
      "id": "0001213900-26-108757",
      "form": "8-K",
      "date": "2026-10-13",
@@ -24408,18 +24450,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1646188/000121390026058153/ea0291197-8k_ondas.htm"
-    },
-    {
-     "id": "0001213900-26-057935",
-     "form": "8-K",
-     "date": "2026-05-15",
-     "period": "2026-05-15",
-     "items": [
-      "3.02",
-      "8.01",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1646188/000121390026057935/ea0291118-8k_ondas.htm"
     }
    ],
    "insider": [
@@ -25010,7 +25040,7 @@
     }
    ],
    "trials": [],
-   "next_earnings_estimate": "2026-11-12"
+   "next_earnings_estimate": "2027-03-08"
   },
   "SERV": {
    "ticker": "SERV",
@@ -26714,7 +26744,7 @@
      "status": "RECRUITING",
      "phase": "Phase 1/Phase 2",
      "primary_completion": "2028-07-01",
-     "updated": "2026-08-11",
+     "updated": "2026-11-12",
      "url": "https://clinicaltrials.gov/study/NCT07758634"
     },
     {
@@ -27311,6 +27341,24 @@
    "sector": "gene",
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001894562&type=&dateb=&owner=include&count=40",
    "filings": [
+    {
+     "id": "0001628280-26-073131",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-10",
+     "items": [
+      "1.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1894562/000162828026073131/prme-20261110.htm"
+    },
+    {
+     "id": "0001628280-26-073125",
+     "form": "424B5",
+     "date": "2026-11-12",
+     "period": null,
+     "items": [],
+     "url": "https://www.sec.gov/Archives/edgar/data/1894562/000162828026073125/primemedicinefinal424b5nov.htm"
+    },
     {
      "id": "0001628280-26-072802",
      "form": "424B5",
@@ -41077,6 +41125,21 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1124796/000162828026037492/xslF345X06/wk-form4_1779409572.xml"
     },
     {
+     "id": "0001628280-26-037494:S",
+     "date": "2026-05-20",
+     "filed": "2026-05-21",
+     "owner": "Corso Joseph John",
+     "role": "Chief Financial Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 55719,
+     "price": 69.7038,
+     "value": 3883827,
+     "after": 177572,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1124796/000162828026037494/xslF345X06/wk-form4_1779409753.xml"
+    },
+    {
      "id": "0001628280-26-037493:S",
      "date": "2026-05-20",
      "filed": "2026-05-21",
@@ -48016,6 +48079,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001828318&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001828318-26-000069",
+     "form": "8-K",
+     "date": "2026-11-12",
+     "period": "2026-11-12",
+     "items": [
+      "2.02",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1828318/000182831826000069/envx-20261112.htm"
+    },
+    {
      "id": "0001828318-26-000067",
      "form": "8-K",
      "date": "2026-11-05",
@@ -50477,6 +50551,14 @@
    "sector": "energy",
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001899287&type=&dateb=&owner=include&count=40",
    "filings": [
+    {
+     "id": "0001899287-26-000071",
+     "form": "10-Q",
+     "date": "2026-11-12",
+     "period": "2026-09-30",
+     "items": [],
+     "url": "https://www.sec.gov/Archives/edgar/data/1899287/000189928726000071/ampx-20260930.htm"
+    },
     {
      "id": "0001899287-26-000069",
      "form": "8-K",
