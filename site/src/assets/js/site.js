@@ -67,6 +67,14 @@
       })
       .catch(function(){st.textContent=''});
   }
+  // TEST MODE banner (only while the server runs the self-expiring demo unlock, see api/lib.js demoActive)
+  function demoBanner(host){
+    if(!host||host.querySelector('.demo-note')) return;
+    var hr=d.body.getAttribute('data-lang')==='hr', n=d.createElement('div'); n.className='note demo-note'; n.setAttribute('role','status');
+    n.innerHTML=hr?'<strong>TEST NAČIN.</strong> Klik na „Pretplati se” ne naplaćuje ništa, nego odmah otključava sadržaj u ovom pregledniku (privremeno).'
+                   :'<strong>TEST MODE.</strong> Clicking “Subscribe” charges nothing and simply unlocks the content in this browser (temporary).';
+    host.insertBefore(n,host.firstChild);
+  }
   var plan=d.getElementById('plan');
   if(plan){
     var nx=qs.get('next')||'', f=plan.querySelector('.sub-form');
@@ -74,7 +82,7 @@
     if(qs.get('canceled')) plan.querySelector('.pay-canceled').hidden=false;
     function inactive(){plan.querySelector('.pay-inactive').hidden=false; plan.querySelectorAll('.sub-form button').forEach(function(b){b.disabled=true})}
     if(qs.get('status')==='inactive') inactive();
-    api('/api/session').then(function(r){return r.json()}).then(function(j){if(!j.payments) inactive()}).catch(function(){});
+    api('/api/session').then(function(r){return r.json()}).then(function(j){if(!j.payments) inactive(); if(j.demo) demoBanner(plan)}).catch(function(){});
   }
   var acct=d.getElementById('account');
   if(acct){
@@ -92,6 +100,7 @@
     }
     api('/api/session').then(function(r){return r.json()}).then(function(j){
       if(j.email_login===false) emailLogin(false);
+      if(j.demo) demoBanner(acct);
       if(j.active){show('active'); if(qs.get('welcome')) acct.querySelector('.acct-welcome').hidden=false}
       else if(!j.payments) show('inactive');
       else {show('none'); if(j.lapsed) acct.querySelector('.acct-lapsed').hidden=false}

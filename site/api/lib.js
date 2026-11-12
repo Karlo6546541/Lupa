@@ -22,6 +22,15 @@ const lang = (v) => (v === 'en' ? 'en' : 'hr');
 const safeNext = (v) => (typeof v === 'string' && /^\/(hr|en)\/[a-z0-9\-\/]*$/.test(v) && !v.includes('//') ? v : '');
 
 function sessionSecret() { const s = env('SESSION_SECRET'); return s.length >= 32 ? s : ''; }
+// ---------- DEMO / TEST unlock (self-expiring) ----------
+// With DEMO_UNLOCK_UNTIL=<ISO date-time> set (e.g. 2026-11-13T12:00:00Z), the "Subscribe" button skips Stripe and unlocks
+// paid articles in that browser, until that moment. It switches itself off: the deadline is checked on every request, so
+// even cookies that were already handed out stop working. Leave the variable unset (the default) for real payments.
+const DEMO_CUSTOMER = 'cus_demo';
+function demoActive() {
+  const t = Date.parse(env('DEMO_UNLOCK_UNTIL'));
+  return Number.isFinite(t) && t > Date.now() && !!sessionSecret();
+}
 function stripeKeysPresent() { return !!(env('STRIPE_SECRET_KEY') && env('STRIPE_PRICE_ID') && sessionSecret()); }
 
 // ---------- Stripe REST (form-encoded) ----------
@@ -64,7 +73,7 @@ async function priceInfo() {
   }
   return priceCache;
 }
-async function paymentsActive() { return (await priceInfo()).ok === true; }
+async function paymentsActive() { return demoActive() || (await priceInfo()).ok === true; }
 
 // ---------- signed session cookie ----------
 const b64u = (buf) => Buffer.from(buf).toString('base64url');
@@ -110,6 +119,10 @@ async function customerHasSubscription(customer) {
 async function entitlement(req, res) {
   const tok = verify(cookies(req)[COOKIE]);
   if (!tok) return { active: false, customer: null, lapsed: false };
+  if (tok.c === DEMO_CUSTOMER) {   // demo cookie: never asks Stripe; valid only while the demo window is open
+    const on = demoActive();
+    return { active: on, customer: null, lapsed: !on, demo: on };
+  }
   const now = Date.now();
   if (tok.ok && now - (tok.chk || 0) < RECHECK_MS) return { active: true, customer: tok.c, lapsed: false };
   try {
@@ -173,6 +186,6 @@ function noStore(res) { res.setHeader('Cache-Control', 'private, no-store, max-a
 function json(res, status, obj) { noStore(res); res.statusCode = status; res.setHeader('Content-Type', 'application/json; charset=utf-8'); res.end(JSON.stringify(obj)); }
 function redirect(res, location) { noStore(res); res.statusCode = 303; res.setHeader('Location', location); res.end(); }
 
-module.exports = { env, SITE, PATHS, EXPECTED, COOKIE, NONCE_COOKIE, lang, safeNext, stripe, priceInfo, paymentsActive, stripeKeysPresent,
+module.exports = { env, DEMO_CUSTOMER, demoActive, SITE, PATHS, EXPECTED, COOKIE, NONCE_COOKIE, lang, safeNext, stripe, priceInfo, paymentsActive, stripeKeysPresent,
   sessionSecret, sign, verify, cookies, cookieHeader, addCookie, setSession, clearSession, customerHasSubscription, entitlement,
   readBody, readForm, query, sameOrigin, rateLimited, clientIp, emailConfigured, sendEmail, validEmail, noStore, json, redirect };
