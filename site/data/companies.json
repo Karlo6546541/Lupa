@@ -1,6 +1,6 @@
 {
  "_note": "Written by scripts/update_companies.py from SEC EDGAR and ClinicalTrials.gov. Do not edit by hand.",
- "generated": "2026-11-19T14:29:03Z",
+ "generated": "2026-11-20T14:03:32Z",
  "companies": {
   "DNA": {
    "ticker": "DNA",
@@ -2409,21 +2409,6 @@
      "after": 432616,
      "planned": true,
      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312525291748/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001193125-25-288597:A",
-     "date": "2025-11-17",
-     "filed": "2025-11-19",
-     "owner": "Raymond John w",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 83700,
-     "price": null,
-     "value": null,
-     "after": 86763,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312525288597/xslF345X05/ownership.xml"
     }
    ],
    "trials": [],
@@ -8185,10 +8170,10 @@
     {
      "id": "NCT05985655",
      "title": "Study to Assess GTAEXS617 in Participants With Advanced Solid Tumors",
-     "status": "RECRUITING",
+     "status": "ACTIVE_NOT_RECRUITING",
      "phase": "Phase 1/Phase 2",
      "primary_completion": "2028-01",
-     "updated": "2026-08-13",
+     "updated": "2026-11-20",
      "url": "https://clinicaltrials.gov/study/NCT05985655"
     },
     {
@@ -10568,6 +10553,36 @@
    ],
    "insider": [
     {
+     "id": "0001299130-26-000143:A",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Meyer William",
+     "role": "See Remarks",
+     "code": "A",
+     "kind": "other",
+     "shares": 54945,
+     "price": null,
+     "value": null,
+     "after": 98945,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1299130/000129913026000143/xslF345X06/wk-form4_1795122418.xml"
+    },
+    {
+     "id": "0001299130-26-000142:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Ordonez Kathy",
+     "role": "Director",
+     "code": "S",
+     "kind": "sell",
+     "shares": 18595,
+     "price": 1.78,
+     "value": 33099,
+     "after": 384442,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1299130/000129913026000142/xslF345X06/wk-form4_1795122340.xml"
+    },
+    {
      "id": "0001384133-26-000004:S",
      "date": "2026-10-06",
      "filed": "2026-10-08",
@@ -12844,6 +12859,21 @@
    ],
    "insider": [
     {
+     "id": "0001493152-26-053327:X",
+     "date": "2026-11-19",
+     "filed": "2026-11-19",
+     "owner": "Yao Huiwen",
+     "role": "Chief Technology Officer",
+     "code": "X",
+     "kind": "other",
+     "shares": 40000,
+     "price": 0.0641,
+     "value": 2564,
+     "after": 74750,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1780312/000149315226053327/xslF345X06/ownership.xml"
+    },
+    {
      "id": "0001493152-26-047657:F",
      "date": "2026-10-17",
      "filed": "2026-10-19",
@@ -13414,21 +13444,6 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1780312/000149315226021788/xslF345X06/ownership.xml"
     },
     {
-     "id": "0000950103-26-005837:S",
-     "date": "2026-04-15",
-     "filed": "2026-04-16",
-     "owner": "Mikitani Hiroshi / Rakuten Group, Inc. …",
-     "role": "10% owner",
-     "code": "S",
-     "kind": "sell",
-     "shares": 3040000,
-     "price": 89.1108,
-     "value": 270896800,
-     "after": 27980155,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1780312/000095010326005837/xslF345X06/ownership.xml"
-    },
-    {
      "id": "0001493152-26-025471:S",
      "date": "2025-05-27",
      "filed": "2026-05-27",
@@ -13674,6 +13689,21 @@
     }
    ],
    "insider": [
+    {
+     "id": "0001628280-26-075138:S",
+     "date": "2026-11-18",
+     "filed": "2026-11-19",
+     "owner": "Vontur Steven",
+     "role": "See Remarks",
+     "code": "S",
+     "kind": "sell",
+     "shares": 2313,
+     "price": 11.0672,
+     "value": 25598,
+     "after": 111684,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1844452/000162828026075138/xslF345X06/wk-form4_1795128495.xml"
+    },
     {
      "id": "0001628280-26-067340:A",
      "date": "2026-10-22",
@@ -14738,21 +14768,6 @@
      "after": 451341,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1844452/000121390026013853/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001213900-26-013851:A",
-     "date": "2026-02-05",
-     "filed": "2026-02-09",
-     "owner": "Johnson Christopher J.",
-     "role": "See Remarks",
-     "code": "A",
-     "kind": "other",
-     "shares": 101420,
-     "price": null,
-     "value": null,
-     "after": 101420,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1844452/000121390026013851/xslF345X05/ownership.xml"
     }
    ],
    "trials": [],
@@ -17823,6 +17838,36 @@
    ],
    "insider": [
     {
+     "id": "0002146790-26-000031:S",
+     "date": "2026-11-18",
+     "filed": "2026-11-19",
+     "owner": "Narayanadas Vivek",
+     "role": "General Counsel & Secretary",
+     "code": "S",
+     "kind": "sell",
+     "shares": 188,
+     "price": 23.18,
+     "value": 4358,
+     "after": 11383,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1849056/000214679026000031/xslF345X06/wk-form4_1795123188.xml"
+    },
+    {
+     "id": "0002146790-26-000031:M",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Narayanadas Vivek",
+     "role": "General Counsel & Secretary",
+     "code": "M",
+     "kind": "other",
+     "shares": 366,
+     "price": null,
+     "value": null,
+     "after": 11571,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1849056/000214679026000031/xslF345X06/wk-form4_1795123188.xml"
+    },
+    {
      "id": "0002147680-26-000018:S",
      "date": "2026-11-16",
      "filed": "2026-11-17",
@@ -18631,21 +18676,6 @@
      "after": 7599,
      "planned": true,
      "url": "https://www.sec.gov/Archives/edgar/data/1849056/000214679026000006/xslF345X06/wk-form4_1787862889.xml"
-    },
-    {
-     "id": "0002147680-26-000002:S",
-     "date": "2026-08-24",
-     "filed": "2026-08-25",
-     "owner": "Renner Alexandra",
-     "role": "Chief Product Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 557,
-     "price": 39.77,
-     "value": 22152,
-     "after": 472779,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1849056/000214768026000002/xslF345X06/wk-form4_1787688652.xml"
     }
    ],
    "trials": [],
@@ -22955,6 +22985,21 @@
    ],
    "insider": [
     {
+     "id": "0001114923-26-000003:G",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Hoglund William A",
+     "role": "Director",
+     "code": "G",
+     "kind": "other",
+     "shares": 185700,
+     "price": null,
+     "value": null,
+     "after": 30950,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1069258/000111492326000003/xslF345X06/primary_doc.xml"
+    },
+    {
      "id": "0001509409-26-000013:S",
      "date": "2026-11-16",
      "filed": "2026-11-18",
@@ -26336,28 +26381,24 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312525273329/crsp-20251110.htm"
-    },
-    {
-     "id": "0001193125-25-240282",
-     "form": "8-K",
-     "date": "2025-10-15",
-     "period": "2025-10-15",
-     "items": [
-      "8.01",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312525240282/crsp-20251015.htm"
-    },
-    {
-     "id": "0001193125-25-240259",
-     "form": "424B5",
-     "date": "2025-10-15",
-     "period": null,
-     "items": [],
-     "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312525240259/crsp-20251015.htm"
     }
    ],
    "insider": [
+    {
+     "id": "0001193125-26-468849:G",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Kulkarni Samarth",
+     "role": "Chief Executive Officer",
+     "code": "G",
+     "kind": "other",
+     "shares": 100000,
+     "price": null,
+     "value": null,
+     "after": 211899,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312526468849/xslF345X06/ownership.xml"
+    },
     {
      "id": "0001193125-26-426878:S",
      "date": "2026-10-19",
@@ -26897,36 +26938,6 @@
      "after": 245356,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312526104480/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001193125-26-061712:S",
-     "date": "2026-02-19",
-     "filed": "2026-02-20",
-     "owner": "Kulkarni Samarth",
-     "role": "Chief Executive Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 6967,
-     "price": 52.58,
-     "value": 366325,
-     "after": 226106,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312526061712/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001193125-26-061712:M",
-     "date": "2026-02-18",
-     "filed": "2026-02-20",
-     "owner": "Kulkarni Samarth",
-     "role": "Chief Executive Officer",
-     "code": "M",
-     "kind": "other",
-     "shares": 13250,
-     "price": null,
-     "value": null,
-     "after": 233073,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1674416/000119312526061712/xslF345X05/ownership.xml"
     },
     {
      "id": "0001193125-26-396935:J",
@@ -29385,21 +29396,6 @@
      "after": 350763,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1737287/000122135525000005/xslF345X05/wk-form4_1766447828.xml"
-    },
-    {
-     "id": "0001737287-25-000094:S",
-     "date": "2025-11-17",
-     "filed": "2025-11-19",
-     "owner": "Beneski Benjamin Machinas",
-     "role": "SVP, Chief Technical Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 786,
-     "price": 1.22,
-     "value": 959,
-     "after": 217721,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1737287/000173728725000094/xslF345X05/wk-form4_1763586562.xml"
     }
    ],
    "trials": [
@@ -30924,6 +30920,81 @@
    ],
    "insider": [
     {
+     "id": "0002024630-26-000029:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Rogers James William",
+     "role": "Chief Financial Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 7079,
+     "price": 63.0156,
+     "value": 446088,
+     "after": 98945,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202463026000029/xslF345X06/form4-11192026_061107.xml"
+    },
+    {
+     "id": "0002024250-26-000044:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Fukushima Ryan",
+     "role": "CEO, Data",
+     "code": "S",
+     "kind": "sell",
+     "shares": 10247,
+     "price": 63.0155,
+     "value": 645720,
+     "after": 652216,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202425026000044/xslF345X06/form4-11192026_061105.xml"
+    },
+    {
+     "id": "0002024169-26-000025:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Polovin Andrew",
+     "role": "EVP, Chief Legal Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 6704,
+     "price": 63.0161,
+     "value": 422460,
+     "after": 128485,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202416926000025/xslF345X06/form4-11192026_111115.xml"
+    },
+    {
+     "id": "0001754464-26-000023:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Bartolucci Ryan M",
+     "role": "Chief Accounting Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 1540,
+     "price": 63.0165,
+     "value": 97045,
+     "after": 59264,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000175446426000023/xslF345X06/form4-11192026_061102.xml"
+    },
+    {
+     "id": "0001114357-26-000046:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Lefkofsky Eric P",
+     "role": "CEO and Chairman",
+     "code": "S",
+     "kind": "sell",
+     "shares": 17074,
+     "price": 63.0157,
+     "value": 1075930,
+     "after": 2081056,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000111435726000046/xslF345X06/form4-11192026_111124.xml"
+    },
+    {
      "id": "0002024250-26-000039:S",
      "date": "2026-11-02",
      "filed": "2026-11-04",
@@ -31449,21 +31520,6 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1717115/000111435726000022/xslF345X06/form4-07012026_040701.xml"
     },
     {
-     "id": "0002024630-26-000016:S",
-     "date": "2026-06-25",
-     "filed": "2026-06-29",
-     "owner": "Rogers James William",
-     "role": "Chief Financial Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 11529,
-     "price": 55.0,
-     "value": 634095,
-     "after": 114866,
-     "planned": true,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202463026000016/xslF345X06/form4-06292026_080602.xml"
-    },
-    {
      "id": "0001739090-26-000006:S",
      "date": "2026-06-25",
      "filed": "2026-06-29",
@@ -31477,66 +31533,6 @@
      "after": 25942,
      "planned": true,
      "url": "https://www.sec.gov/Archives/edgar/data/1717115/000173909026000006/xslF345X06/form4-06292026_080604.xml"
-    },
-    {
-     "id": "0001445826-26-000008:S",
-     "date": "2026-06-01",
-     "filed": "2026-06-03",
-     "owner": "Epstein David R",
-     "role": "Director",
-     "code": "S",
-     "kind": "sell",
-     "shares": 250,
-     "price": 49.4,
-     "value": 12350,
-     "after": 31464,
-     "planned": true,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000144582626000008/xslF345X06/form4-06032026_080645.xml"
-    },
-    {
-     "id": "0001114357-26-000020:S",
-     "date": "2026-05-27",
-     "filed": "2026-05-29",
-     "owner": "Lefkofsky Eric P",
-     "role": "CEO and Chairman",
-     "code": "S",
-     "kind": "sell",
-     "shares": 166250,
-     "price": 46.6966,
-     "value": 7763312,
-     "after": 15523469,
-     "planned": true,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000111435726000020/xslF345X06/form4-05292026_040505.xml"
-    },
-    {
-     "id": "0001787802-26-000002:A",
-     "date": "2026-05-21",
-     "filed": "2026-05-26",
-     "owner": "West Nadja",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 5913,
-     "price": null,
-     "value": null,
-     "after": 37981,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000178780226000002/xslF345X06/form4-05262026_090513.xml"
-    },
-    {
-     "id": "0001371919-26-000002:A",
-     "date": "2026-05-21",
-     "filed": "2026-05-26",
-     "owner": "Belcher Eric D",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 5913,
-     "price": null,
-     "value": null,
-     "after": 21424,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000137191926000002/xslF345X06/form4-05272026_010507.xml"
     }
    ],
    "trials": [],
@@ -32509,6 +32505,21 @@
    ],
    "insider": [
     {
+     "id": "0001652956-26-000022:S",
+     "date": "2026-11-18",
+     "filed": "2026-11-19",
+     "owner": "Monroe Terilyn J.",
+     "role": "Chief People Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 3842,
+     "price": 142.4126,
+     "value": 547149,
+     "after": 21058,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1576280/000165295626000022/xslF345X06/wk-form4_1795128262.xml"
+    },
+    {
      "id": "0001865525-26-000032:M",
      "date": "2026-11-17",
      "filed": "2026-11-18",
@@ -33317,21 +33328,6 @@
      "after": 17155,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1576280/000133650426000008/xslF345X06/wk-form4_1785963927.xml"
-    },
-    {
-     "id": "0001258394-26-000014:M",
-     "date": "2026-07-21",
-     "filed": "2026-07-22",
-     "owner": "Mignone Roberto",
-     "role": "Director",
-     "code": "M",
-     "kind": "other",
-     "shares": 264,
-     "price": null,
-     "value": null,
-     "after": 9746,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1576280/000125839426000014/xslF345X06/wk-form4_1784754937.xml"
     }
    ],
    "trials": [],
@@ -34440,6 +34436,21 @@
    ],
    "insider": [
     {
+     "id": "0002157949-26-000006:S",
+     "date": "2026-11-18",
+     "filed": "2026-11-19",
+     "owner": "Endweiss Charles",
+     "role": "VP Financial Planning Analysis",
+     "code": "S",
+     "kind": "sell",
+     "shares": 2447,
+     "price": 1.4624,
+     "value": 3578,
+     "after": 140194,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1726445/000215794926000006/xslF345X06/form4-11192026_111150.xml"
+    },
+    {
      "id": "0002157949-26-000004:A",
      "date": "2026-11-02",
      "filed": "2026-11-04",
@@ -34736,6 +34747,19 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001162194&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001140361-26-044934",
+     "form": "8-K",
+     "date": "2026-11-19",
+     "period": "2026-11-19",
+     "items": [
+      "5.02",
+      "5.07",
+      "7.01",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1162194/000114036126044934/ef20085888_8k.htm"
+    },
+    {
      "id": "0001140361-26-044219",
      "form": "8-K",
      "date": "2026-11-16",
@@ -34989,14 +35013,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1162194/000119312526006996/lab-20260108.htm"
-    },
-    {
-     "id": "0001193125-25-264695",
-     "form": "10-Q",
-     "date": "2025-11-04",
-     "period": "2025-09-30",
-     "items": [],
-     "url": "https://www.sec.gov/Archives/edgar/data/1162194/000119312525264695/lab-20250930.htm"
     }
    ],
    "insider": [
@@ -40992,6 +41008,21 @@
    ],
    "insider": [
     {
+     "id": "0001628280-26-075150:S",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Nias James",
+     "role": "Chief Accounting Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 180,
+     "price": 38.21,
+     "value": 6878,
+     "after": 96596,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1124796/000162828026075150/xslF345X06/wk-form4_1795132082.xml"
+    },
+    {
      "id": "0001628280-26-074900:S",
      "date": "2026-11-16",
      "filed": "2026-11-18",
@@ -41650,21 +41681,6 @@
      "after": 2316768,
      "planned": true,
      "url": "https://www.sec.gov/Archives/edgar/data/1124796/000162828026001477/xslF345X05/wk-form4_1767972325.xml"
-    },
-    {
-     "id": "0001628280-26-001250:A",
-     "date": "2026-01-05",
-     "filed": "2026-01-07",
-     "owner": "Haines Gerald M Ii",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 3150,
-     "price": null,
-     "value": null,
-     "after": 3150,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1124796/000162828026001250/xslF345X05/wk-form4_1767827182.xml"
     }
    ],
    "trials": [],
@@ -41835,6 +41851,21 @@
     }
    ],
    "insider": [
+    {
+     "id": "0001040470-26-000327:G",
+     "date": "2026-11-18",
+     "filed": "2026-11-19",
+     "owner": "Posedel Rhea J",
+     "role": "Director",
+     "code": "G",
+     "kind": "other",
+     "shares": 760,
+     "price": null,
+     "value": null,
+     "after": 380,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1040470/000104047026000327/xslF345X06/primary_01.xml"
+    },
     {
      "id": "0001040470-26-000325:F",
      "date": "2026-11-01",
@@ -42554,36 +42585,6 @@
      "after": 23955,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1040470/000104047026000247/xslF345X06/primary_01.xml"
-    },
-    {
-     "id": "0001040470-26-000246:S",
-     "date": "2026-08-12",
-     "filed": "2026-08-13",
-     "owner": "Engineer Adil",
-     "role": "Chief Operating Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 15000,
-     "price": 131.0249,
-     "value": 1965374,
-     "after": 46977,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1040470/000104047026000246/xslF345X06/primary_01.xml"
-    },
-    {
-     "id": "0001040470-26-000246:M",
-     "date": "2026-08-12",
-     "filed": "2026-08-13",
-     "owner": "Engineer Adil",
-     "role": "Chief Operating Officer",
-     "code": "M",
-     "kind": "other",
-     "shares": 15000,
-     "price": 9.45,
-     "value": 141750,
-     "after": 61977,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1040470/000104047026000246/xslF345X06/primary_01.xml"
     }
    ],
    "trials": [],
@@ -46647,6 +46648,21 @@
    ],
    "insider": [
     {
+     "id": "0001437749-26-037777:M",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Young Morris S",
+     "role": "CEO",
+     "code": "M",
+     "kind": "other",
+     "shares": 10526,
+     "price": 9.5,
+     "value": 99997,
+     "after": 2182209,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1051627/000143774926037777/xslF345X06/rdgdoc.xml"
+    },
+    {
      "id": "0001437749-26-034036:A",
      "date": "2026-10-27",
      "filed": "2026-10-29",
@@ -47466,6 +47482,81 @@
    ],
    "insider": [
     {
+     "id": "0002068228-26-000013:F",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Fasoli Luca Giovanni",
+     "role": "Chief Operating Officer",
+     "code": "F",
+     "kind": "other",
+     "shares": 31807,
+     "price": 3.2654,
+     "value": 103863,
+     "after": 2473367,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000206822826000013/xslF345X06/primarydocument.xml"
+    },
+    {
+     "id": "0001834025-26-000027:F",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Hettrich Kevin",
+     "role": "CHIEF FINANCIAL OFFICER",
+     "code": "F",
+     "kind": "other",
+     "shares": 30664,
+     "price": 3.2654,
+     "value": 100130,
+     "after": 2232966,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000183402526000027/xslF345X06/primarydocument.xml"
+    },
+    {
+     "id": "0001834019-26-000015:F",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Singh Mohit",
+     "role": "CHIEF DEVELOPMENT OFFICER",
+     "code": "F",
+     "kind": "other",
+     "shares": 33829,
+     "price": 3.2654,
+     "value": 110465,
+     "after": 2181789,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000183401926000015/xslF345X06/primarydocument.xml"
+    },
+    {
+     "id": "0001587067-26-000014:F",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Sivaram Srinivasan",
+     "role": "CHIEF EXECUTIVE OFFICER",
+     "code": "F",
+     "kind": "other",
+     "shares": 80610,
+     "price": 3.2654,
+     "value": 263224,
+     "after": 4997654,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000158706726000014/xslF345X06/primarydocument.xml"
+    },
+    {
+     "id": "0001177264-26-000015:F",
+     "date": "2026-11-17",
+     "filed": "2026-11-19",
+     "owner": "Mccarthy Michael O Iii",
+     "role": "CHIEF LEGAL OFFICER",
+     "code": "F",
+     "kind": "other",
+     "shares": 25354,
+     "price": 3.2654,
+     "value": 82791,
+     "after": 2100506,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000117726426000015/xslF345X06/primarydocument.xml"
+    },
+    {
      "id": "0002068228-26-000011:A",
      "date": "2026-11-04",
      "filed": "2026-11-06",
@@ -48139,81 +48230,6 @@
      "after": 5227385,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1811414/000158706726000008/xslF345X06/primarydocument.xml"
-    },
-    {
-     "id": "0002068228-26-000006:A",
-     "date": "2026-04-14",
-     "filed": "2026-04-16",
-     "owner": "Fasoli Luca Giovanni",
-     "role": "Chief Operating Officer",
-     "code": "A",
-     "kind": "other",
-     "shares": 801186,
-     "price": null,
-     "value": null,
-     "after": 2047408,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000206822826000006/xslF345X06/primarydocument.xml"
-    },
-    {
-     "id": "0001834249-26-000012:A",
-     "date": "2026-04-14",
-     "filed": "2026-04-16",
-     "owner": "Holme Timothy",
-     "role": "CHIEF TECHNOLOGY OFFICER",
-     "code": "A",
-     "kind": "other",
-     "shares": 658752,
-     "price": null,
-     "value": null,
-     "after": 1766934,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000183424926000012/xslF345X06/primarydocument.xml"
-    },
-    {
-     "id": "0001834025-26-000012:A",
-     "date": "2026-04-14",
-     "filed": "2026-04-16",
-     "owner": "Hettrich Kevin",
-     "role": "CHIEF FINANCIAL OFFICER",
-     "code": "A",
-     "kind": "other",
-     "shares": 516319,
-     "price": null,
-     "value": null,
-     "after": 1874237,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000183402526000012/xslF345X06/primarydocument.xml"
-    },
-    {
-     "id": "0001834019-26-000006:A",
-     "date": "2026-04-14",
-     "filed": "2026-04-16",
-     "owner": "Singh Mohit",
-     "role": "CHIEF DEVELOPMENT OFFICER",
-     "code": "A",
-     "kind": "other",
-     "shares": 623144,
-     "price": null,
-     "value": null,
-     "after": 1853035,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000183401926000006/xslF345X06/primarydocument.xml"
-    },
-    {
-     "id": "0001177264-26-000008:A",
-     "date": "2026-04-14",
-     "filed": "2026-04-16",
-     "owner": "Mccarthy Michael O Iii",
-     "role": "CHIEF LEGAL OFFICER",
-     "code": "A",
-     "kind": "other",
-     "shares": 623144,
-     "price": null,
-     "value": null,
-     "after": 1577363,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000117726426000008/xslF345X06/primarydocument.xml"
     }
    ],
    "trials": [],
@@ -51683,36 +51699,6 @@
      "after": 1403651,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622025000023/xslF345X05/wk-form4_1764114867.xml"
-    },
-    {
-     "id": "0001476220-25-000018:S",
-     "date": "2025-11-17",
-     "filed": "2025-11-19",
-     "owner": "Sun Kang",
-     "role": "Chief Executive Officer",
-     "code": "S",
-     "kind": "sell",
-     "shares": 1000000,
-     "price": 10.5953,
-     "value": 10595300,
-     "after": 1472306,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622025000018/xslF345X05/wk-form4_1763592590.xml"
-    },
-    {
-     "id": "0001476220-25-000018:M",
-     "date": "2025-11-17",
-     "filed": "2025-11-19",
-     "owner": "Sun Kang",
-     "role": "Chief Executive Officer",
-     "code": "M",
-     "kind": "other",
-     "shares": 1000000,
-     "price": 0.2781,
-     "value": 278125,
-     "after": 2472306,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1899287/000147622025000018/xslF345X05/wk-form4_1763592590.xml"
     }
    ],
    "trials": [],
@@ -52247,156 +52233,6 @@
      "after": 0,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001834/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001805:M",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Bishop Michael S.",
-     "role": "EVP, TREASURER & CFO",
-     "code": "M",
-     "kind": "other",
-     "shares": 4591,
-     "price": null,
-     "value": null,
-     "after": 15198,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001805/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001805:F",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Bishop Michael S.",
-     "role": "EVP, TREASURER & CFO",
-     "code": "F",
-     "kind": "other",
-     "shares": 1439,
-     "price": 8.75,
-     "value": 12591,
-     "after": 13759,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001805/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001803:M",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Dolger Joshua",
-     "role": "General Counsel & Corp Sec",
-     "code": "M",
-     "kind": "other",
-     "shares": 2525,
-     "price": null,
-     "value": null,
-     "after": 8244,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001803/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001803:F",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Dolger Joshua",
-     "role": "General Counsel & Corp Sec",
-     "code": "F",
-     "kind": "other",
-     "shares": 792,
-     "price": 8.75,
-     "value": 6930,
-     "after": 7452,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001803/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001801:M",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Few Jason",
-     "role": "CEO",
-     "code": "M",
-     "kind": "other",
-     "shares": 11818,
-     "price": null,
-     "value": null,
-     "after": 55269,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001801/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001801:F",
-     "date": "2025-12-11",
-     "filed": "2025-12-15",
-     "owner": "Few Jason",
-     "role": "CEO",
-     "code": "F",
-     "kind": "other",
-     "shares": 3704,
-     "price": 8.75,
-     "value": 32410,
-     "after": 51565,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001801/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001786:M",
-     "date": "2025-12-05",
-     "filed": "2025-12-09",
-     "owner": "Few Jason",
-     "role": "CEO",
-     "code": "M",
-     "kind": "other",
-     "shares": 9789,
-     "price": null,
-     "value": null,
-     "after": 45061,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001786/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001786:F",
-     "date": "2025-12-05",
-     "filed": "2025-12-09",
-     "owner": "Few Jason",
-     "role": "CEO",
-     "code": "F",
-     "kind": "other",
-     "shares": 3069,
-     "price": 8.37,
-     "value": 25688,
-     "after": 43451,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001786/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001784:M",
-     "date": "2025-12-05",
-     "filed": "2025-12-09",
-     "owner": "Dolger Joshua",
-     "role": "General Counsel & Corp Sec",
-     "code": "M",
-     "kind": "other",
-     "shares": 1711,
-     "price": null,
-     "value": null,
-     "after": 6001,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001784/xslF345X05/form4.xml"
-    },
-    {
-     "id": "0000897069-25-001784:F",
-     "date": "2025-12-05",
-     "filed": "2025-12-09",
-     "owner": "Dolger Joshua",
-     "role": "General Counsel & Corp Sec",
-     "code": "F",
-     "kind": "other",
-     "shares": 537,
-     "price": 8.37,
-     "value": 4495,
-     "after": 5719,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/886128/000089706925001784/xslF345X05/form4.xml"
     }
    ],
    "trials": [],
@@ -54822,21 +54658,6 @@
      "after": 488716,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1836981/000188373225000007/xslF345X05/wk-form4_1765230937.xml"
-    },
-    {
-     "id": "0001836981-25-000030:S",
-     "date": "2025-11-18",
-     "filed": "2025-11-19",
-     "owner": "Hayes Dorothy D",
-     "role": "Director",
-     "code": "S",
-     "kind": "sell",
-     "shares": 22000,
-     "price": 6.085,
-     "value": 133870,
-     "after": 236150,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1836981/000183698125000030/xslF345X05/wk-form4_1763553829.xml"
     }
    ],
    "trials": [],

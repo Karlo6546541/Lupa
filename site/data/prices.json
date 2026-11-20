@@ -5,19 +5,15 @@
   "currency": "USD",
   "exchange": "SNP",
   "type": "INDEX",
-  "last": 7323.6299,
-  "prev_close": 7340.5298,
-  "change": -16.8999,
-  "change_pct": -0.23,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:57 ET",
+  "last": 7175.8301,
+  "prev_close": 7323.6299,
+  "change": -147.7998,
+  "change_pct": -2.02,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:59 ET",
   "high52": 7844.52,
   "low52": 6316.91,
   "closes": [
-   [
-    "2026-10-19",
-    7690.73
-   ],
    [
     "2026-10-20",
     7712.5698
@@ -105,11 +101,15 @@
    [
     "2026-11-18",
     7323.6299
+   ],
+   [
+    "2026-11-19",
+    7175.8301
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/%5EGSPC",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "^IXIC": {
   "symbol": "^IXIC",
@@ -117,19 +117,15 @@
   "currency": "USD",
   "exchange": "Nasdaq GIDS",
   "type": "INDEX",
-  "last": 24429.8809,
-  "prev_close": 24328.3809,
-  "change": 101.5,
-  "change_pct": 0.42,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 17:15 ET",
+  "last": 23879.1992,
+  "prev_close": 24429.8809,
+  "change": -550.6817,
+  "change_pct": -2.25,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 17:15 ET",
   "high52": 27722.75,
   "low52": 20690.25,
   "closes": [
-   [
-    "2026-10-19",
-    26430.8906
-   ],
    [
     "2026-10-20",
     26424.8203
@@ -217,11 +213,15 @@
    [
     "2026-11-18",
     24429.8809
+   ],
+   [
+    "2026-11-19",
+    23879.1992
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/%5EIXIC",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "^DJI": {
   "symbol": "^DJI",
@@ -229,19 +229,15 @@
   "currency": "USD",
   "exchange": "DJI",
   "type": "INDEX",
-  "last": 50198.1719,
-  "prev_close": 50759.4219,
-  "change": -561.25,
-  "change_pct": -1.11,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:57 ET",
+  "last": 49097.0586,
+  "prev_close": 50198.1719,
+  "change": -1101.1133,
+  "change_pct": -2.19,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:59 ET",
   "high52": 54744.33,
   "low52": 45057.28,
   "closes": [
-   [
-    "2026-10-19",
-    51966.0312
-   ],
    [
     "2026-10-20",
     52495.8789
@@ -329,11 +325,15 @@
    [
     "2026-11-18",
     50198.1719
+   ],
+   [
+    "2026-11-19",
+    49097.0586
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/%5EDJI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "^RUT": {
   "symbol": "^RUT",
@@ -341,19 +341,15 @@
   "currency": "USD",
   "exchange": "Chicago Options",
   "type": "INDEX",
-  "last": 2714.3101,
-  "prev_close": 2701.8701,
-  "change": 12.44,
-  "change_pct": 0.46,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:30 ET",
+  "last": 2655.1101,
+  "prev_close": 2714.3101,
+  "change": -59.2,
+  "change_pct": -2.18,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:30 ET",
   "high52": 3069.71,
-  "low52": 2303.46,
+  "low52": 2306.78,
   "closes": [
-   [
-    "2026-10-19",
-    2728.3
-   ],
    [
     "2026-10-20",
     2773.4199
@@ -441,11 +437,15 @@
    [
     "2026-11-18",
     2714.3101
+   ],
+   [
+    "2026-11-19",
+    2655.1101
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/%5ERUT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "^VIX": {
   "symbol": "^VIX",
@@ -453,19 +453,15 @@
   "currency": "USD",
   "exchange": "Cboe Indices",
   "type": "INDEX",
-  "last": 22.41,
-  "prev_close": 24.56,
-  "change": -2.15,
-  "change_pct": -8.75,
-  "session_date": "2026-11-19",
-  "as_of": "2026-11-19 09:12 ET",
+  "last": 31.18,
+  "prev_close": 28.44,
+  "change": 2.74,
+  "change_pct": 9.63,
+  "session_date": "2026-11-20",
+  "as_of": "2026-11-20 08:46 ET",
   "high52": 35.3,
   "low52": 13.38,
   "closes": [
-   [
-    "2026-10-19",
-    18.44
-   ],
    [
     "2026-10-20",
     17.31
@@ -556,12 +552,16 @@
    ],
    [
     "2026-11-19",
-    22.41
+    28.44
+   ],
+   [
+    "2026-11-20",
+    31.18
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/%5EVIX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "IWM": {
   "symbol": "IWM",
@@ -569,19 +569,15 @@
   "currency": "USD",
   "exchange": "NYSEArca",
   "type": "ETF",
-  "last": 270.12,
-  "prev_close": 269.05,
-  "change": 1.07,
-  "change_pct": 0.4,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 264.22,
+  "prev_close": 270.12,
+  "change": -5.9,
+  "change_pct": -2.18,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 305.18,
-  "low52": 228.9,
+  "low52": 229.58,
   "closes": [
-   [
-    "2026-10-19",
-    271.28
-   ],
    [
     "2026-10-20",
     275.78
@@ -669,11 +665,15 @@
    [
     "2026-11-18",
     270.12
+   ],
+   [
+    "2026-11-19",
+    264.22
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/IWM",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "XBI": {
   "symbol": "XBI",
@@ -681,19 +681,15 @@
   "currency": "USD",
   "exchange": "NYSEArca",
   "type": "ETF",
-  "last": 145.04,
-  "prev_close": 145.28,
-  "change": -0.24,
-  "change_pct": -0.17,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 144.12,
+  "prev_close": 145.04,
+  "change": -0.92,
+  "change_pct": -0.63,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 169.89,
   "low52": 113.57,
   "closes": [
-   [
-    "2026-10-19",
-    147.86
-   ],
    [
     "2026-10-20",
     153.24
@@ -781,11 +777,15 @@
    [
     "2026-11-18",
     145.04
+   ],
+   [
+    "2026-11-19",
+    144.12
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/XBI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "IBB": {
   "symbol": "IBB",
@@ -793,19 +793,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "ETF",
-  "last": 205.39,
-  "prev_close": 206.97,
-  "change": -1.58,
-  "change_pct": -0.76,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 203.72,
+  "prev_close": 205.39,
+  "change": -1.67,
+  "change_pct": -0.81,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 222.29,
   "low52": 159.68,
   "closes": [
-   [
-    "2026-10-19",
-    204.06
-   ],
    [
     "2026-10-20",
     210.5
@@ -893,11 +889,15 @@
    [
     "2026-11-18",
     205.39
+   ],
+   [
+    "2026-11-19",
+    203.72
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/IBB",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "DNA": {
   "symbol": "DNA",
@@ -905,19 +905,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 8.44,
-  "prev_close": 8.32,
-  "change": 0.12,
-  "change_pct": 1.44,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 8.2,
+  "prev_close": 8.44,
+  "change": -0.24,
+  "change_pct": -2.84,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 18.22,
   "low52": 5.37,
   "closes": [
-   [
-    "2026-10-19",
-    10.07
-   ],
    [
     "2026-10-20",
     9.86
@@ -1005,11 +1001,15 @@
    [
     "2026-11-18",
     8.44
+   ],
+   [
+    "2026-11-19",
+    8.2
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/DNA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "INFQ": {
   "symbol": "INFQ",
@@ -1017,19 +1017,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 7.61,
-  "prev_close": 7.54,
-  "change": 0.07,
-  "change_pct": 0.93,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 7.3,
+  "prev_close": 7.61,
+  "change": -0.31,
+  "change_pct": -4.07,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 21.28,
   "low52": 7.01,
   "closes": [
-   [
-    "2026-10-19",
-    8.75
-   ],
    [
     "2026-10-20",
     8.66
@@ -1117,11 +1113,15 @@
    [
     "2026-11-18",
     7.61
+   ],
+   [
+    "2026-11-19",
+    7.3
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/INFQ",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ABSI": {
   "symbol": "ABSI",
@@ -1129,19 +1129,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 8.18,
-  "prev_close": 7.58,
-  "change": 0.6,
-  "change_pct": 7.92,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 8.16,
+  "prev_close": 8.18,
+  "change": -0.02,
+  "change_pct": -0.24,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 12.545,
   "low52": 2.24,
   "closes": [
-   [
-    "2026-10-19",
-    8.54
-   ],
    [
     "2026-10-20",
     9.07
@@ -1229,11 +1225,15 @@
    [
     "2026-11-18",
     8.18
+   ],
+   [
+    "2026-11-19",
+    8.16
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ABSI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CDXS": {
   "symbol": "CDXS",
@@ -1241,19 +1241,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.15,
-  "prev_close": 1.07,
-  "change": 0.08,
-  "change_pct": 7.48,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.05,
+  "prev_close": 1.15,
+  "change": -0.1,
+  "change_pct": -8.7,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 2.98,
   "low52": 0.9,
   "closes": [
-   [
-    "2026-10-19",
-    1.32
-   ],
    [
     "2026-10-20",
     1.23
@@ -1341,11 +1337,15 @@
    [
     "2026-11-18",
     1.15
+   ],
+   [
+    "2026-11-19",
+    1.05
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CDXS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SANA": {
   "symbol": "SANA",
@@ -1353,19 +1353,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.85,
-  "prev_close": 1.88,
-  "change": -0.03,
-  "change_pct": -1.6,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.74,
+  "prev_close": 1.85,
+  "change": -0.11,
+  "change_pct": -5.95,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 5.49,
-  "low52": 1.84,
+  "low52": 1.7,
   "closes": [
-   [
-    "2026-10-19",
-    2.3
-   ],
    [
     "2026-10-20",
     2.36
@@ -1453,11 +1449,15 @@
    [
     "2026-11-18",
     1.85
+   ],
+   [
+    "2026-11-19",
+    1.74
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SANA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "RGTI": {
   "symbol": "RGTI",
@@ -1465,19 +1465,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 8.33,
-  "prev_close": 8.46,
-  "change": -0.13,
-  "change_pct": -1.54,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 8.06,
+  "prev_close": 8.33,
+  "change": -0.27,
+  "change_pct": -3.24,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 30.205,
-  "low52": 8.23,
+  "low52": 8.03,
   "closes": [
-   [
-    "2026-10-19",
-    11.67
-   ],
    [
     "2026-10-20",
     11.66
@@ -1565,11 +1561,15 @@
    [
     "2026-11-18",
     8.33
+   ],
+   [
+    "2026-11-19",
+    8.06
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/RGTI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "QBTS": {
   "symbol": "QBTS",
@@ -1577,19 +1577,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 7.69,
-  "prev_close": 8.08,
-  "change": -0.39,
-  "change_pct": -4.83,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 7.31,
+  "prev_close": 7.69,
+  "change": -0.38,
+  "change_pct": -4.94,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 32.39,
-  "low52": 7.66,
+  "low52": 7.26,
   "closes": [
-   [
-    "2026-10-19",
-    11.83
-   ],
    [
     "2026-10-20",
     11.78
@@ -1677,11 +1673,15 @@
    [
     "2026-11-18",
     7.69
+   ],
+   [
+    "2026-11-19",
+    7.31
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/QBTS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "QUBT": {
   "symbol": "QUBT",
@@ -1689,19 +1689,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 5.1,
-  "prev_close": 5.13,
-  "change": -0.03,
-  "change_pct": -0.58,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 4.88,
+  "prev_close": 5.1,
+  "change": -0.22,
+  "change_pct": -4.31,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 14.45,
-  "low52": 4.9,
+  "low52": 4.86,
   "closes": [
-   [
-    "2026-10-19",
-    6.42
-   ],
    [
     "2026-10-20",
     6.5
@@ -1789,11 +1785,15 @@
    [
     "2026-11-18",
     5.1
+   ],
+   [
+    "2026-11-19",
+    4.88
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/QUBT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NVDA": {
   "symbol": "NVDA",
@@ -1801,19 +1801,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 150.96,
-  "prev_close": 155.46,
-  "change": -4.5,
-  "change_pct": -2.89,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 145.98,
+  "prev_close": 150.96,
+  "change": -4.98,
+  "change_pct": -3.3,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 243.37,
-  "low52": 148.8,
+  "low52": 145.71,
   "closes": [
-   [
-    "2026-10-19",
-    217.09
-   ],
    [
     "2026-10-20",
     216.47
@@ -1901,11 +1897,15 @@
    [
     "2026-11-18",
     150.96
+   ],
+   [
+    "2026-11-19",
+    145.98
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NVDA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "IONQ": {
   "symbol": "IONQ",
@@ -1913,19 +1913,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 23.48,
-  "prev_close": 24.84,
-  "change": -1.36,
-  "change_pct": -5.48,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 22.71,
+  "prev_close": 23.48,
+  "change": -0.77,
+  "change_pct": -3.28,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 73.65,
-  "low52": 23.19,
+  "low52": 22.62,
   "closes": [
-   [
-    "2026-10-19",
-    30.78
-   ],
    [
     "2026-10-20",
     31.26
@@ -2013,11 +2009,15 @@
    [
     "2026-11-18",
     23.48
+   ],
+   [
+    "2026-11-19",
+    22.71
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/IONQ",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "TWST": {
   "symbol": "TWST",
@@ -2025,19 +2025,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 116.35,
-  "prev_close": 112.0,
-  "change": 4.35,
-  "change_pct": 3.88,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 111.62,
+  "prev_close": 116.35,
+  "change": -4.73,
+  "change_pct": -4.07,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 219.71,
   "low52": 25.67,
   "closes": [
-   [
-    "2026-10-19",
-    139.77
-   ],
    [
     "2026-10-20",
     142.7
@@ -2125,11 +2121,15 @@
    [
     "2026-11-18",
     116.35
+   ],
+   [
+    "2026-11-19",
+    111.62
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/TWST",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "RXRX": {
   "symbol": "RXRX",
@@ -2137,19 +2137,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 2.825,
-  "prev_close": 2.72,
-  "change": 0.105,
-  "change_pct": 3.86,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 2.72,
+  "prev_close": 2.825,
+  "change": -0.105,
+  "change_pct": -3.72,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 5.24,
   "low52": 2.5,
   "closes": [
-   [
-    "2026-10-19",
-    3.61
-   ],
    [
     "2026-10-20",
     3.66
@@ -2237,11 +2233,15 @@
    [
     "2026-11-18",
     2.825
+   ],
+   [
+    "2026-11-19",
+    2.72
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/RXRX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ABCL": {
   "symbol": "ABCL",
@@ -2249,19 +2249,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 11.02,
-  "prev_close": 11.03,
-  "change": -0.01,
-  "change_pct": -0.09,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 10.47,
+  "prev_close": 11.02,
+  "change": -0.55,
+  "change_pct": -4.99,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 15.015,
   "low52": 2.745,
   "closes": [
-   [
-    "2026-10-19",
-    11.93
-   ],
    [
     "2026-10-20",
     11.71
@@ -2349,11 +2345,15 @@
    [
     "2026-11-18",
     11.02
+   ],
+   [
+    "2026-11-19",
+    10.47
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ABCL",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "BEAM": {
   "symbol": "BEAM",
@@ -2361,19 +2361,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 21.01,
-  "prev_close": 20.65,
-  "change": 0.36,
-  "change_pct": 1.74,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 20.94,
+  "prev_close": 21.01,
+  "change": -0.07,
+  "change_pct": -0.33,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 38.26,
-  "low52": 20.23,
+  "low52": 20.39,
   "closes": [
-   [
-    "2026-10-19",
-    24.19
-   ],
    [
     "2026-10-20",
     24.93
@@ -2461,11 +2457,15 @@
    [
     "2026-11-18",
     21.01
+   ],
+   [
+    "2026-11-19",
+    20.94
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/BEAM",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NTLA": {
   "symbol": "NTLA",
@@ -2473,19 +2473,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 9.77,
-  "prev_close": 9.78,
-  "change": -0.01,
-  "change_pct": -0.1,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 9.52,
+  "prev_close": 9.77,
+  "change": -0.25,
+  "change_pct": -2.56,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 18.48,
   "low52": 7.95,
   "closes": [
-   [
-    "2026-10-19",
-    11.58
-   ],
    [
     "2026-10-20",
     11.84
@@ -2573,11 +2569,15 @@
    [
     "2026-11-18",
     9.77
+   ],
+   [
+    "2026-11-19",
+    9.52
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NTLA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "PACB": {
   "symbol": "PACB",
@@ -2585,19 +2585,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.83,
-  "prev_close": 1.82,
-  "change": 0.01,
-  "change_pct": 0.55,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.76,
+  "prev_close": 1.83,
+  "change": -0.07,
+  "change_pct": -3.83,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 3.44,
   "low52": 1.07,
   "closes": [
-   [
-    "2026-10-19",
-    1.84
-   ],
    [
     "2026-10-20",
     1.96
@@ -2685,11 +2681,15 @@
    [
     "2026-11-18",
     1.83
+   ],
+   [
+    "2026-11-19",
+    1.76
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/PACB",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SDGR": {
   "symbol": "SDGR",
@@ -2697,19 +2697,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 27.2,
-  "prev_close": 25.66,
-  "change": 1.54,
-  "change_pct": 6.0,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 26.34,
+  "prev_close": 27.2,
+  "change": -0.86,
+  "change_pct": -3.16,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 34.0,
   "low52": 10.945,
   "closes": [
-   [
-    "2026-10-19",
-    23.12
-   ],
    [
     "2026-10-20",
     23.4
@@ -2797,11 +2793,15 @@
    [
     "2026-11-18",
     27.2
+   ],
+   [
+    "2026-11-19",
+    26.34
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SDGR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "RKLB": {
   "symbol": "RKLB",
@@ -2809,19 +2809,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 53.07,
-  "prev_close": 55.05,
-  "change": -1.98,
-  "change_pct": -3.6,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 50.99,
+  "prev_close": 53.07,
+  "change": -2.08,
+  "change_pct": -3.92,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 151.0,
   "low52": 37.57,
   "closes": [
-   [
-    "2026-10-19",
-    51.36
-   ],
    [
     "2026-10-20",
     50.9
@@ -2909,11 +2905,15 @@
    [
     "2026-11-18",
     53.07
+   ],
+   [
+    "2026-11-19",
+    50.99
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/RKLB",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ASTS": {
   "symbol": "ASTS",
@@ -2921,19 +2921,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 25.49,
-  "prev_close": 27.59,
-  "change": -2.1,
-  "change_pct": -7.61,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 25.55,
+  "prev_close": 25.49,
+  "change": 0.06,
+  "change_pct": 0.24,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 133.86,
   "low52": 25.16,
   "closes": [
-   [
-    "2026-10-19",
-    41.87
-   ],
    [
     "2026-10-20",
     41.13
@@ -3021,11 +3017,15 @@
    [
     "2026-11-18",
     25.49
+   ],
+   [
+    "2026-11-19",
+    25.55
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ASTS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LUNR": {
   "symbol": "LUNR",
@@ -3033,19 +3033,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 10.12,
-  "prev_close": 11.045,
-  "change": -0.925,
-  "change_pct": -8.37,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 9.78,
+  "prev_close": 10.12,
+  "change": -0.34,
+  "change_pct": -3.36,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 46.75,
   "low52": 7.78,
   "closes": [
-   [
-    "2026-10-19",
-    10.74
-   ],
    [
     "2026-10-20",
     10.54
@@ -3133,11 +3129,15 @@
    [
     "2026-11-18",
     10.12
+   ],
+   [
+    "2026-11-19",
+    9.78
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LUNR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "RDW": {
   "symbol": "RDW",
@@ -3145,19 +3145,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 6.82,
-  "prev_close": 6.78,
-  "change": 0.04,
-  "change_pct": 0.59,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 6.51,
+  "prev_close": 6.82,
+  "change": -0.31,
+  "change_pct": -4.55,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 26.64,
   "low52": 4.87,
   "closes": [
-   [
-    "2026-10-19",
-    8.46
-   ],
    [
     "2026-10-20",
     8.3
@@ -3245,11 +3241,15 @@
    [
     "2026-11-18",
     6.82
+   ],
+   [
+    "2026-11-19",
+    6.51
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/RDW",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "PL": {
   "symbol": "PL",
@@ -3257,19 +3257,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 12.05,
-  "prev_close": 12.49,
-  "change": -0.44,
-  "change_pct": -3.52,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 11.63,
+  "prev_close": 12.05,
+  "change": -0.42,
+  "change_pct": -3.49,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 51.76,
   "low52": 10.52,
   "closes": [
-   [
-    "2026-10-19",
-    13.59
-   ],
    [
     "2026-10-20",
     13.4
@@ -3357,11 +3353,15 @@
    [
     "2026-11-18",
     12.05
+   ],
+   [
+    "2026-11-19",
+    11.63
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/PL",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "BKSY": {
   "symbol": "BKSY",
@@ -3369,19 +3369,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 20.65,
-  "prev_close": 21.9,
-  "change": -1.25,
-  "change_pct": -5.71,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 18.79,
+  "prev_close": 20.65,
+  "change": -1.86,
+  "change_pct": -9.01,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 52.88,
   "low52": 13.25,
   "closes": [
-   [
-    "2026-10-19",
-    17.13
-   ],
    [
     "2026-10-20",
     16.87
@@ -3469,11 +3465,15 @@
    [
     "2026-11-18",
     20.65
+   ],
+   [
+    "2026-11-19",
+    18.79
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/BKSY",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "OKLO": {
   "symbol": "OKLO",
@@ -3481,19 +3481,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 21.8,
-  "prev_close": 22.37,
-  "change": -0.57,
-  "change_pct": -2.55,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 20.84,
+  "prev_close": 21.8,
+  "change": -0.96,
+  "change_pct": -4.4,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 115.72,
   "low52": 18.535,
   "closes": [
-   [
-    "2026-10-19",
-    27.24
-   ],
    [
     "2026-10-20",
     27.48
@@ -3581,11 +3577,15 @@
    [
     "2026-11-18",
     21.8
+   ],
+   [
+    "2026-11-19",
+    20.84
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/OKLO",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SMR": {
   "symbol": "SMR",
@@ -3593,19 +3593,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 3.91,
-  "prev_close": 4.09,
-  "change": -0.18,
-  "change_pct": -4.4,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 3.81,
+  "prev_close": 3.91,
+  "change": -0.1,
+  "change_pct": -2.56,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 23.35,
-  "low52": 3.9,
+  "low52": 3.71,
   "closes": [
-   [
-    "2026-10-19",
-    5.69
-   ],
    [
     "2026-10-20",
     5.58
@@ -3693,11 +3689,15 @@
    [
     "2026-11-18",
     3.91
+   ],
+   [
+    "2026-11-19",
+    3.81
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SMR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NNE": {
   "symbol": "NNE",
@@ -3705,19 +3705,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 10.35,
-  "prev_close": 10.49,
-  "change": -0.14,
-  "change_pct": -1.33,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 9.97,
+  "prev_close": 10.35,
+  "change": -0.38,
+  "change_pct": -3.67,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 39.87,
   "low52": 9.291,
   "closes": [
-   [
-    "2026-10-19",
-    13.01
-   ],
    [
     "2026-10-20",
     12.96
@@ -3805,11 +3801,15 @@
    [
     "2026-11-18",
     10.35
+   ],
+   [
+    "2026-11-19",
+    9.97
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NNE",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LEU": {
   "symbol": "LEU",
@@ -3817,19 +3817,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 91.76,
-  "prev_close": 94.19,
-  "change": -2.43,
-  "change_pct": -2.58,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 89.7,
+  "prev_close": 91.76,
+  "change": -2.06,
+  "change_pct": -2.24,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 345.6,
   "low52": 84.86,
   "closes": [
-   [
-    "2026-10-19",
-    110.12
-   ],
    [
     "2026-10-20",
     109.88
@@ -3917,11 +3913,15 @@
    [
     "2026-11-18",
     91.76
+   ],
+   [
+    "2026-11-19",
+    89.7
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LEU",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "UUUU": {
   "symbol": "UUUU",
@@ -3929,19 +3929,15 @@
   "currency": "USD",
   "exchange": "NYSE American",
   "type": "EQUITY",
-  "last": 5.64,
-  "prev_close": 5.93,
-  "change": -0.29,
-  "change_pct": -4.89,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 5.48,
+  "prev_close": 5.64,
+  "change": -0.16,
+  "change_pct": -2.84,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 27.9,
-  "low52": 5.615,
+  "low52": 5.475,
   "closes": [
-   [
-    "2026-10-19",
-    8.16
-   ],
    [
     "2026-10-20",
     8.21
@@ -4029,11 +4025,15 @@
    [
     "2026-11-18",
     5.64
+   ],
+   [
+    "2026-11-19",
+    5.48
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/UUUU",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "RCAT": {
   "symbol": "RCAT",
@@ -4041,19 +4041,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 2.25,
-  "prev_close": 2.41,
-  "change": -0.16,
-  "change_pct": -6.64,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.94,
+  "prev_close": 2.25,
+  "change": -0.31,
+  "change_pct": -13.78,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 18.78,
-  "low52": 2.16,
+  "low52": 1.882,
   "closes": [
-   [
-    "2026-10-19",
-    4.68
-   ],
    [
     "2026-10-20",
     4.52
@@ -4141,11 +4137,15 @@
    [
     "2026-11-18",
     2.25
+   ],
+   [
+    "2026-11-19",
+    1.94
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/RCAT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "KTOS": {
   "symbol": "KTOS",
@@ -4153,19 +4153,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 30.24,
-  "prev_close": 31.06,
-  "change": -0.82,
-  "change_pct": -2.64,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 29.65,
+  "prev_close": 30.24,
+  "change": -0.59,
+  "change_pct": -1.95,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 134.0,
-  "low52": 29.978,
+  "low52": 29.29,
   "closes": [
-   [
-    "2026-10-19",
-    39.17
-   ],
    [
     "2026-10-20",
     38.96
@@ -4253,11 +4249,15 @@
    [
     "2026-11-18",
     30.24
+   ],
+   [
+    "2026-11-19",
+    29.65
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/KTOS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "AVAV": {
   "symbol": "AVAV",
@@ -4265,19 +4265,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 101.11,
-  "prev_close": 104.42,
-  "change": -3.31,
-  "change_pct": -3.17,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 95.91,
+  "prev_close": 101.11,
+  "change": -5.2,
+  "change_pct": -5.14,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 408.25,
-  "low52": 100.4,
+  "low52": 95.65,
   "closes": [
-   [
-    "2026-10-19",
-    117.9
-   ],
    [
     "2026-10-20",
     117.63
@@ -4365,11 +4361,15 @@
    [
     "2026-11-18",
     101.11
+   ],
+   [
+    "2026-11-19",
+    95.91
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/AVAV",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ONDS": {
   "symbol": "ONDS",
@@ -4377,19 +4377,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 4.42,
-  "prev_close": 4.39,
-  "change": 0.03,
-  "change_pct": 0.68,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 4.23,
+  "prev_close": 4.42,
+  "change": -0.19,
+  "change_pct": -4.3,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 15.28,
-  "low52": 4.31,
+  "low52": 4.21,
   "closes": [
-   [
-    "2026-10-19",
-    6.06
-   ],
    [
     "2026-10-20",
     6.1
@@ -4477,11 +4473,15 @@
    [
     "2026-11-18",
     4.42
+   ],
+   [
+    "2026-11-19",
+    4.23
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ONDS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SERV": {
   "symbol": "SERV",
@@ -4489,19 +4489,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 2.4,
-  "prev_close": 2.44,
-  "change": -0.04,
-  "change_pct": -1.64,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 2.29,
+  "prev_close": 2.4,
+  "change": -0.11,
+  "change_pct": -4.58,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 16.08,
   "low52": 2.255,
   "closes": [
-   [
-    "2026-10-19",
-    3.08
-   ],
    [
     "2026-10-20",
     3.05
@@ -4589,11 +4585,15 @@
    [
     "2026-11-18",
     2.4
+   ],
+   [
+    "2026-11-19",
+    2.29
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SERV",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CRSP": {
   "symbol": "CRSP",
@@ -4601,19 +4601,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 40.19,
-  "prev_close": 40.15,
-  "change": 0.04,
-  "change_pct": 0.1,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 38.93,
+  "prev_close": 40.19,
+  "change": -1.26,
+  "change_pct": -3.14,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 63.45,
-  "low52": 39.795,
+  "low52": 38.365,
   "closes": [
-   [
-    "2026-10-19",
-    50.04
-   ],
    [
     "2026-10-20",
     49.88
@@ -4701,11 +4697,15 @@
    [
     "2026-11-18",
     40.19
+   ],
+   [
+    "2026-11-19",
+    38.93
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CRSP",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "EDIT": {
   "symbol": "EDIT",
@@ -4713,19 +4713,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.77,
-  "prev_close": 1.825,
-  "change": -0.055,
-  "change_pct": -3.01,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.71,
+  "prev_close": 1.77,
+  "change": -0.06,
+  "change_pct": -3.39,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 3.94,
   "low52": 1.66,
   "closes": [
-   [
-    "2026-10-19",
-    2.42
-   ],
    [
     "2026-10-20",
     2.58
@@ -4813,11 +4809,15 @@
    [
     "2026-11-18",
     1.77
+   ],
+   [
+    "2026-11-19",
+    1.71
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/EDIT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "PRME": {
   "symbol": "PRME",
@@ -4825,19 +4825,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 3.82,
-  "prev_close": 3.84,
-  "change": -0.02,
-  "change_pct": -0.52,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 3.84,
+  "prev_close": 3.82,
+  "change": 0.02,
+  "change_pct": 0.52,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 5.91,
   "low52": 2.67,
   "closes": [
-   [
-    "2026-10-19",
-    3.83
-   ],
    [
     "2026-10-20",
     3.92
@@ -4925,11 +4921,15 @@
    [
     "2026-11-18",
     3.82
+   ],
+   [
+    "2026-11-19",
+    3.84
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/PRME",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "DTIL": {
   "symbol": "DTIL",
@@ -4937,19 +4937,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 7.1,
-  "prev_close": 7.05,
-  "change": 0.05,
-  "change_pct": 0.71,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 6.91,
+  "prev_close": 7.1,
+  "change": -0.19,
+  "change_pct": -2.68,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 11.29,
   "low52": 3.53,
   "closes": [
-   [
-    "2026-10-19",
-    6.19
-   ],
    [
     "2026-10-20",
     6.56
@@ -5037,11 +5033,15 @@
    [
     "2026-11-18",
     7.1
+   ],
+   [
+    "2026-11-19",
+    6.91
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/DTIL",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CRBU": {
   "symbol": "CRBU",
@@ -5049,19 +5049,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 0.326,
-  "prev_close": 0.341,
+  "last": 0.311,
+  "prev_close": 0.326,
   "change": -0.015,
-  "change_pct": -4.4,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "change_pct": -4.6,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 2.49,
-  "low52": 0.311,
+  "low52": 0.301,
   "closes": [
-   [
-    "2026-10-19",
-    0.464
-   ],
    [
     "2026-10-20",
     0.519
@@ -5149,11 +5145,15 @@
    [
     "2026-11-18",
     0.326
+   ],
+   [
+    "2026-11-19",
+    0.311
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CRBU",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ALLO": {
   "symbol": "ALLO",
@@ -5161,19 +5161,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 0.7,
-  "prev_close": 0.74,
-  "change": -0.04,
-  "change_pct": -5.41,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 0.67,
+  "prev_close": 0.7,
+  "change": -0.03,
+  "change_pct": -4.29,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 4.46,
-  "low52": 0.686,
+  "low52": 0.65,
   "closes": [
-   [
-    "2026-10-19",
-    1.3
-   ],
    [
     "2026-10-20",
     1.33
@@ -5261,11 +5257,15 @@
    [
     "2026-11-18",
     0.7
+   ],
+   [
+    "2026-11-19",
+    0.67
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ALLO",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "FATE": {
   "symbol": "FATE",
@@ -5273,19 +5273,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 1.05,
-  "prev_close": 1.02,
-  "change": 0.03,
-  "change_pct": 2.94,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.01,
+  "prev_close": 1.05,
+  "change": -0.04,
+  "change_pct": -3.81,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 3.23,
   "low52": 0.95,
   "closes": [
-   [
-    "2026-10-19",
-    1.86
-   ],
    [
     "2026-10-20",
     2.06
@@ -5373,11 +5369,15 @@
    [
     "2026-11-18",
     1.05
+   ],
+   [
+    "2026-11-19",
+    1.01
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/FATE",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CABA": {
   "symbol": "CABA",
@@ -5385,19 +5385,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.055,
-  "prev_close": 1.02,
-  "change": 0.035,
-  "change_pct": 3.43,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.01,
+  "prev_close": 1.055,
+  "change": -0.045,
+  "change_pct": -4.27,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 4.23,
   "low52": 0.982,
   "closes": [
-   [
-    "2026-10-19",
-    1.48
-   ],
    [
     "2026-10-20",
     1.61
@@ -5485,11 +5481,15 @@
    [
     "2026-11-18",
     1.055
+   ],
+   [
+    "2026-11-19",
+    1.01
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CABA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NKTX": {
   "symbol": "NKTX",
@@ -5497,19 +5497,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.15,
-  "prev_close": 1.25,
-  "change": -0.1,
-  "change_pct": -8.0,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.12,
+  "prev_close": 1.15,
+  "change": -0.03,
+  "change_pct": -2.61,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 3.72,
   "low52": 1.105,
   "closes": [
-   [
-    "2026-10-19",
-    1.75
-   ],
    [
     "2026-10-20",
     1.74
@@ -5597,11 +5593,15 @@
    [
     "2026-11-18",
     1.15
+   ],
+   [
+    "2026-11-19",
+    1.12
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NKTX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "TEM": {
   "symbol": "TEM",
@@ -5609,19 +5609,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 63.62,
-  "prev_close": 63.43,
-  "change": 0.19,
-  "change_pct": 0.3,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 59.61,
+  "prev_close": 63.62,
+  "change": -4.01,
+  "change_pct": -6.3,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 89.09,
   "low52": 40.77,
   "closes": [
-   [
-    "2026-10-19",
-    64.34
-   ],
    [
     "2026-10-20",
     66.75
@@ -5709,11 +5705,15 @@
    [
     "2026-11-18",
     63.62
+   ],
+   [
+    "2026-11-19",
+    59.61
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/TEM",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "TXG": {
   "symbol": "TXG",
@@ -5721,19 +5721,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 57.07,
-  "prev_close": 56.3,
-  "change": 0.77,
-  "change_pct": 1.37,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 57.38,
+  "prev_close": 57.07,
+  "change": 0.31,
+  "change_pct": 0.54,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 102.81,
   "low52": 15.18,
   "closes": [
-   [
-    "2026-10-19",
-    69.89
-   ],
    [
     "2026-10-20",
     71.46
@@ -5821,11 +5817,15 @@
    [
     "2026-11-18",
     57.07
+   ],
+   [
+    "2026-11-19",
+    57.38
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/TXG",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "GH": {
   "symbol": "GH",
@@ -5833,19 +5833,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 145.14,
-  "prev_close": 143.28,
-  "change": 1.86,
-  "change_pct": 1.3,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 145.59,
+  "prev_close": 145.14,
+  "change": 0.45,
+  "change_pct": 0.31,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 191.05,
   "low52": 74.55,
   "closes": [
-   [
-    "2026-10-19",
-    157.88
-   ],
    [
     "2026-10-20",
     162.59
@@ -5933,11 +5929,15 @@
    [
     "2026-11-18",
     145.14
+   ],
+   [
+    "2026-11-19",
+    145.59
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/GH",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NTRA": {
   "symbol": "NTRA",
@@ -5945,19 +5945,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 289.5,
-  "prev_close": 287.47,
-  "change": 2.03,
-  "change_pct": 0.71,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 289.92,
+  "prev_close": 289.5,
+  "change": 0.42,
+  "change_pct": 0.15,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 437.408,
   "low52": 181.0,
   "closes": [
-   [
-    "2026-10-19",
-    399.42
-   ],
    [
     "2026-10-20",
     405.92
@@ -6045,11 +6041,15 @@
    [
     "2026-11-18",
     289.5
+   ],
+   [
+    "2026-11-19",
+    289.92
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NTRA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SEER": {
   "symbol": "SEER",
@@ -6057,19 +6057,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.44,
-  "prev_close": 1.46,
-  "change": -0.02,
-  "change_pct": -1.37,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.385,
+  "prev_close": 1.44,
+  "change": -0.055,
+  "change_pct": -3.82,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 2.375,
-  "low52": 1.41,
+  "low52": 1.36,
   "closes": [
-   [
-    "2026-10-19",
-    2.02
-   ],
    [
     "2026-10-20",
     1.98
@@ -6157,11 +6153,15 @@
    [
     "2026-11-18",
     1.44
+   ],
+   [
+    "2026-11-19",
+    1.385
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SEER",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LAB": {
   "symbol": "LAB",
@@ -6169,19 +6169,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 0.57,
-  "prev_close": 0.54,
-  "change": 0.03,
-  "change_pct": 5.56,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 0.61,
+  "prev_close": 0.57,
+  "change": 0.04,
+  "change_pct": 7.02,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 1.72,
   "low52": 0.39,
   "closes": [
-   [
-    "2026-10-19",
-    0.64
-   ],
    [
     "2026-10-20",
     0.64
@@ -6269,11 +6265,15 @@
    [
     "2026-11-18",
     0.57
+   ],
+   [
+    "2026-11-19",
+    0.61
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LAB",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "QSI": {
   "symbol": "QSI",
@@ -6282,18 +6282,14 @@
   "exchange": "NasdaqGM",
   "type": "EQUITY",
   "last": 1.07,
-  "prev_close": 1.01,
-  "change": 0.06,
-  "change_pct": 5.94,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "prev_close": 1.07,
+  "change": 0.0,
+  "change_pct": 0.0,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 1.81,
   "low52": 0.69,
   "closes": [
-   [
-    "2026-10-19",
-    1.09
-   ],
    [
     "2026-10-20",
     1.16
@@ -6381,11 +6377,15 @@
    [
     "2026-11-18",
     1.07
+   ],
+   [
+    "2026-11-19",
+    1.07
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/QSI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CDNA": {
   "symbol": "CDNA",
@@ -6393,19 +6393,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 74.44,
-  "prev_close": 74.56,
-  "change": -0.12,
-  "change_pct": -0.16,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 71.92,
+  "prev_close": 74.44,
+  "change": -2.52,
+  "change_pct": -3.39,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 90.87,
   "low52": 15.56,
   "closes": [
-   [
-    "2026-10-19",
-    67.08
-   ],
    [
     "2026-10-20",
     69.2
@@ -6493,11 +6489,15 @@
    [
     "2026-11-18",
     74.44
+   ],
+   [
+    "2026-11-19",
+    71.92
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CDNA",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "BNGO": {
   "symbol": "BNGO",
@@ -6505,19 +6505,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 0.98,
-  "prev_close": 0.95,
-  "change": 0.03,
-  "change_pct": 3.16,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 0.89,
+  "prev_close": 0.98,
+  "change": -0.09,
+  "change_pct": -9.18,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 2.23,
-  "low52": 0.93,
+  "low52": 0.87,
   "closes": [
-   [
-    "2026-10-19",
-    1.22
-   ],
    [
     "2026-10-20",
     1.25
@@ -6605,11 +6601,15 @@
    [
     "2026-11-18",
     0.98
+   ],
+   [
+    "2026-11-19",
+    0.89
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/BNGO",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "MXCT": {
   "symbol": "MXCT",
@@ -6617,19 +6617,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.25,
-  "prev_close": 1.17,
-  "change": 0.08,
-  "change_pct": 6.84,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.28,
+  "prev_close": 1.25,
+  "change": 0.03,
+  "change_pct": 2.4,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 1.8,
   "low52": 0.643,
   "closes": [
-   [
-    "2026-10-19",
-    1.3
-   ],
    [
     "2026-10-20",
     1.43
@@ -6717,11 +6713,15 @@
    [
     "2026-11-18",
     1.25
+   ],
+   [
+    "2026-11-19",
+    1.28
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/MXCT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ADPT": {
   "symbol": "ADPT",
@@ -6729,19 +6729,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 28.46,
-  "prev_close": 28.49,
-  "change": -0.03,
-  "change_pct": -0.11,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 28.05,
+  "prev_close": 28.46,
+  "change": -0.41,
+  "change_pct": -1.44,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 32.21,
   "low52": 12.0,
   "closes": [
-   [
-    "2026-10-19",
-    23.95
-   ],
    [
     "2026-10-20",
     24.42
@@ -6829,11 +6825,15 @@
    [
     "2026-11-18",
     28.46
+   ],
+   [
+    "2026-11-19",
+    28.05
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ADPT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "PRCT": {
   "symbol": "PRCT",
@@ -6841,19 +6841,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 25.18,
-  "prev_close": 23.78,
-  "change": 1.4,
-  "change_pct": 5.89,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 25.75,
+  "prev_close": 25.18,
+  "change": 0.57,
+  "change_pct": 2.26,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 38.11,
   "low52": 16.665,
   "closes": [
-   [
-    "2026-10-19",
-    18.28
-   ],
    [
     "2026-10-20",
     18.82
@@ -6941,11 +6937,15 @@
    [
     "2026-11-18",
     25.18
+   ],
+   [
+    "2026-11-19",
+    25.75
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/PRCT",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "TMDX": {
   "symbol": "TMDX",
@@ -6953,19 +6953,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 96.43,
-  "prev_close": 93.91,
-  "change": 2.52,
-  "change_pct": 2.68,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 94.02,
+  "prev_close": 96.43,
+  "change": -2.41,
+  "change_pct": -2.5,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 156.0,
   "low52": 60.105,
   "closes": [
-   [
-    "2026-10-19",
-    71.6
-   ],
    [
     "2026-10-20",
     74.75
@@ -7053,11 +7049,15 @@
    [
     "2026-11-18",
     96.43
+   ],
+   [
+    "2026-11-19",
+    94.02
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/TMDX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LUNG": {
   "symbol": "LUNG",
@@ -7065,19 +7065,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 2.69,
-  "prev_close": 2.735,
-  "change": -0.045,
-  "change_pct": -1.65,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 2.74,
+  "prev_close": 2.69,
+  "change": 0.05,
+  "change_pct": 1.86,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 3.25,
   "low52": 1.13,
   "closes": [
-   [
-    "2026-10-19",
-    1.75
-   ],
    [
     "2026-10-20",
     1.82
@@ -7165,11 +7161,15 @@
    [
     "2026-11-18",
     2.69
+   ],
+   [
+    "2026-11-19",
+    2.74
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LUNG",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LASR": {
   "symbol": "LASR",
@@ -7177,19 +7177,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 38.33,
-  "prev_close": 38.06,
-  "change": 0.27,
-  "change_pct": 0.71,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 37.68,
+  "prev_close": 38.33,
+  "change": -0.65,
+  "change_pct": -1.7,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 86.95,
   "low52": 28.09,
   "closes": [
-   [
-    "2026-10-19",
-    34.79
-   ],
    [
     "2026-10-20",
     36.22
@@ -7277,11 +7273,15 @@
    [
     "2026-11-18",
     38.33
+   ],
+   [
+    "2026-11-19",
+    37.68
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LASR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "AEHR": {
   "symbol": "AEHR",
@@ -7289,19 +7289,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 49.48,
-  "prev_close": 49.74,
-  "change": -0.26,
-  "change_pct": -0.52,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 47.94,
+  "prev_close": 49.48,
+  "change": -1.54,
+  "change_pct": -3.11,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 147.4,
   "low52": 18.7,
   "closes": [
-   [
-    "2026-10-19",
-    63.33
-   ],
    [
     "2026-10-20",
     61.99
@@ -7389,11 +7385,15 @@
    [
     "2026-11-18",
     49.48
+   ],
+   [
+    "2026-11-19",
+    47.94
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/AEHR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "NVTS": {
   "symbol": "NVTS",
@@ -7401,19 +7401,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 7.3,
-  "prev_close": 7.6,
-  "change": -0.3,
-  "change_pct": -3.95,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 7.17,
+  "prev_close": 7.3,
+  "change": -0.13,
+  "change_pct": -1.78,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 34.17,
   "low52": 6.85,
   "closes": [
-   [
-    "2026-10-19",
-    8.63
-   ],
    [
     "2026-10-20",
     8.74
@@ -7501,11 +7497,15 @@
    [
     "2026-11-18",
     7.3
+   ],
+   [
+    "2026-11-19",
+    7.17
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/NVTS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "LWLG": {
   "symbol": "LWLG",
@@ -7513,19 +7513,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 2.95,
-  "prev_close": 3.16,
-  "change": -0.21,
-  "change_pct": -6.65,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 3.0,
+  "prev_close": 2.95,
+  "change": 0.05,
+  "change_pct": 1.69,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 18.71,
-  "low52": 2.725,
+  "low52": 2.73,
   "closes": [
-   [
-    "2026-10-19",
-    3.96
-   ],
    [
     "2026-10-20",
     4.16
@@ -7613,11 +7609,15 @@
    [
     "2026-11-18",
     2.95
+   ],
+   [
+    "2026-11-19",
+    3.0
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/LWLG",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "AAOI": {
   "symbol": "AAOI",
@@ -7625,19 +7625,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 40.79,
-  "prev_close": 45.22,
-  "change": -4.43,
-  "change_pct": -9.8,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 39.46,
+  "prev_close": 40.79,
+  "change": -1.33,
+  "change_pct": -3.26,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 233.67,
   "low52": 18.5,
   "closes": [
-   [
-    "2026-10-19",
-    78.2
-   ],
    [
     "2026-10-20",
     76.74
@@ -7725,11 +7721,15 @@
    [
     "2026-11-18",
     40.79
+   ],
+   [
+    "2026-11-19",
+    39.46
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/AAOI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "INDI": {
   "symbol": "INDI",
@@ -7737,19 +7737,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 1.78,
-  "prev_close": 1.84,
-  "change": -0.06,
-  "change_pct": -3.26,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.76,
+  "prev_close": 1.78,
+  "change": -0.02,
+  "change_pct": -1.12,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 5.485,
   "low52": 1.34,
   "closes": [
-   [
-    "2026-10-19",
-    1.87
-   ],
    [
     "2026-10-20",
     1.83
@@ -7837,11 +7833,15 @@
    [
     "2026-11-18",
     1.78
+   ],
+   [
+    "2026-11-19",
+    1.76
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/INDI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "AXTI": {
   "symbol": "AXTI",
@@ -7849,19 +7849,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 35.61,
-  "prev_close": 36.42,
-  "change": -0.81,
-  "change_pct": -2.22,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 34.84,
+  "prev_close": 35.61,
+  "change": -0.77,
+  "change_pct": -2.16,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 143.16,
   "low52": 8.44,
   "closes": [
-   [
-    "2026-10-19",
-    56.79
-   ],
    [
     "2026-10-20",
     57.09
@@ -7949,11 +7945,15 @@
    [
     "2026-11-18",
     35.61
+   ],
+   [
+    "2026-11-19",
+    34.84
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/AXTI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "QS": {
   "symbol": "QS",
@@ -7961,19 +7961,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 3.19,
-  "prev_close": 3.28,
-  "change": -0.09,
-  "change_pct": -2.74,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
-  "high52": 13.26,
-  "low52": 3.175,
+  "last": 3.05,
+  "prev_close": 3.19,
+  "change": -0.14,
+  "change_pct": -4.39,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
+  "high52": 13.1,
+  "low52": 3.04,
   "closes": [
-   [
-    "2026-10-19",
-    3.895
-   ],
    [
     "2026-10-20",
     3.98
@@ -8061,11 +8057,15 @@
    [
     "2026-11-18",
     3.19
+   ],
+   [
+    "2026-11-19",
+    3.05
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/QS",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "ENVX": {
   "symbol": "ENVX",
@@ -8073,19 +8073,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.48,
-  "prev_close": 1.37,
-  "change": 0.11,
-  "change_pct": 8.03,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.29,
+  "prev_close": 1.48,
+  "change": -0.19,
+  "change_pct": -12.84,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 9.19,
   "low52": 1.273,
   "closes": [
-   [
-    "2026-10-19",
-    2.35
-   ],
    [
     "2026-10-20",
     2.25
@@ -8173,11 +8169,15 @@
    [
     "2026-11-18",
     1.48
+   ],
+   [
+    "2026-11-19",
+    1.29
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/ENVX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "EOSE": {
   "symbol": "EOSE",
@@ -8185,19 +8185,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 1.48,
-  "prev_close": 1.49,
-  "change": -0.01,
-  "change_pct": -0.67,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.36,
+  "prev_close": 1.48,
+  "change": -0.12,
+  "change_pct": -8.11,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 18.74,
-  "low52": 1.47,
+  "low52": 1.35,
   "closes": [
-   [
-    "2026-10-19",
-    1.81
-   ],
    [
     "2026-10-20",
     1.68
@@ -8285,11 +8281,15 @@
    [
     "2026-11-18",
     1.48
+   ],
+   [
+    "2026-11-19",
+    1.36
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/EOSE",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SLDP": {
   "symbol": "SLDP",
@@ -8297,19 +8297,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 1.54,
-  "prev_close": 1.56,
-  "change": -0.02,
-  "change_pct": -1.28,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.5,
+  "prev_close": 1.54,
+  "change": -0.04,
+  "change_pct": -2.6,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 6.03,
-  "low52": 1.51,
+  "low52": 1.455,
   "closes": [
-   [
-    "2026-10-19",
-    1.95
-   ],
    [
     "2026-10-20",
     2.02
@@ -8397,11 +8393,15 @@
    [
     "2026-11-18",
     1.54
+   ],
+   [
+    "2026-11-19",
+    1.5
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SLDP",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "AMPX": {
   "symbol": "AMPX",
@@ -8409,19 +8409,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 6.73,
-  "prev_close": 6.77,
-  "change": -0.04,
-  "change_pct": -0.59,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 6.4,
+  "prev_close": 6.73,
+  "change": -0.33,
+  "change_pct": -4.9,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 24.225,
-  "low52": 6.505,
+  "low52": 6.36,
   "closes": [
-   [
-    "2026-10-19",
-    7.59
-   ],
    [
     "2026-10-20",
     7.58
@@ -8509,11 +8505,15 @@
    [
     "2026-11-18",
     6.73
+   ],
+   [
+    "2026-11-19",
+    6.4
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/AMPX",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "FCEL": {
   "symbol": "FCEL",
@@ -8521,19 +8521,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 7.76,
-  "prev_close": 8.25,
-  "change": -0.49,
-  "change_pct": -5.94,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 7.59,
+  "prev_close": 7.76,
+  "change": -0.17,
+  "change_pct": -2.19,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 37.88,
   "low52": 5.71,
   "closes": [
-   [
-    "2026-10-19",
-    12.89
-   ],
    [
     "2026-10-20",
     12.4
@@ -8621,11 +8617,15 @@
    [
     "2026-11-18",
     7.76
+   ],
+   [
+    "2026-11-19",
+    7.59
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/FCEL",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "PLUG": {
   "symbol": "PLUG",
@@ -8633,19 +8633,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 1.08,
-  "prev_close": 1.05,
-  "change": 0.03,
-  "change_pct": 2.86,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.03,
+  "prev_close": 1.08,
+  "change": -0.05,
+  "change_pct": -4.63,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 4.33,
   "low52": 1.0,
   "closes": [
-   [
-    "2026-10-19",
-    1.37
-   ],
    [
     "2026-10-20",
     1.4
@@ -8733,11 +8729,15 @@
    [
     "2026-11-18",
     1.08
+   ],
+   [
+    "2026-11-19",
+    1.03
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/PLUG",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "SOUN": {
   "symbol": "SOUN",
@@ -8745,19 +8745,15 @@
   "currency": "USD",
   "exchange": "NasdaqGM",
   "type": "EQUITY",
-  "last": 3.01,
-  "prev_close": 3.06,
-  "change": -0.05,
-  "change_pct": -1.63,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
-  "high52": 13.19,
-  "low52": 2.93,
+  "last": 2.91,
+  "prev_close": 3.01,
+  "change": -0.1,
+  "change_pct": -3.32,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
+  "high52": 13.12,
+  "low52": 2.885,
   "closes": [
-   [
-    "2026-10-19",
-    4.65
-   ],
    [
     "2026-10-20",
     4.7
@@ -8845,11 +8841,15 @@
    [
     "2026-11-18",
     3.01
+   ],
+   [
+    "2026-11-19",
+    2.91
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/SOUN",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "BBAI": {
   "symbol": "BBAI",
@@ -8857,19 +8857,15 @@
   "currency": "USD",
   "exchange": "NYSE",
   "type": "EQUITY",
-  "last": 1.75,
-  "prev_close": 1.8,
-  "change": -0.05,
-  "change_pct": -2.78,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 1.73,
+  "prev_close": 1.75,
+  "change": -0.02,
+  "change_pct": -1.14,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 7.18,
-  "low52": 1.73,
+  "low52": 1.71,
   "closes": [
-   [
-    "2026-10-19",
-    2.12
-   ],
    [
     "2026-10-20",
     2.17
@@ -8957,11 +8953,15 @@
    [
     "2026-11-18",
     1.75
+   ],
+   [
+    "2026-11-19",
+    1.73
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/BBAI",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "APLD": {
   "symbol": "APLD",
@@ -8969,19 +8969,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 14.45,
-  "prev_close": 14.22,
-  "change": 0.23,
-  "change_pct": 1.62,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 13.98,
+  "prev_close": 14.45,
+  "change": -0.47,
+  "change_pct": -3.25,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 50.725,
   "low52": 13.115,
   "closes": [
-   [
-    "2026-10-19",
-    19.25
-   ],
    [
     "2026-10-20",
     19.33
@@ -9069,11 +9065,15 @@
    [
     "2026-11-18",
     14.45
+   ],
+   [
+    "2026-11-19",
+    13.98
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/APLD",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "CIFR": {
   "symbol": "CIFR",
@@ -9081,19 +9081,15 @@
   "currency": "USD",
   "exchange": "NasdaqGS",
   "type": "EQUITY",
-  "last": 6.57,
-  "prev_close": 6.42,
-  "change": 0.15,
-  "change_pct": 2.34,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 6.48,
+  "prev_close": 6.57,
+  "change": -0.09,
+  "change_pct": -1.37,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 30.14,
   "low52": 5.071,
   "closes": [
-   [
-    "2026-10-19",
-    8.94
-   ],
    [
     "2026-10-20",
     8.88
@@ -9181,11 +9177,15 @@
    [
     "2026-11-18",
     6.57
+   ],
+   [
+    "2026-11-19",
+    6.48
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/CIFR",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  },
  "WULF": {
   "symbol": "WULF",
@@ -9193,19 +9193,15 @@
   "currency": "USD",
   "exchange": "NasdaqCM",
   "type": "EQUITY",
-  "last": 12.0,
-  "prev_close": 11.67,
-  "change": 0.33,
-  "change_pct": 2.83,
-  "session_date": "2026-11-18",
-  "as_of": "2026-11-18 16:00 ET",
+  "last": 11.58,
+  "prev_close": 12.0,
+  "change": -0.42,
+  "change_pct": -3.5,
+  "session_date": "2026-11-19",
+  "as_of": "2026-11-19 16:00 ET",
   "high52": 29.84,
   "low52": 9.51,
   "closes": [
-   [
-    "2026-10-19",
-    12.06
-   ],
    [
     "2026-10-20",
     12.01
@@ -9293,10 +9289,14 @@
    [
     "2026-11-18",
     12.0
+   ],
+   [
+    "2026-11-19",
+    11.58
    ]
   ],
   "source": "Yahoo Finance",
   "source_url": "https://finance.yahoo.com/quote/WULF",
-  "fetched_at": "2026-11-19 15:27 CET"
+  "fetched_at": "2026-11-20 15:02 CET"
  }
 }
