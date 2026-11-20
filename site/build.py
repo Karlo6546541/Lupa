@@ -439,16 +439,17 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
     foot_sections = "".join(f'<li><a href="{rel(here, p_cat(c, L))}">{esc(CATS[c][L]["name"])}</a></li>' for c in CATS)
     foot_sections += f'<li><a href="{rel(here, p_archive(L) + "#radar")}">{esc(t["radar"])}</a></li>'
     return f"""<!doctype html>
-<html lang="{L}" style="color-scheme:only light">
+<html lang="{L}" style="color-scheme:light dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="light dark">
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 {canon_tag}{hreflang}{feed}
 {og}
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{rel(here, 'assets/favicon.svg')}" type="image/svg+xml">
 <link rel="preload" href="{rel(here, 'assets/fonts/Newsreader-normal-300_800-latin.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{fonts}">
@@ -466,7 +467,7 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
 <div class="hdr-tools">{langsw}<a class="btn btn-accent btn-sm hdr-sub" href="{rel(here, p_page('subscribe', L))}">{t['support']}</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sitenav" data-open="{t['menu']}" data-close="{t['close_menu']}"><span class="menu-icon" aria-hidden="true"></span><span class="sr">{t['menu']}</span></button></div>
 </div>
-<nav class="sections" id="sitenav" aria-label="{t['sections']}"><ul class="nav-main">{''.join(nav_main)}</ul></nav>
+<nav class="sections" id="sitenav" aria-label="{t['sections']}"><ul class="nav-main">{''.join(nav_main)}</ul><div class="menu-foot">{langsw}<a class="btn btn-accent" href="{rel(here, p_page('subscribe', L))}">{t['support']}</a></div></nav>
 </header>
 <main id="main">
 {body}
@@ -789,7 +790,7 @@ def build_static_page(key, pg, L):
     write(here, layout(L, here, p_page(key, other), pg["title"][L], pg["dek"][L], body, active=key, og_image=img))
 
 def build_root():
-    s = f"""<!doctype html><html lang="hr" style="color-scheme:only light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="only light">
+    s = f"""<!doctype html><html lang="hr" style="color-scheme:light dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
 <title>Lupa — Istraživanje malih dionica / Small-cap research</title>
 <meta name="description" content="{esc(SITE['description']['hr'])}">
 <link rel="alternate" hreflang="hr" href="{esc(absu('hr/') or 'hr/')}"><link rel="alternate" hreflang="en" href="{esc(absu('en/') or 'en/')}"><link rel="alternate" hreflang="x-default" href="{esc(absu('hr/') or 'hr/')}">
@@ -800,7 +801,7 @@ def build_root():
 <p><a class="btn btn-accent" href="hr/" data-setlang="hr">Hrvatski</a> <a class="btn btn-ghost" href="en/" data-setlang="en">English</a></p></main><script src="assets/js/site.js" defer></script></body></html>"""
     (OUT / "index.html").write_text(s)
     root = BASE + "/" if BASE else "/"
-    nf = f"""<!doctype html><html lang="hr" style="color-scheme:only light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="only light"><title>404 — Lupa</title>
+    nf = f"""<!doctype html><html lang="hr" style="color-scheme:light dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>404 — Lupa</title>
 <link rel="stylesheet" href="{root}assets/css/fonts.css"><link rel="stylesheet" href="{root}assets/css/style.css"></head>
 <body class="root-page"><main class="root-choose"><a class="logo" href="{root}"><span>Lupa</span>{LOGO_SVG}</a><h1>{T['hr']['notfound']} · {T['en']['notfound']}</h1><p>{T['hr']['notfound_p']}<br>{T['en']['notfound_p']}</p>
 <p><a class="btn btn-accent" href="{root}hr/">Naslovnica</a> <a class="btn btn-ghost" href="{root}en/">Home</a></p></main></body></html>"""
