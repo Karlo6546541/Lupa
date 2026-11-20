@@ -222,6 +222,7 @@ T2 = {
             all_radar="Sve s radara", sections_h="Rubrike", free_badge="Besplatno", companies_nav="Tvrtke",
             companies_blurb="Službene objave, kupnje i prodaje uprave te naše analize, za svaku tvrtku.",
             filter_all="Sve", filter_empty="Nema članaka za ovaj odabir.", filter_label="Filtar članaka",
+            premium="Premium", nav_research="Analize",
             prices_in="Cijene u tekstu", also="Još na Lupi", read_wrap="Pročitaj pregled", co_count="u praćenju"),
  "en": dict(newsletter="Newsletter", support="Subscribe", advertise="Advertise", menu="Menu", close_menu="Close menu",
             read_story="Read the analysis", ill="Illustration: Lupa", on_page="In this piece", sponsored="Sponsored", partner="Partner",
@@ -243,6 +244,7 @@ T2 = {
             all_radar="All from the radar", sections_h="Sections", free_badge="Free", companies_nav="Companies",
             companies_blurb="Official filings, insider buys and sales, and our research, for each company.",
             filter_all="All", filter_empty="No articles match this filter.", filter_label="Filter articles",
+            premium="Premium", nav_research="Research",
             prices_in="Prices in this piece", also="Also on Lupa", read_wrap="Read the wrap", co_count="tracked"),
 }
 T3 = {  # paywall / subscription strings
@@ -416,24 +418,13 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
     canon_tag = f'<link rel="canonical" href="{esc(canon)}">' if canon else ""
     feed = f'<link rel="alternate" type="application/rss+xml" title="Lupa ({L.upper()})" href="{esc(rel(here, L + "/feed.xml"))}">' if BASE else ""
     nav_main = []
-    for key, kind in (("small-caps", "cat"), ("bioengineering", "cat"), ("quantum", "cat"), ("radar", "radar"), ("companies", "companies")):
-        if kind == "cat":
-            href, label, cur = rel(here, p_cat(key, L)), CATS[key][L]["name"], active == key
-        elif kind == "radar":
-            href, label, cur = rel(here, p_archive(L) + "#radar"), t["radar"], active == "radar"
-        else:
-            href, label, cur = rel(here, p_page("companies", L)), t["companies_nav"], active == "tracker"
-        nav_main.append(f'<li><a href="{href}"{" aria-current=\"page\"" if cur else ""}>{esc(label)}</a></li>')
-    nav_more = []
     for href, label, cur in (
-        (rel(here, p_archive(L)), t["archive"], active == "archive"),
         (rel(here, p_cat("markets", L)), CATS["markets"][L]["name"], active == "markets"),
-        (rel(here, p_cat("research", L)), CATS["research"][L]["name"], active == "research"),
-        (rel(here, p_page("about", L)), t["about"], active == "about"),
-        (rel(here, p_page("newsletter", L)), t["newsletter"], active == "newsletter"),
-        (rel(here, p_page("subscribe", L)), t["support"], active in ("subscribe", "account")),
+        (rel(here, p_cat("research", L)), t["nav_research"], active == "research"),
+        (rel(here, p_page("companies", L)), t["companies_nav"], active == "tracker"),
+        (rel(here, p_archive(L)), t["archive"], active == "archive"),
     ):
-        nav_more.append(f'<li><a href="{href}"{" aria-current=\"page\"" if cur else ""}>{esc(label)}</a></li>')
+        nav_main.append(f'<li><a href="{href}"{" aria-current=\"page\"" if cur else ""}>{esc(label)}</a></li>')
     langsw = (f'<div class="lang" role="group" aria-label="{t["footer_lang"]}">'
               + (f'<span aria-current="true" lang="hr">HR</span><a href="{rel(here, alt_path)}" hreflang="en" lang="en" data-setlang="en" aria-label="English">EN</a>' if L == "hr"
                  else f'<a href="{rel(here, alt_path)}" hreflang="hr" lang="hr" data-setlang="hr" aria-label="Hrvatski">HR</a><span aria-current="true" lang="en">EN</span>')
@@ -448,15 +439,16 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
     foot_sections = "".join(f'<li><a href="{rel(here, p_cat(c, L))}">{esc(CATS[c][L]["name"])}</a></li>' for c in CATS)
     foot_sections += f'<li><a href="{rel(here, p_archive(L) + "#radar")}">{esc(t["radar"])}</a></li>'
     return f"""<!doctype html>
-<html lang="{L}">
+<html lang="{L}" style="color-scheme:only light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="only light">
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 {canon_tag}{hreflang}{feed}
 {og}
-<meta name="theme-color" content="#0b1f1d">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="{rel(here, 'assets/favicon.svg')}" type="image/svg+xml">
 <link rel="preload" href="{rel(here, 'assets/fonts/Newsreader-normal-300_800-latin.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{fonts}">
@@ -474,7 +466,7 @@ def layout(L, here, alt_path, title, desc, body, active=None, extra_head="", og_
 <div class="hdr-tools">{langsw}<a class="btn btn-accent btn-sm hdr-sub" href="{rel(here, p_page('subscribe', L))}">{t['support']}</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sitenav" data-open="{t['menu']}" data-close="{t['close_menu']}"><span class="menu-icon" aria-hidden="true"></span><span class="sr">{t['menu']}</span></button></div>
 </div>
-<nav class="sections" id="sitenav" aria-label="{t['sections']}"><ul class="nav-main">{''.join(nav_main)}</ul><ul class="nav-more">{''.join(nav_more)}</ul></nav>
+<nav class="sections" id="sitenav" aria-label="{t['sections']}"><ul class="nav-main">{''.join(nav_main)}</ul></nav>
 </header>
 <main id="main">
 {body}
@@ -582,14 +574,15 @@ def build_post(p, L):
     toc = toc_html(heads, L, locked_from)
     prices = price_list(p.get("tickers", []), p.get("prices_session"), L, here)
     tools = f'<div class="post-tools">{toc_html(heads, L, locked_from, fold=True)}{prices}</div>'
-    rail_inner = toc + prices
+    rail_inner = ""
     kind = post_kind(p)
     nav_active = {"research": "research", "wrap": "markets", "radar": "radar"}.get(kind)
     html_body = f"""<article class="post">
 <div class="post-grid"><header class="article-head">{sp_html}<div class="meta cats">{kicker(p, L, here)}{' · ' + cats if cats else ''} · {access_badge(p, L)}</div><h1>{esc(p['title'][L])}</h1><p class="dek">{esc(p['dek'][L])}</p>
 <div class="byline"><span class="by">{t['byline']}</span><span>{t['published']} <time datetime="{esc(p['date'])}">{fmt_date(p['date'], L)}</time></span><span>{minutes(p, L)} {t['read']}</span></div></header>
-{figure(post_hero(p), here, L, "figure figure-hero", eager=True, sizes="(min-width: 1100px) 42rem, 100vw")}
-{tools}<div class="prose">{body}</div><aside class="rail" aria-label="{esc(t['on_page'])}">{rail_inner}</aside>
+{tools}
+{figure(post_hero(p), here, L, "figure figure-hero", eager=True, sizes="(min-width: 760px) 40rem, 100vw")}
+<div class="prose">{body}</div><aside class="rail" hidden aria-label="{esc(t['on_page'])}">{rail_inner}</aside>
 <div class="post-end">
 <section class="sources"><h2>{t['sources']}</h2><ol>{srcs}</ol></section>
 <aside class="disclaimer-box">{t['not_advice']} <a href="{rel(here, p_page('disclaimer', L))}">{t['disclaimer']}</a>.</aside>
@@ -598,16 +591,17 @@ def build_post(p, L):
 </article>"""
     write(here, layout(L, here, p_post(p, other), p["title"][L], p["dek"][L], html_body, active=nav_active, extra_head=extra, og_type="article", og_image=post_hero(p)))
 
-def story_row(p, L, here, heading="h2"):
+def story_row(p, L, here, heading="h2", featured=False):
     t = T[L]
-    chips = "".join(chip(s_, p.get("prices_session"), L) for s_ in p.get("tickers", [])[:4])
-    thumb = (f'<a class="story-thumb" href="{rel(here, p_post(p, L))}" tabindex="-1" aria-hidden="true">'
-             f'{picture(post_hero(p), here, L, "64px")}</a>')
-    return (f'<article class="story" data-story data-kind="{post_kind(p)}" data-cats="{" ".join(p["categories"])}" data-access="{access(p)}">'
-            f'{thumb}<div class="story-main"><div class="story-meta"><time datetime="{esc(p["date"])}">{fmt_date(p["date"], L)}</time>'
-            f'{kicker(p, L, here)}{access_badge(p, L)}<span>{minutes(p, L)} {t["read"]}</span></div>'
+    badge = f'<span class="badge-paid">{esc(t["premium"])}</span>' if is_paid(p) else ""
+    sizes = "(min-width: 800px) 28rem, 100vw" if featured else "(min-width: 700px) 11rem, 28vw"
+    thumb = (f'<a class="post-card-media" href="{rel(here, p_post(p, L))}" tabindex="-1" aria-hidden="true">'
+             f'{picture(post_hero(p), here, L, sizes, eager=featured)}</a>')
+    return (f'<article class="post-card{" feature" if featured else ""}" data-story data-kind="{post_kind(p)}" data-cats="{" ".join(p["categories"])}" data-access="{access(p)}">'
+            f'{thumb}<div class="post-card-body"><div class="post-card-k">{kicker(p, L, here)}{badge}</div>'
             f'<{heading}><a href="{rel(here, p_post(p, L))}">{esc(p["title"][L])}</a></{heading}>'
-            f'<div class="chips">{chips}</div></div></article>')
+            f'<p>{esc(p["dek"][L])}</p>'
+            f'<div class="meta"><time datetime="{esc(p["date"])}">{fmt_date(p["date"], L)}</time> · {minutes(p, L)} {t["read"]}</div></div></article>')
 
 def move_row(sym, session, L):
     v = get_px(sym, session); d = decimals(v)
@@ -645,14 +639,13 @@ def side_panel(L, here, active=None):
     return (f'<aside class="side"><div class="side-desk"><h2>{esc(t["sections_h"])}</h2>{inner}</div>'
             f'<details class="side-block"><summary>{esc(t["sections_h"])}</summary>{inner}</details></aside>')
 
-def filter_bar(L):
+def filter_bar(L, anchor=False):
     t = T[L]
-    specs = [("all", t["filter_all"]), ("kind:wrap", t["daily"]), ("kind:research", CATS["research"][L]["name"]),
-             ("kind:radar", t["radar"]), ("cat:small-caps", CATS["small-caps"][L]["name"]),
-             ("cat:bioengineering", CATS["bioengineering"][L]["name"]), ("cat:quantum", CATS["quantum"][L]["name"]),
-             ("cat:markets", CATS["markets"][L]["name"]), ("access:free", t["free_badge"]), ("access:subscribers", t["paid_badge"])]
+    specs = [("all", t["filter_all"]), ("cat:markets", CATS["markets"][L]["name"]), ("kind:research", t["nav_research"]),
+             ("cat:small-caps", CATS["small-caps"][L]["name"]), ("cat:bioengineering", CATS["bioengineering"][L]["name"]),
+             ("cat:quantum", CATS["quantum"][L]["name"]), ("kind:radar", t["radar"])]
     btns = "".join(f'<button type="button" data-key="{esc(key)}" aria-pressed={"true" if key == "all" else "false"}>{esc(label)}</button>' for key, label in specs)
-    return f'<div class="filters" id="radar" data-filters role="group" aria-label="{esc(t["filter_label"])}">{btns}</div>'
+    return f'<div class="filters"{ " id=\"radar\"" if anchor else ""} data-filters role="group" aria-label="{esc(t["filter_label"])}">{btns}</div>'
 
 def build_home(L):
     here = p_home(L); t = T[L]; other = "en" if L == "hr" else "hr"
@@ -667,29 +660,20 @@ def build_home(L):
             if extra not in syms: syms.append(extra)
         syms = [s for s in syms if s in snapshot(lead.get("prices_session"))][:4]
         moves = "".join(move_row(s, lead.get("prices_session"), L) for s in syms)
-        eyebrow = t["daily"] if post_kind(lead) == "wrap" else t["latest"]
-        cta = t["read_wrap"] if post_kind(lead) == "wrap" else t["read_story"]
         rest = [p for p in POSTS if p is not lead]
-        rows = "".join(story_row(p, L, here, "h3") for p in rest) or f'<p class="empty">{t["empty"]}</p>'
-        body = f"""<div class="sheet wrap"><section class="wrap-now">
-<div class="wrap-now-top"><span class="eyebrow">{esc(eyebrow)}</span>{access_badge(lead, L)}<time datetime="{esc(lead['date'])}">{fmt_date(lead['date'], L)}</time><span>{minutes(lead, L)} {t['read']}</span></div>
-<h1><a href="{rel(here, p_post(lead, L))}">{esc(lead['title'][L])}</a></h1>
-<ul class="moves">{moves}</ul>
-<p class="wrap-now-foot"><a href="{rel(here, p_post(lead, L))}">{cta} →</a> <a href="{rel(here, p_cat('markets', L))}">{t['all_wraps']} →</a></p>
-</section>
-{side_panel(L, here)}
-<section class="latest"><div class="section-head"><h2>{t['latest']}</h2><a class="meta" href="{rel(here, p_archive(L))}">{t['all_articles']} →</a></div>
-<div class="stories">{rows}</div></section></div>"""
+        rows = "".join(story_row(p, L, here, "h3") for p in rest)
+        body = f"""<div class="feed wrap">{story_row(lead, L, here, "h2", featured=True)}
+{filter_bar(L)}
+<div class="stories">{rows}</div><p class="empty filter-empty" data-filter-empty hidden>{t["filter_empty"]}</p></div>"""
     write(here, layout(L, here, p_home(other), f"Lupa — {SITE['tagline'][L]}", SITE["description"][L], body, og_image=post_hero(lead) if lead else None))
 
 def list_page(L, here, alt, title, intro, items, active, image):
     t = T[L]
     rows = "".join(story_row(p, L, here) for p in items) or f'<p class="empty">{t["empty"]}</p>'
-    filters = filter_bar(L) if active == "archive" else ""
-    body = (f'<div class="sheet wrap"><header class="page-head"><p class="kicker">{"Lupa" if active == "archive" else t["in_cat"]}</p>'
+    filters = filter_bar(L, anchor=True) if active == "archive" else ""
+    body = (f'<div class="feed wrap"><header class="page-head"><p class="kicker">{"Lupa" if active == "archive" else t["in_cat"]}</p>'
             f'<h1>{esc(title)}</h1><p class="dek">{esc(intro)}</p><p class="meta page-count">{len(items)} {t["story_count"]}</p></header>'
-            f'{side_panel(L, here, active)}'
-            f'<section class="latest">{filters}<div class="stories">{rows}</div><p class="empty filter-empty" data-filter-empty hidden>{t["filter_empty"]}</p></section></div>')
+            f'{filters}<div class="stories">{rows}</div><p class="empty filter-empty" data-filter-empty hidden>{t["filter_empty"]}</p></div>')
     write(here, layout(L, here, alt, title, intro, body, active=active, og_image=image))
 
 def expand_page_tokens(body, here, L):
@@ -805,7 +789,7 @@ def build_static_page(key, pg, L):
     write(here, layout(L, here, p_page(key, other), pg["title"][L], pg["dek"][L], body, active=key, og_image=img))
 
 def build_root():
-    s = f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    s = f"""<!doctype html><html lang="hr" style="color-scheme:only light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="only light">
 <title>Lupa — Istraživanje malih dionica / Small-cap research</title>
 <meta name="description" content="{esc(SITE['description']['hr'])}">
 <link rel="alternate" hreflang="hr" href="{esc(absu('hr/') or 'hr/')}"><link rel="alternate" hreflang="en" href="{esc(absu('en/') or 'en/')}"><link rel="alternate" hreflang="x-default" href="{esc(absu('hr/') or 'hr/')}">
@@ -816,7 +800,7 @@ def build_root():
 <p><a class="btn btn-accent" href="hr/" data-setlang="hr">Hrvatski</a> <a class="btn btn-ghost" href="en/" data-setlang="en">English</a></p></main><script src="assets/js/site.js" defer></script></body></html>"""
     (OUT / "index.html").write_text(s)
     root = BASE + "/" if BASE else "/"
-    nf = f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404 — Lupa</title>
+    nf = f"""<!doctype html><html lang="hr" style="color-scheme:only light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="only light"><title>404 — Lupa</title>
 <link rel="stylesheet" href="{root}assets/css/fonts.css"><link rel="stylesheet" href="{root}assets/css/style.css"></head>
 <body class="root-page"><main class="root-choose"><a class="logo" href="{root}"><span>Lupa</span>{LOGO_SVG}</a><h1>{T['hr']['notfound']} · {T['en']['notfound']}</h1><p>{T['hr']['notfound_p']}<br>{T['en']['notfound_p']}</p>
 <p><a class="btn btn-accent" href="{root}hr/">Naslovnica</a> <a class="btn btn-ghost" href="{root}en/">Home</a></p></main></body></html>"""
