@@ -323,7 +323,7 @@ def with_heading_ids(raw):
         return f'<h2 id="{sid}">{inner}</h2>'
     return re.sub(r"<h2(?:\s[^>]*)?>(.*?)</h2>", repl, raw, flags=re.S), heads
 
-def toc_html(heads, L, locked_from=None):
+def toc_html(heads, L, locked_from=None, fold=False):
     if not heads: return ""
     t = T[L]
     lis = []
@@ -334,7 +334,10 @@ def toc_html(heads, L, locked_from=None):
             lis.append(f'<li class="toc-note">{paid_badge(L)}</li>')
             noted = True
         lis.append(f'<li{" class=\"toc-locked\"" if locked else ""}><a href="#{sid}">{esc(text)}</a></li>')
-    return f'<nav class="toc" aria-label="{esc(t["on_page"])}"><h2>{esc(t["on_page"])}</h2><ol>{"".join(lis)}</ol></nav>'
+    ol = f'<ol>{"".join(lis)}</ol>'
+    if fold:
+        return f'<details class="toc toc-fold"><summary>{esc(t["on_page"])}</summary>{ol}</details>'
+    return f'<nav class="toc" aria-label="{esc(t["on_page"])}"><h2>{esc(t["on_page"])}</h2>{ol}</nav>'
 
 def price_list(tickers, session, L, here):
     if not tickers: return ""
@@ -564,7 +567,8 @@ def build_post(p, L):
     cats = " · ".join(f'<a href="{rel(here, p_cat(c, L))}">{esc(CATS[c][L]["name"])}</a>' for c in p["categories"] if c not in skip_cat)
     srcs = "".join(f'<li><a href="{esc(s_["url"])}" rel="noopener">{esc(s_["label"][L] if isinstance(s_["label"], dict) else s_["label"])}</a></li>' for s_ in p.get("sources", []))
     related = [q for q in POSTS if q is not p][:3]
-    rel_html = f'<section class="wrap related"><div class="section-head"><h2>{t["more_from"]}</h2><a class="meta" href="{rel(here, p_archive(L))}">{t["all_articles"]} →</a></div><div class="cards">{"".join(card(q, L, here) for q in related)}</div></section>' if related else ""
+    rel_html = (f'<section class="related"><h2>{t["more_from"]}</h2><div class="stories">{"".join(story_row(q, L, here, "h3") for q in related)}</div>'
+                f'<p><a class="meta" href="{rel(here, p_archive(L))}">{t["all_articles"]} →</a></p></section>') if related else ""
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": p["title"][L], "description": p["dek"][L],
           "datePublished": p["date"], "inLanguage": L, "author": {"@type": "Organization", "name": "Lupa"}, "publisher": {"@type": "Organization", "name": "Lupa"}}
     if BASE: ld["mainEntityOfPage"] = absu(here); ld["image"] = absu(f"assets/img/{post_hero(p)}-og.jpg")
@@ -577,7 +581,7 @@ def build_post(p, L):
                f'{("<a href=\"" + esc(sp["url"]) + "\" rel=\"sponsored noopener\">" + esc(sp["name"]) + "</a>") if sp.get("url") else esc(sp["name"])}<p>{t["sponsored_note"]}</p></div>') if sp else ""
     toc = toc_html(heads, L, locked_from)
     prices = price_list(p.get("tickers", []), p.get("prices_session"), L, here)
-    tools = f'<div class="post-tools">{toc}{prices}</div>'
+    tools = f'<div class="post-tools">{toc_html(heads, L, locked_from, fold=True)}{prices}</div>'
     rail_inner = toc + prices
     kind = post_kind(p)
     nav_active = {"research": "research", "wrap": "markets", "radar": "radar"}.get(kind)
@@ -589,19 +593,57 @@ def build_post(p, L):
 <div class="post-end">
 <section class="sources"><h2>{t['sources']}</h2><ol>{srcs}</ol></section>
 <aside class="disclaimer-box">{t['not_advice']} <a href="{rel(here, p_page('disclaimer', L))}">{t['disclaimer']}</a>.</aside>
+{rel_html}
 </div></div>
-<div class="wrap">{newsletter_band(here, L)}</div>
-</article>{rel_html}"""
+</article>"""
     write(here, layout(L, here, p_post(p, other), p["title"][L], p["dek"][L], html_body, active=nav_active, extra_head=extra, og_type="article", og_image=post_hero(p)))
 
 def story_row(p, L, here, heading="h2"):
     t = T[L]
-    chips = "".join(chip(s_, p.get("prices_session"), L) for s_ in p.get("tickers", [])[:6])
+    chips = "".join(chip(s_, p.get("prices_session"), L) for s_ in p.get("tickers", [])[:4])
+    thumb = (f'<a class="story-thumb" href="{rel(here, p_post(p, L))}" tabindex="-1" aria-hidden="true">'
+             f'{picture(post_hero(p), here, L, "64px")}</a>')
     return (f'<article class="story" data-story data-kind="{post_kind(p)}" data-cats="{" ".join(p["categories"])}" data-access="{access(p)}">'
-            f'<div class="story-main"><div class="story-meta">{kicker(p, L, here)}{access_badge(p, L)}'
-            f'<time datetime="{esc(p["date"])}">{fmt_date(p["date"], L)}</time><span>{minutes(p, L)} {t["read"]}</span></div>'
-            f'<{heading}><a href="{rel(here, p_post(p, L))}">{esc(p["title"][L])}</a></{heading}><p>{esc(p["dek"][L])}</p></div>'
-            f'<div class="chips">{chips}</div></article>')
+            f'{thumb}<div class="story-main"><div class="story-meta"><time datetime="{esc(p["date"])}">{fmt_date(p["date"], L)}</time>'
+            f'{kicker(p, L, here)}{access_badge(p, L)}<span>{minutes(p, L)} {t["read"]}</span></div>'
+            f'<{heading}><a href="{rel(here, p_post(p, L))}">{esc(p["title"][L])}</a></{heading}>'
+            f'<div class="chips">{chips}</div></div></article>')
+
+def move_row(sym, session, L):
+    v = get_px(sym, session); d = decimals(v)
+    return (f'<li><span class="mv-name">{esc(label(sym))}</span><span class="mv-line">'
+            f'<span class="mv-px num">{fmt_num(v["last"], L, d)}</span>'
+            f'<span class="mv-chg num {cls(v["change"])}">{fmt_pct(v["change_pct"], L)}</span></span></li>')
+
+def side_panel(L, here, active=None):
+    """Rubrike, a short company list and the subscribe link. One collapsed block on a phone."""
+    t = T[L]
+    links = []
+    for cid in ("markets", "research", "small-caps", "bioengineering", "quantum"):
+        n = sum(1 for q in POSTS if cid in q["categories"])
+        cur = ' aria-current="page"' if active == cid else ""
+        links.append(f'<a href="{rel(here, p_cat(cid, L))}"{cur}>{esc(CATS[cid][L]["name"])}<span>{n}</span></a>')
+    nrad = sum(1 for q in POSTS if post_kind(q) == "radar")
+    links.append(f'<a href="{rel(here, p_archive(L) + "#radar")}"{" aria-current=\"page\"" if active == "radar" else ""}>{esc(t["radar"])}<span>{nrad}</span></a>')
+    seen = []
+    for p in POSTS:
+        for sym in p.get("tickers") or []:
+            if sym in COMPANIES and sym not in seen and sym in LATEST:
+                seen.append(sym)
+            if len(seen) >= 6: break
+        if len(seen) >= 6: break
+    cos = []
+    for sym in seen:
+        v = LATEST[sym]; d = decimals(v)
+        cos.append(f'<a href="{rel(here, p_company(sym, L))}"><b>{esc(sym)}</b><span class="num">{fmt_num(v["last"], L, d)}</span>'
+                   f'<span class="num {cls(v["change"])}">{fmt_pct(v["change_pct"], L)}</span></a>')
+    more = f'<a class="side-more" href="{rel(here, p_page("companies", L))}">{esc(t["companies_nav"])} · {len(COMPANIES)} {esc(t["co_count"])} →</a>'
+    inner = (f'<nav class="side-links" aria-label="{esc(t["sections_h"])}">{"".join(links)}</nav>'
+             f'<h2>{esc(t["companies_nav"])}</h2><div class="side-cos">{"".join(cos)}</div>{more}'
+             f'<div class="side-cta"><p><strong>{esc(t["price_line"])}</strong></p><p>{esc(t["deep_note"])}</p>'
+             f'<a class="btn btn-accent btn-sm" href="{rel(here, p_page("subscribe", L))}">{esc(t["support"])}</a></div>')
+    return (f'<aside class="side"><div class="side-desk"><h2>{esc(t["sections_h"])}</h2>{inner}</div>'
+            f'<details class="side-block"><summary>{esc(t["sections_h"])}</summary>{inner}</details></aside>')
 
 def filter_bar(L):
     t = T[L]
@@ -619,65 +661,35 @@ def build_home(L):
         lead = None
     else:
         wraps = [p for p in POSTS if post_kind(p) == "wrap"]
-        dives = [p for p in POSTS if post_kind(p) == "research"]
-        radars = [p for p in POSTS if post_kind(p) == "radar"]
         lead = wraps[0] if wraps else POSTS[0]
-        chips = "".join(chip(s_, lead.get("prices_session"), L) for s_ in lead.get("tickers", [])[:4])
+        syms = list(lead.get("tickers") or [])
+        for extra in ("^GSPC", "^IXIC", "^RUT", "XBI"):
+            if extra not in syms: syms.append(extra)
+        syms = [s for s in syms if s in snapshot(lead.get("prices_session"))][:4]
+        moves = "".join(move_row(s, lead.get("prices_session"), L) for s in syms)
         eyebrow = t["daily"] if post_kind(lead) == "wrap" else t["latest"]
         cta = t["read_wrap"] if post_kind(lead) == "wrap" else t["read_story"]
-        wrap_link = f'<a class="meta" href="{rel(here, p_cat("markets", L))}">{t["all_wraps"]} →</a>' if wraps else ""
-        hero = f"""<section class="lead wrap"><div class="lead-grid"><div class="lead-copy">
-<p class="lead-kicker"><span class="eyebrow">{esc(eyebrow)}</span>{access_badge(lead, L)}</p>
+        rest = [p for p in POSTS if p is not lead]
+        rows = "".join(story_row(p, L, here, "h3") for p in rest) or f'<p class="empty">{t["empty"]}</p>'
+        body = f"""<div class="sheet wrap"><section class="wrap-now">
+<div class="wrap-now-top"><span class="eyebrow">{esc(eyebrow)}</span>{access_badge(lead, L)}<time datetime="{esc(lead['date'])}">{fmt_date(lead['date'], L)}</time><span>{minutes(lead, L)} {t['read']}</span></div>
 <h1><a href="{rel(here, p_post(lead, L))}">{esc(lead['title'][L])}</a></h1>
-<p class="lead-dek">{esc(lead['dek'][L])}</p>
-<div class="meta">{fmt_date(lead['date'], L)} · {minutes(lead, L)} {t['read']}</div>
-<div class="chips">{chips}</div>
-<div class="lead-actions"><a class="btn btn-accent" href="{rel(here, p_post(lead, L))}">{cta} →</a>{wrap_link}</div>
-</div><a class="lead-media" href="{rel(here, p_post(lead, L))}" tabindex="-1" aria-hidden="true">{picture(post_hero(lead), here, L, "(min-width: 800px) 32rem, 100vw", eager=True)}</a></div></section>"""
-        dive_html = ""
-        if dives:
-            dive_html = (f'<section class="wrap home-block"><div class="section-head"><h2>{t["deep_dives"]}</h2>'
-                         f'<a class="meta" href="{rel(here, p_cat("research", L))}">{t["all_dives"]} →</a></div>'
-                         f'<p class="section-note">{t["deep_note"]}</p><div class="cards cards-feature">'
-                         + "".join(card(p, L, here) for p in dives[:4]) + "</div></section>")
-        radar_html = ""
-        if radars:
-            radar_html = (f'<section class="wrap home-block"><div class="section-head"><h2>{t["radar"]}</h2>'
-                          f'<a class="meta" href="{rel(here, p_archive(L) + "#radar")}">{t["all_radar"]} →</a></div>'
-                          f'<p class="section-note">{t["radar_note"]}</p><div class="stories">'
-                          + "".join(story_row(p, L, here, "h3") for p in radars[:4]) + "</div></section>")
-        shown = {id(lead)} | {id(p) for p in dives[:4]} | {id(p) for p in radars[:4]}
-        rest = [p for p in POSTS if id(p) not in shown]
-        rest_html = ""
-        if rest:
-            rest_html = (f'<section class="wrap home-block"><div class="section-head"><h2>{t["also"]}</h2>'
-                         f'<a class="meta" href="{rel(here, p_archive(L))}">{t["all_articles"]} →</a></div><div class="stories">'
-                         + "".join(story_row(p, L, here, "h3") for p in rest[:6]) + "</div></section>")
-        specs = []
-        for cid in ("small-caps", "bioengineering", "quantum"):
-            n = sum(1 for q in POSTS if cid in q["categories"])
-            specs.append((p_cat(cid, L), CATS[cid][L]["name"], CATS[cid][L]["desc"], f"{n} {t['story_count']}"))
-        specs.append((p_archive(L) + "#radar", t["radar"], t["radar_note"], f"{len(radars)} {t['story_count']}"))
-        specs.append((p_page("companies", L), t["companies_nav"], t["companies_blurb"], f"{len(COMPANIES)} {t['co_count']}"))
-        secs = "".join(f'<a class="sec" href="{rel(here, href)}"><span class="sec-name">{esc(name)}</span><span class="sec-desc">{esc(desc)}</span><span class="sec-count">{esc(count)}</span></a>' for href, name, desc, count in specs)
-        body = f"""{hero}
-{dive_html}
-{radar_html}
-{rest_html}
-<section class="wrap home-block"><div class="section-head"><h2>{t['sections_h']}</h2></div><div class="sec-grid">{secs}</div></section>
-<div class="wrap">{support_strip(here, L)}</div>
-<div class="wrap">{newsletter_band(here, L)}</div>
-<div class="wrap">{ad_slot("home_band", here, L)}</div>"""
+<ul class="moves">{moves}</ul>
+<p class="wrap-now-foot"><a href="{rel(here, p_post(lead, L))}">{cta} →</a> <a href="{rel(here, p_cat('markets', L))}">{t['all_wraps']} →</a></p>
+</section>
+{side_panel(L, here)}
+<section class="latest"><div class="section-head"><h2>{t['latest']}</h2><a class="meta" href="{rel(here, p_archive(L))}">{t['all_articles']} →</a></div>
+<div class="stories">{rows}</div></section></div>"""
     write(here, layout(L, here, p_home(other), f"Lupa — {SITE['tagline'][L]}", SITE["description"][L], body, og_image=post_hero(lead) if lead else None))
 
 def list_page(L, here, alt, title, intro, items, active, image):
     t = T[L]
     rows = "".join(story_row(p, L, here) for p in items) or f'<p class="empty">{t["empty"]}</p>'
     filters = filter_bar(L) if active == "archive" else ""
-    body = (f'<header class="page-head wrap"><p class="kicker">{"Lupa" if active == "archive" else t["in_cat"]}</p><h1>{esc(title)}</h1>'
-            f'<p class="dek">{esc(intro)}</p><p class="meta page-count">{len(items)} {t["story_count"]}</p>{filters}</header>'
-            f'<div class="wrap stories-wrap"><div class="stories">{rows}</div><p class="empty filter-empty" data-filter-empty hidden>{t["filter_empty"]}</p></div>'
-            f'<div class="wrap">{ad_slot("home_band", here, L)}</div><div class="wrap">{newsletter_band(here, L)}</div>')
+    body = (f'<div class="sheet wrap"><header class="page-head"><p class="kicker">{"Lupa" if active == "archive" else t["in_cat"]}</p>'
+            f'<h1>{esc(title)}</h1><p class="dek">{esc(intro)}</p><p class="meta page-count">{len(items)} {t["story_count"]}</p></header>'
+            f'{side_panel(L, here, active)}'
+            f'<section class="latest">{filters}<div class="stories">{rows}</div><p class="empty filter-empty" data-filter-empty hidden>{t["filter_empty"]}</p></section></div>')
     write(here, layout(L, here, alt, title, intro, body, active=active, og_image=image))
 
 def expand_page_tokens(body, here, L):
