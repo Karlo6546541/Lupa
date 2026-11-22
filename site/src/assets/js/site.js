@@ -16,11 +16,13 @@
   if(btn&&hdr){
     var lab=btn.querySelector('.sr');
     function set(open){
-      hdr.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false');
+      hdr.classList.toggle('open',open); d.body.classList.toggle('nav-open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
       if(lab) lab.textContent=open?btn.getAttribute('data-close'):btn.getAttribute('data-open');
     }
     btn.addEventListener('click',function(){set(btn.getAttribute('aria-expanded')!=='true')});
     d.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){set(false);btn.focus()}});
+    d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('#sitenav a'); if(a) set(false)});
   }
 
   // 3. Reveal on scroll (skipped when reduced motion is requested).
@@ -108,5 +110,32 @@
         var pl=acct.querySelector('.acct-portal-login'); pl.querySelector('a').href=j.portal_login_url; pl.hidden=false;
       }
     }).catch(function(){show('error')});
+  }
+
+  // 6. Archive filters. Every article is in the HTML; this only hides rows. Without JS the full list stays visible.
+  var bar=d.querySelector('[data-filters]');
+  if(bar){
+    var rows=d.querySelectorAll('[data-story]'), empty=d.querySelector('[data-filter-empty]');
+    function apply(key){
+      var any=false;
+      rows.forEach(function(row){
+        var show=true;
+        if(key&&key!=='all'){
+          if(key.indexOf('cat:')===0) show=(' '+(row.getAttribute('data-cats')||'')+' ').indexOf(' '+key.slice(4)+' ')>=0;
+          else if(key.indexOf('kind:')===0) show=row.getAttribute('data-kind')===key.slice(5);
+          else if(key.indexOf('access:')===0) show=row.getAttribute('data-access')===key.slice(7);
+        }
+        row.hidden=!show; if(show) any=true;
+      });
+      if(empty) empty.hidden=any;
+      bar.querySelectorAll('button[data-key]').forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-key')===key?'true':'false')});
+    }
+    bar.addEventListener('click',function(e){
+      var b=e.target.closest&&e.target.closest('button[data-key]'); if(!b) return;
+      var key=b.getAttribute('data-key'); apply(key);
+      if(history.replaceState) history.replaceState(null,'', location.pathname+location.search+(key==='kind:radar'?'#radar':''));
+    });
+    if(location.hash==='#radar') apply('kind:radar');
+    window.addEventListener('hashchange',function(){apply(location.hash==='#radar'?'kind:radar':'all')});
   }
 })();

@@ -96,6 +96,8 @@ Categories: `markets` (Tržište/Markets), `small-caps` (Male dionice/Small caps
    Paid posts show title, dek, hero and the intro + first `<h2>` section (`"preview_sections": 1`, change per post) — they need at least 2 `<h2>` sections.
 6. Build, check and deploy — see **Deploy (Vercel)** below.
 
+The homepage is one list. The newest post in `markets` whose folder, slug or title does not contain `radar` is the compact daily-wrap block (title, date, up to four index moves). Every other post is a row under **Najnovije / Latest**, newest first. A post is treated as radar when the folder, either slug or either title contains `radar`. Posts in `research`, and any post with `"access": "subscribers"`, get the subscriber badge. A new post in the existing format needs no template change.
+
 Price tokens (resolved from the post's frozen snapshot; build fails loudly if a ticker is missing):
 `{{quote:DNA}}` full quote box with sparkline · `{{quotes:A,B,C}}` grid of boxes · `{{q:DNA}}` inline chip ·
 `{{px:DNA}}` last · `{{chg:DNA}}` day % · `{{chgabs:DNA}}` day change · `{{prev:DNA}}` previous close ·
