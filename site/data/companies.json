@@ -1,6 +1,6 @@
 {
  "_note": "Written by scripts/update_companies.py from SEC EDGAR and ClinicalTrials.gov. Do not edit by hand.",
- "generated": "2026-11-26T15:19:57Z",
+ "generated": "2026-11-27T15:07:55Z",
  "companies": {
   "DNA": {
    "ticker": "DNA",
@@ -8254,7 +8254,7 @@
      "status": "RECRUITING",
      "phase": "Phase 1/Phase 2",
      "primary_completion": "2031-01",
-     "updated": "2026-09-29",
+     "updated": "2026-11-27",
      "url": "https://clinicaltrials.gov/study/NCT07819136"
     }
    ],
@@ -8764,21 +8764,6 @@
      "after": 55918640,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1703057/000183444925000004/xslF345X05/wk-form4_1766168642.xml"
-    },
-    {
-     "id": "0001834423-25-000004:P",
-     "date": "2025-11-26",
-     "filed": "2025-11-26",
-     "owner": "Montalbano John S.",
-     "role": "Director",
-     "code": "P",
-     "kind": "buy",
-     "shares": 50000,
-     "price": 3.5692,
-     "value": 178460,
-     "after": 221000,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1703057/000183442325000004/xslF345X05/wk-form4_1764187098.xml"
     }
    ],
    "trials": [
@@ -19801,18 +19786,6 @@
      "period": "2025-09-30",
      "items": [],
      "url": "https://www.sec.gov/Archives/edgar/data/1923891/000149315225028285/form10-k.htm"
-    },
-    {
-     "id": "0001493152-25-018872",
-     "form": "8-K",
-     "date": "2025-10-22",
-     "period": "2025-10-22",
-     "items": [
-      "2.01",
-      "8.01",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1923891/000149315225018872/form8-k.htm"
     }
    ],
    "insider": [
@@ -25448,36 +25421,6 @@
      "after": 1153625,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1646188/000121390025122835/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001213900-25-115612:S",
-     "date": "2025-11-26",
-     "filed": "2025-11-26",
-     "owner": "Stern Ron",
-     "role": "Director",
-     "code": "S",
-     "kind": "sell",
-     "shares": 850000,
-     "price": 7.9123,
-     "value": 6725455,
-     "after": 0,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1646188/000121390025115612/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001213900-25-115612:M",
-     "date": "2025-11-26",
-     "filed": "2025-11-26",
-     "owner": "Stern Ron",
-     "role": "Director",
-     "code": "M",
-     "kind": "other",
-     "shares": 850000,
-     "price": 2.69,
-     "value": 2286500,
-     "after": 850000,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1646188/000121390025115612/xslF345X05/ownership.xml"
     }
    ],
    "trials": [],
@@ -35611,21 +35554,6 @@
      "after": 72100000,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1162194/000091957425007243/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0000919574-25-007187:P",
-     "date": "2025-11-25",
-     "filed": "2025-11-26",
-     "owner": "Casdin Partners Master Fund, L.P. / Casdin Partners GP, LLC …",
-     "role": "Director",
-     "code": "P",
-     "kind": "buy",
-     "shares": 7700000,
-     "price": 1.3056,
-     "value": 10053280,
-     "after": 71750000,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1162194/000091957425007187/xslF345X05/ownership.xml"
     }
    ],
    "trials": [],
@@ -40341,36 +40269,6 @@
      "after": 17134,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1756262/000119312525309751/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001193125-25-300644:S",
-     "date": "2025-11-25",
-     "filed": "2025-11-26",
-     "owner": "Ranganath Anil P.",
-     "role": "See remarks",
-     "code": "S",
-     "kind": "sell",
-     "shares": 3000,
-     "price": 145.22,
-     "value": 435660,
-     "after": 13955,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1756262/000119312525300644/xslF345X05/ownership.xml"
-    },
-    {
-     "id": "0001193125-25-300644:M",
-     "date": "2025-11-25",
-     "filed": "2025-11-26",
-     "owner": "Ranganath Anil P.",
-     "role": "See remarks",
-     "code": "M",
-     "kind": "other",
-     "shares": 3000,
-     "price": 93.88,
-     "value": 281640,
-     "after": 16955,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1756262/000119312525300644/xslF345X05/ownership.xml"
     }
    ],
    "trials": [],
@@ -42681,6 +42579,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001821769&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001104659-26-132343",
+     "form": "8-K",
+     "date": "2026-11-27",
+     "period": "2026-11-20",
+     "items": [
+      "1.01",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1821769/000110465926132343/tm2630712d1_8k.htm"
+    },
+    {
      "id": "0001628280-26-069551",
      "form": "10-Q",
      "date": "2026-11-03",
@@ -42926,16 +42835,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1821769/000110465926042619/tm2611717d1_8k.htm"
-    },
-    {
-     "id": "0001104659-26-029469",
-     "form": "8-K",
-     "date": "2026-03-17",
-     "period": "2026-03-13",
-     "items": [
-      "5.02"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1821769/000110465926029469/tm269070d1_8k.htm"
     }
    ],
    "insider": [
@@ -47505,17 +47404,6 @@
      "period": "2025-09-30",
      "items": [],
      "url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312525249971/qs-20250930.htm"
-    },
-    {
-     "id": "0001193125-25-246801",
-     "form": "8-K",
-     "date": "2025-10-22",
-     "period": "2025-10-22",
-     "items": [
-      "2.02",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1811414/000119312525246801/qs-20251022.htm"
     }
    ],
    "insider": [
@@ -54767,6 +54655,17 @@
    "edgar_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001144879&type=&dateb=&owner=include&count=40",
    "filings": [
     {
+     "id": "0001144879-26-000069",
+     "form": "8-K",
+     "date": "2026-11-27",
+     "period": "2026-11-25",
+     "items": [
+      "7.01",
+      "9.01"
+     ],
+     "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000069/apld-20261125.htm"
+    },
+    {
      "id": "0001493152-26-054002",
      "form": "8-K",
      "date": "2026-11-24",
@@ -55026,17 +54925,6 @@
       "9.01"
      ],
      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226008549/form8-k.htm"
-    },
-    {
-     "id": "0001493152-26-006897",
-     "form": "8-K",
-     "date": "2026-02-17",
-     "period": "2026-02-15",
-     "items": [
-      "1.01",
-      "9.01"
-     ],
-     "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226006897/form8-k.htm"
     }
    ],
    "insider": [
