@@ -1,6 +1,6 @@
 {
  "_note": "Written by scripts/update_companies.py from SEC EDGAR and ClinicalTrials.gov. Do not edit by hand.",
- "generated": "2026-11-27T15:07:55Z",
+ "generated": "2026-11-28T14:14:56Z",
  "companies": {
   "DNA": {
    "ticker": "DNA",
@@ -11952,6 +11952,36 @@
    ],
    "insider": [
     {
+     "id": "0002001011-26-000159:S",
+     "date": "2026-11-25",
+     "filed": "2026-11-27",
+     "owner": "Klein Frank",
+     "role": "Chief Operations Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 36860,
+     "price": 44.9985,
+     "value": 1658643,
+     "after": 844487,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1819994/000200101126000159/xslF345X06/edgardoc.xml"
+    },
+    {
+     "id": "0002001011-26-000158:S",
+     "date": "2026-11-25",
+     "filed": "2026-11-27",
+     "owner": "Kampani Arjun",
+     "role": "SVP & General Counsel",
+     "code": "S",
+     "kind": "sell",
+     "shares": 6254,
+     "price": 44.9822,
+     "value": 281319,
+     "after": 237130,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1819994/000200101126000158/xslF345X06/edgardoc.xml"
+    },
+    {
      "id": "0002001011-26-000157:S",
      "date": "2026-11-23",
      "filed": "2026-11-25",
@@ -12565,36 +12595,6 @@
      "after": 96660,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1819994/000200101126000060/xslF345X06/edgardoc.xml"
-    },
-    {
-     "id": "0002001011-26-000059:A",
-     "date": "2026-05-20",
-     "filed": "2026-05-22",
-     "owner": "Olson Jon A",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 2482,
-     "price": null,
-     "value": null,
-     "after": 348112,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1819994/000200101126000059/xslF345X06/edgardoc.xml"
-    },
-    {
-     "id": "0002001011-26-000058:A",
-     "date": "2026-05-20",
-     "filed": "2026-05-22",
-     "owner": "Frank Edward H.",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 2482,
-     "price": null,
-     "value": null,
-     "after": 144986,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1819994/000200101126000058/xslF345X06/edgardoc.xml"
     }
    ],
    "trials": [],
@@ -31007,6 +31007,21 @@
    ],
    "insider": [
     {
+     "id": "0002024169-26-000027:S",
+     "date": "2026-11-24",
+     "filed": "2026-11-27",
+     "owner": "Polovin Andrew",
+     "role": "EVP, Chief Legal Officer",
+     "code": "S",
+     "kind": "sell",
+     "shares": 2643,
+     "price": 56.07,
+     "value": 148193,
+     "after": 125842,
+     "planned": true,
+     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202416926000027/xslF345X06/form4-11272026_041101.xml"
+    },
+    {
      "id": "0001114357-26-000048:S",
      "date": "2026-11-20",
      "filed": "2026-11-23",
@@ -31590,21 +31605,6 @@
      "after": 167763,
      "planned": true,
      "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202425026000020/xslF345X06/form4-07102026_040701.xml"
-    },
-    {
-     "id": "0002024250-26-000018:S",
-     "date": "2026-07-06",
-     "filed": "2026-07-08",
-     "owner": "Fukushima Ryan",
-     "role": "CEO, Data",
-     "code": "S",
-     "kind": "sell",
-     "shares": 10000,
-     "price": 60.0,
-     "value": 600000,
-     "after": 201047,
-     "planned": true,
-     "url": "https://www.sec.gov/Archives/edgar/data/1717115/000202425026000018/xslF345X06/form4-07082026_040701.xml"
     }
    ],
    "trials": [],
@@ -35045,6 +35045,21 @@
     }
    ],
    "insider": [
+    {
+     "id": "0000919574-26-008286:P",
+     "date": "2026-11-27",
+     "filed": "2026-11-27",
+     "owner": "Casdin Partners Master Fund, L.P. / Casdin Eli …",
+     "role": "Director",
+     "code": "P",
+     "kind": "buy",
+     "shares": 3546393,
+     "price": 0.5928,
+     "value": 2102438,
+     "after": 77535000,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1162194/000091957426008286/xslF345X06/ownership.xml"
+    },
     {
      "id": "0000919574-26-008232:P",
      "date": "2026-11-23",
@@ -52485,6 +52500,21 @@
    ],
    "insider": [
     {
+     "id": "0001104659-26-132479:S",
+     "date": "2026-11-24",
+     "filed": "2026-11-27",
+     "owner": "Middleton Paul B",
+     "role": "CFO, CAO & Executive VP",
+     "code": "S",
+     "kind": "sell",
+     "shares": 70241,
+     "price": 0.9464,
+     "value": 66476,
+     "after": 2876928,
+     "planned": false,
+     "url": "https://www.sec.gov/Archives/edgar/data/1093691/000110465926132479/xslF345X06/tm2630710-1_4seq1.xml"
+    },
+    {
      "id": "0001104659-26-129803:S",
      "date": "2026-11-16",
      "filed": "2026-11-18",
@@ -52963,21 +52993,6 @@
      "after": 196937,
      "planned": false,
      "url": "https://www.sec.gov/Archives/edgar/data/1093691/000110465926001513/xslF345X05/tm261957-5_4seq1.xml"
-    },
-    {
-     "id": "0001104659-26-001512:A",
-     "date": "2026-01-02",
-     "filed": "2026-01-06",
-     "owner": "Helmer Maureen O",
-     "role": "Director",
-     "code": "A",
-     "kind": "other",
-     "shares": 13959,
-     "price": 1.97,
-     "value": 27499,
-     "after": 371565,
-     "planned": false,
-     "url": "https://www.sec.gov/Archives/edgar/data/1093691/000110465926001512/xslF345X05/tm261957-4_4seq1.xml"
     }
    ],
    "trials": [],
